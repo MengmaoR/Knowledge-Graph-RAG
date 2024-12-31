@@ -24,7 +24,6 @@ def create_model(temperature: float, streaming: bool = False, model_name: str = 
         streaming=streaming,
     )
 
-
 llm = None
 
 @st.cache_resource
