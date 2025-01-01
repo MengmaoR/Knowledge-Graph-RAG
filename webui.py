@@ -76,8 +76,8 @@ def main(is_admin, usname):
     with st.sidebar:
         col1, col2 = st.columns([0.6, 0.6])
         with col1:
-            # st.image(os.path.join("img", "logo.jpg"), use_column_width=True) # lifang535 delete
-            st.image(os.path.join("img", "logo.jpg"), use_container_width=True) # lifang535 add
+            st.image(os.path.join("img", "logo.jpg"), use_column_width=True) # lifang535 delete - mengmao add back
+            # st.image(os.path.join("img", "logo.jpg"), use_container_width=True) # lifang535 add - mengmao delete, use_container_width unexcepted
 
         st.caption(
             f"""<p align="left">欢迎您，{'管理员' if is_admin else '用户'}{usname}！当前版本：{1.0}</p>""",

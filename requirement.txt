@@ -1,5 +1,0 @@
-py2neo==2021.2.4
-langchain-openai==0.2.14
-langchain-core==0.3.28
-openai==1.58.1
-streamlit==1.32.2

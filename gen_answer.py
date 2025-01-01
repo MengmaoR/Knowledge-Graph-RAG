@@ -1,4 +1,9 @@
-# 导入必要的库
+# -------------------
+# 本程序用于根据实体识别和意图识别的结果生成 cpyher 查询语句，从 Neo4j 数据库中查找相关知识，并调用大模型 api，基于知识生成回答。
+# TODO：新增深层推理，提高回答内容丰富度。
+# Written by mengmao
+# -------------------
+
 from neo4j import GraphDatabase
 import openai
 import os
@@ -110,9 +115,9 @@ class LargeModelQA:
 
 def main():
     # 配置Neo4j连接参数
-    neo4j_uri = "bolt://localhost:7687"  # 根据实际情况修改
-    neo4j_user = "neo4j"                 # 根据实际情况修改
-    neo4j_password = "password"          # 根据实际情况修改
+    neo4j_uri = "bolt://localhost:7687" 
+    neo4j_user = "neo4j"                
+    neo4j_password = "password"          
     node_file = "node.txt"
     link_file = "link.txt"
 
