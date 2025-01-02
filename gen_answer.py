@@ -147,14 +147,14 @@ class RAGProcessor:
 def main():
     # 配置Neo4j连接参数
     # 此参数为医疗知识图谱
-    neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
-    neo4j_user = "neo4j"
-    neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+    # neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
+    # neo4j_user = "neo4j"
+    # neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
 
     # 此参数为航班知识图谱
-    # neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
-    # neo4j_user = "neo4j"
-    # neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
+    neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
+    neo4j_user = "neo4j"
+    neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
 
     rag_processor = RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
     try:
@@ -168,8 +168,8 @@ def main():
     relationship_types = get_relationship_types(rag_processor.client)
 
     # 用户输入
-    user_question = "我得了感冒，怎么才能好起来？"
-    # user_question = "我现在在中国，这个假期想去日本东京旅行，从哪里出发比较好？"
+    # user_question = "我得了感冒，怎么才能好起来？"
+    user_question = "我现在在中国，这个假期想去日本东京旅行，从哪里出发比较好？"
 
     # 实体识别
     entity_types_recognized, entity_names_recognized = entity_recognition_with_model(user_question, entity_types, rag_processor.client)
@@ -209,7 +209,7 @@ def main():
     print("查询结果：", query_results)
 
     # 深度搜索（可选）
-    query_results = rag_processor.depth_search(new_origin_nodes, epoch=0)
+    query_results += rag_processor.depth_search(new_origin_nodes, epoch=0)
 
     # 检查查询结果并写入到文件
     result_file = "result_file.txt"

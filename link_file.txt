@@ -1,4 +1,5 @@
-IN_COUNTRY
- IN_REGION
- IN_CITY
- HAS_ROUTE
+疾病的症状
+ 疾病宜吃食物
+ 疾病忌吃食物
+ 治疗的方法
+ 疾病并发疾病
