@@ -1,0 +1,16 @@
+Connected Node: 煎酿茄子, Relationship Type: 疾病宜吃食物
+Connected Node: 归参鳝鱼羹, Relationship Type: 疾病宜吃食物
+Connected Node: 蘑菇木耳西兰花腐竹汤, Relationship Type: 疾病宜吃食物
+Connected Node: 白扁豆, Relationship Type: 疾病宜吃食物
+Connected Node: 鸡心, Relationship Type: 疾病忌吃食物
+Connected Node: 葵花子仁, Relationship Type: 疾病宜吃食物
+Connected Node: 青瓜鳝鱼, Relationship Type: 疾病宜吃食物
+Connected Node: 鸡肝, Relationship Type: 疾病忌吃食物
+Connected Node: 白扁豆, Relationship Type: 疾病忌吃食物
+Connected Node: 干烧茄子, Relationship Type: 疾病宜吃食物
+Connected Node: 鸡肉, Relationship Type: 疾病宜吃食物
+Connected Node: 红烧鳝鱼段, Relationship Type: 疾病宜吃食物
+Connected Node: 鹅肉, Relationship Type: 疾病忌吃食物
+Connected Node: 凉拌茄子, Relationship Type: 疾病宜吃食物
+Connected Node: 西兰花素鸡马蹄冬菇汤, Relationship Type: 疾病宜吃食物
+Connected Node: 白果（干）, Relationship Type: 疾病宜吃食物

@@ -1,0 +1,10 @@
+
+            MATCH (n)-[r:疾病宜吃食物|疾病忌吃食物]->(m)
+            WHERE n.名称 = '痛风'
+            RETURN m.名称 AS connected_node, type(r) AS relationship_type
+            
+
+            MATCH (n)-[r:疾病宜吃食物|疾病忌吃食物]->(m)
+            WHERE n.名称 = '螃蟹'
+            RETURN m.名称 AS connected_node, type(r) AS relationship_type
+            
