@@ -1,6 +1,5 @@
 import os
 import streamlit as st
-# import ner_model as zwk
 import pickle
 import ollama
 from transformers import BertTokenizer
@@ -10,6 +9,9 @@ import random
 import re
 
 from langchain_openai import ChatOpenAI
+from langchain.schema import AIMessage
+from entityRecognition import entity_recognition_with_model, get_entity_types
+from intentRecognition import intent_recognition_with_model, get_relationship_types
 
 API_KEY = "sk-AYjPnVCKzpm79mAxjjg8kU38baXdoMC1G7xYcmECW41mE14m"
 API_URL = "https://xiaoai.plus/v1/"
@@ -24,53 +26,140 @@ def create_model(temperature: float, streaming: bool = False, model_name: str = 
         streaming=streaming,
     )
 
-llm = None
-
 @st.cache_resource
 def load_model(model_name):
-    global llm
     llm = create_model(temperature=0.8, streaming=True, model_name=model_name)
-    
-    return None,None,None,None,None,None,None,None
+    print(f"[load_model] llm: {llm}")
+    return llm
 
-def Intent_Recognition(query, choice):
+class RAGProcessor:
+    def __init__(self, neo4j_uri, neo4j_user, neo4j_password):
+        self.client = py2neo.Graph(neo4j_uri, user=neo4j_user, password=neo4j_password)
+
+    def generate_cypher_query(self, origin_nodes, intent_relationship):
+        """
+        生成Cypher查询语句，根据起源节点和意图关系获取相关节点。
+        """
+        if isinstance(intent_relationship, str):
+            intent_relationship = intent_relationship.replace("，", ",").split(",")
+        
+        relationships = "|".join(f"{rel.strip()}" for rel in intent_relationship)
+
+        queries = []
+        for node in origin_nodes:
+            query = f"""
+            MATCH (n)-[r:{relationships}]->(m)
+            WHERE n.名称 = '{node}'
+            RETURN m.名称 AS connected_node, type(r) AS relationship_type
+            """
+            queries.append(query)
+
+            query = f"""
+            MATCH (n)-[r:{relationships}]->(m)
+            WHERE m.名称 = '{node}'
+            RETURN n.名称 AS connected_node, type(r) AS relationship_type
+            """
+            queries.append(query)
+        return queries
+
+    def execute_queries(self, queries):
+        """
+        执行Cypher查询，并返回结果。
+        """
+        results = []
+        for query in queries:
+            try:
+                result = self.client.run(query)
+                for record in result:
+                    results.append({
+                        "connected_node": record["connected_node"],
+                        "relationship_type": record["relationship_type"]
+                    })
+            except Exception as e:
+                print(f"执行Cypher查询失败：{e}")
+        return results
+
+    def generate_answer(self, llm, user_prompt, context_data):
+        """
+        使用GPT模型生成基于上下文的回答。
+        """
+        context = "相关知识点包括: " + ", ".join(
+            {f"{data['relationship_type']} -> {data['connected_node']}" for data in context_data}
+        )
+        full_prompt = f"{context}\n\n用户问题: {user_prompt}\n回答:"
+        print("Full Prompt："+full_prompt)
+
+        try:
+            response = llm.invoke(full_prompt)
+            return response.content.strip() if isinstance(response, AIMessage) else "抱歉，我无法生成回答。"
+        except Exception as e:
+            print("生成回答失败：", e)
+            return "抱歉，我无法生成回答。"
+
+# Function for intent recognition
+def Intent_Recognition(query, choice, rag_processor, llm):
+    print(f"[Intent_Recognition] llm: {llm}")
+    
     prompt = f"""
-阅读下列提示，回答问题（问题在输入的最后）:
-请识别用户问题中关于医疗药物方面的的查询意图。
+    阅读下列提示，回答问题（问题在输入的最后）:
+    请识别用户问题中关于医疗药物方面的的查询意图。
 
-问题输入："{query}"
-"""
-    # rec_result = ollama.generate(model=choice, prompt=prompt)['response'] # lifang535 delete
-    rec_result = llm.predict(prompt) # lifang535 add
-    print(f'意图识别结果:{rec_result}')
-    return rec_result
-    # response, _ = glm_model.chat(glm_tokenizer, prompt, history=[])
-    # return response
-
-def generate_prompt(intent, query):
-    # entities = zwk.get_ner_result(bert_model, bert_tokenizer, query, rule, tfidf_r, device, idx2tag)
-    entities = {}
-    # print(intent)
-    # print(entities)
-    yitu = []
-    # prompt = "<指令>你是一个医疗问答机器人，你需要根据给定的提示回答用户的问题。请注意，你的全部回答必须完全基于给定的提示，不可自由发挥。如果根据提示无法给出答案，立刻回答“根据已知信息无法回答该问题”。</指令>"
-    # prompt +="<指令>请你仅针对医疗类问题提供简洁和专业的回答。如果问题不是医疗相关的，你一定要回答“我只能回答医疗相关的问题。”，以明确告知你的回答限制。</指令>"
+    问题输入："{query}"
+    """
     
-    prompt = "<指令>你是一个医疗问答机器人，你需要根据给定的提示回答用户的问题。</指令>"
+    rec_result = llm.predict(prompt)
+    print(f'意图识别结果:{rec_result}')
 
+    # RAG Processing: Retrieve relevant knowledge from Neo4j based on the recognized intent
+    entity_types = get_entity_types(rag_processor.client)
+    relationship_types = get_relationship_types(rag_processor.client)
+
+    # Entity recognition
+    entity_types_recognized, entity_names_recognized = entity_recognition_with_model(query, entity_types, rag_processor.client)
+
+    if not entity_names_recognized:
+        print("未能识别出有效的实体。")
+        return rec_result, []
+
+    # Intent recognition
+    intent = intent_recognition_with_model(query, relationship_types)
+
+    if not intent:
+        print("未能识别出有效的意图。")
+        return rec_result, []
+
+    # Generate RAG queries
+    intent_relationships = intent.replace("，", ",").split(",") if "," in intent else [intent]
+    queries = rag_processor.generate_cypher_query(entity_names_recognized, intent_relationships)
+    query_results = rag_processor.execute_queries(queries)
+
+    return rec_result, query_results
+
+# Generate prompt for the LLM
+def generate_prompt(intent, query, query_results):
+    entities = {}
+    yitu = []
+    prompt = "<指令>你是一个医疗问答机器人，你需要根据给定的提示回答用户的问题。</指令>"
     prompt += f"<用户>{query}</用户>"
     prompt += f"<用户意图>{intent}</用户意图>"
 
-    return prompt,"、".join(yitu),entities
+    # Formatting the results from the RAG process
+    context_data = "\n".join(
+        [f"{result['relationship_type']} -> {result['connected_node']}" for result in query_results]
+    )
 
-# def ans_stream(prompt):
-#     result = ""
-#     for res,his in glm_model.stream_chat(glm_tokenizer, prompt, history=[]):
-#         yield res
+    return prompt, context_data, entities
 
 def main():
-    # cache_model = 'best_roberta_rnn_model_ent_aug' # lifang535 delete
-    model_name = 'gpt-4o-mini' # lifang535 add
+    # Neo4j connection configuration (change to your actual Neo4j details)
+    neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
+    neo4j_user = "neo4j"
+    neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+
+    # Initialize RAGProcessor
+    rag_processor = RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+
+    llm = load_model('gpt-4o-mini')
     st.title(f"医疗智能问答机器人")
 
     with st.sidebar:
@@ -94,15 +183,12 @@ def main():
             label='请选择大语言模型:',
             options=['GPT-4o', 'GPT-4o mini'],
         )
-        choice = 'qwen:32b' if selected_option == 'Qwen 1.5' else 'llama2-chinese:13b-chat-q8_0'
+        choice = 'gpt-4o' if selected_option == 'GPT-4o' else 'gpt-4o-mini'
 
         show_ent = show_int = show_prompt = False
         show_ent = st.sidebar.checkbox("显示实体识别结果")
         show_int = st.sidebar.checkbox("显示意图识别结果")
         show_prompt = st.sidebar.checkbox("显示查询的知识库信息")
-
-    load_model(model_name)
-    # client = py2neo.Graph('http://localhost:7474', user='neo4j', password='wei8kang7.long', name='neo4j') # lifang535 delete
 
     current_messages = st.session_state.messages[active_window_index]
 
@@ -128,37 +214,36 @@ def main():
         response_placeholder = st.empty()
         response_placeholder.text("正在进行意图识别...")
 
+        # Process RAG logic and generate answer
         query = current_messages[-1]["content"]
-        response = Intent_Recognition(query, choice)
+        rec_result, query_results = Intent_Recognition(query, choice, rag_processor, llm)
+
         response_placeholder.empty()
 
-        prompt, yitu, entities = generate_prompt(response, query)
+        prompt, context_data, _ = generate_prompt(rec_result, query, query_results)
 
-        # last = "" # lifang535 delete: 流式回答，更丝滑
-        # for chunk in ollama.chat(model=choice, messages=[{'role': 'user', 'content': prompt}], stream=True): # lifang535 delete
-        #     last += chunk['message']['content'] # lifang535 delete
-        #     response_placeholder.markdown(last) # lifang535 delete
-        last = llm.predict(prompt) # lifang535 add
-        response_placeholder.markdown(last) # lifang535 add
+        # Generate the response from the model
+        # last = llm.predict(prompt) # lifang535 delete
+        last = rag_processor.generate_answer(llm, query, query_results) # lifang535 add
+        response_placeholder.markdown(last)
         response_placeholder.markdown("")
 
         knowledge = re.findall(r'<提示>(.*?)</提示>', prompt)
         zhishiku_content = "\n".join([f"提示{idx + 1}, {kn}" for idx, kn in enumerate(knowledge) if len(kn) >= 3])
+
         with st.chat_message("assistant"):
             st.markdown(last)
             if show_ent:
                 with st.expander("实体识别结果"):
-                    st.write(str(entities))
+                    st.write(str({}))  # Add actual entities here
             if show_int:
                 with st.expander("意图识别结果"):
-                    st.write(yitu)
+                    st.write(rec_result)
             if show_prompt:
-                
-                
                 with st.expander("点击显示知识库信息"):
                     st.write(zhishiku_content)
-        current_messages.append({"role": "assistant", "content": last, "yitu": yitu, "prompt": zhishiku_content, "ent": str(entities)})
 
+        current_messages.append({"role": "assistant", "content": last, "yitu": rec_result, "prompt": zhishiku_content, "ent": str({})})
 
     st.session_state.messages[active_window_index] = current_messages
 
