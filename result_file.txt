@@ -1,288 +1,578 @@
-肠胃炎 - 疾病的症状 -> {'名称': '脱肛'}
-肠胃炎 - 疾病的症状 -> {'名称': '腹泻'}
-肠胃炎 - 疾病的症状 -> {'名称': '肛门坠胀'}
-肠胃炎 - 疾病的症状 -> {'名称': '饥饿时上腹痛'}
-肠胃炎 - 疾病的症状 -> {'名称': '肠鸣'}
-肠胃炎 - 疾病的症状 -> {'名称': '腹痛'}
-肠胃炎 - 疾病的症状 -> {'名称': '恶心与呕吐'}
-肠胃炎 - 疾病的症状 -> {'名称': '上吐下泻'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '草鱼豆腐'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '油淋草鱼'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡蛋布丁'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鲜菇小米粥'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '紫菜鸡蛋汤'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '肉卤鸡蛋'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸭蛋'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '黄豆小米粥'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡蛋'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '苹果粥'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡爪'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '海虾'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '赤小豆'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '沙丁鱼'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '三文鱼'}
-肠胃炎 - 治疗的方法 -> {'名称': '康复治疗'}
-肠胃炎 - 治疗的方法 -> {'名称': '药物治疗'}
-肠胃炎 - 疾病并发疾病 -> {'疾病易感人群': '严重肝病，肾功能不全患者', '名称': '电解质紊乱', '治愈概率': '80%', '治疗周期': '7-30天', '预防措施': '日常应该多喝水，以避免脱水。此外，保持均衡饮食对预防电解质失衡也非常有帮助。\n采取的治疗措施通常基于原因和严重程度来决定。吃含钾和钙的食物可以帮助治疗这种不平衡。严重情况下，还需要静脉注射液体使电解质恢复正常水平。'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '腹泻为水样带黏'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '恶心'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '腹泻'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '大便不成形'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '小儿前囟凹陷'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '腹痛'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '深黄色或带绿色'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '肠道吸收水分增加'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '恶心与呕吐'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '发烧'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '菠菜粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '香粳米粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '白扁豆粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '百合粳米鸡'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '白扁豆粳米粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '素炒菠菜'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鲜菠菜水'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鸡心'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鹿肉'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '菠菜汤'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鸡蛋'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '南瓜子仁'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '黑豆'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '白果（鲜）'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '绿豆'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '抗生素'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '补液'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '抑酸剂'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '保护胃肠黏膜'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '药物治疗'}
-急性胃肠炎 - 疾病并发疾病 -> {'疾病易感人群': '无特定人群', '名称': '脱水', '治愈概率': '98%', '治疗周期': '1-2周', '预防措施': '积极治疗原发病，并发症。\n1.等渗性脱水有低血容量性休克时，禁单纯补液。\n2.低渗性脱水禁忌早期补充5%或10%的葡萄糖溶液。\n3.高渗性脱水出现严重高钠血症时，禁忌快速输入高渗糖水，以免加重脑水肿。'}
-急性肠炎 - 疾病的症状 -> {'名称': '恶心'}
-急性肠炎 - 疾病的症状 -> {'名称': '粘液便'}
-急性肠炎 - 疾病的症状 -> {'名称': '腹泻'}
-急性肠炎 - 疾病的症状 -> {'名称': '脱水'}
-急性肠炎 - 疾病的症状 -> {'名称': '休克'}
-急性肠炎 - 疾病的症状 -> {'名称': '腹部压痛'}
-急性肠炎 - 疾病的症状 -> {'名称': '腹痛'}
-急性肠炎 - 疾病的症状 -> {'名称': '四肢无力'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '冬瓜草鱼汤'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '粟子芥菜冬菇汤'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鹅肉'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '平菇粥'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉蒸饺'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '平菇豆腐汤'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '素炒黄花菜'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉白薯粥'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '炒鲜黄花菜'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '南瓜子仁'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡腿'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '黄酒'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '鸭血(白鸭)'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '鸭肉'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '鸭蛋'}
-急性肠炎 - 治疗的方法 -> {'名称': '支持治疗'}
-急性肠炎 - 治疗的方法 -> {'名称': '药物治疗'}
-急性肠炎 - 疾病并发疾病 -> {'疾病易感人群': '多见于女性和儿童老年人', '名称': '贫血', '治愈概率': '60--80%', '治疗周期': '1--6个月', '预防措施': '平时应多吃含铁丰富的食物，如瘦肉、猪肝、蛋黄及海带、发菜、紫菜、木耳、香茹豆类等。要注意饮食的合理配合，如餐后适当吃些水果，水果中含有丰富的维生素C和果酸，能促进铁的吸收。而餐后饮用浓茶，则因铁与茶中的鞣酸结合生成沉淀，影响铁的吸收。另外，用铁锅烹调食物，对预防贫血大有益处。 叶酸和维生素B12也是造血必不可少的物质。新鲜的绿色蔬菜、水果、瓜类、豆类及肉食中，含有丰富的叶酸，肉类及肝、肾、心等内脏中，含有丰富的维生素B12， 但经高温烹调后，可使50%以上的叶酸和10—30%的维生素B12遭到破坏。因此， 生活中既要注意饮食多样化，又要讲究烹饪技术，尽量避免过度蒸煮食物。'}
-急性胃炎 - 疾病的症状 -> {'名称': '恶心'}
-急性胃炎 - 疾病的症状 -> {'名称': '腹泻'}
-急性胃炎 - 疾病的症状 -> {'名称': '嗳气'}
-急性胃炎 - 疾病的症状 -> {'名称': '食欲减退'}
-急性胃炎 - 疾病的症状 -> {'名称': '胃粘膜损伤'}
-急性胃炎 - 疾病的症状 -> {'名称': '肠鸣'}
-急性胃炎 - 疾病的症状 -> {'名称': '休克'}
-急性胃炎 - 疾病的症状 -> {'名称': '胃粘膜充血'}
-急性胃炎 - 疾病的症状 -> {'名称': '腹痛'}
-急性胃炎 - 疾病的症状 -> {'名称': '指甲有黄色细点'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '冬菇菜花'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '炒芹菜'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '松炸菜花'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '芝麻'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '清炒绿豆芽'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '菠菜绿豆芽'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '鸡心'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '芹菜粥'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '鹿肉'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '凉拌海米芹菜'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '素熘菜花'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '白酒'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '南瓜子仁'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '白果（鲜）'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '绿豆'}
-急性胃炎 - 治疗的方法 -> {'名称': '黏膜保护剂'}
-急性胃炎 - 治疗的方法 -> {'名称': '抑酸剂'}
-急性胃炎 - 治疗的方法 -> {'名称': '对症治疗'}
-急性胃炎 - 治疗的方法 -> {'名称': '药物治疗'}
-急性胃炎 - 疾病并发疾病 -> {'疾病易感人群': '无特定人群', '名称': '脱水', '治愈概率': '98%', '治疗周期': '1-2周', '预防措施': '积极治疗原发病，并发症。\n1.等渗性脱水有低血容量性休克时，禁单纯补液。\n2.低渗性脱水禁忌早期补充5%或10%的葡萄糖溶液。\n3.高渗性脱水出现严重高钠血症时，禁忌快速输入高渗糖水，以免加重脑水肿。'}
-肠胃炎 - 疾病所需检查 -> {'名称': '血常规'}
-肠胃炎 - 疾病所需检查 -> {'名称': '粪便钾（Potassium.K）'}
-肠胃炎 - 疾病所需检查 -> {'名称': '粪便白细胞'}
-肠胃炎 - 疾病所需检查 -> {'名称': '粪便显微镜检查'}
-肠胃炎 - 疾病所需检查 -> {'名称': '胃液潜血试验'}
-肠胃炎 - 疾病所需检查 -> {'名称': '胃液显微镜检查'}
-肠胃炎 - 疾病使用药品 -> {'名称': '枫蓼肠胃康颗粒'}
-肠胃炎 - 疾病使用药品 -> {'名称': '阿莫西林分散片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '甲磺酸培氟沙星片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '消炎止痢灵片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '九制大黄丸'}
-肠胃炎 - 疾病使用药品 -> {'名称': '乳酸左氧氟沙星片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '氨苄西林胶囊'}
-肠胃炎 - 疾病使用药品 -> {'名称': '盐酸雷尼替丁胶囊'}
-肠胃炎 - 疾病使用药品 -> {'名称': '蚁灵口服液'}
-肠胃炎 - 疾病使用药品 -> {'名称': '盐酸左氧氟沙星胶囊'}
-肠胃炎 - 疾病使用药品 -> {'名称': '盐酸小檗碱片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '腹可安片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '炎立消胶囊'}
-肠胃炎 - 疾病使用药品 -> {'名称': '铝碳酸镁咀嚼片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '颠茄磺苄啶片'}
-肠胃炎 - 疾病使用药品 -> {'名称': '止泻颗粒'}
-肠胃炎 - 疾病使用药品 -> {'名称': '氧氟沙星片'}
-肠胃炎 - 疾病的症状 -> {'名称': '脱肛'}
-肠胃炎 - 疾病的症状 -> {'名称': '腹泻'}
-肠胃炎 - 疾病的症状 -> {'名称': '肛门坠胀'}
-肠胃炎 - 疾病的症状 -> {'名称': '饥饿时上腹痛'}
-肠胃炎 - 疾病的症状 -> {'名称': '肠鸣'}
-肠胃炎 - 疾病的症状 -> {'名称': '腹痛'}
-肠胃炎 - 疾病的症状 -> {'名称': '恶心与呕吐'}
-肠胃炎 - 疾病的症状 -> {'名称': '上吐下泻'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '草鱼豆腐'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '油淋草鱼'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡蛋布丁'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鲜菇小米粥'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '紫菜鸡蛋汤'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '肉卤鸡蛋'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸭蛋'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '黄豆小米粥'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡蛋'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '苹果粥'}
-肠胃炎 - 疾病宜吃食物 -> {'名称': '鸡爪'}
-肠胃炎 - 疾病所属科目 -> {'名称': '消化内科'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '海虾'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '赤小豆'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '沙丁鱼'}
-肠胃炎 - 疾病忌吃食物 -> {'名称': '三文鱼'}
-肠胃炎 - 治疗的方法 -> {'名称': '康复治疗'}
-肠胃炎 - 治疗的方法 -> {'名称': '药物治疗'}
-肠胃炎 - 疾病并发疾病 -> {'疾病易感人群': '严重肝病，肾功能不全患者', '名称': '电解质紊乱', '治愈概率': '80%', '治疗周期': '7-30天', '预防措施': '日常应该多喝水，以避免脱水。此外，保持均衡饮食对预防电解质失衡也非常有帮助。\n采取的治疗措施通常基于原因和严重程度来决定。吃含钾和钙的食物可以帮助治疗这种不平衡。严重情况下，还需要静脉注射液体使电解质恢复正常水平。'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '便常规'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '枸橼酸盐利用试验'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '人类轮状病毒抗体'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '淀粉水解试验'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '腹壁紧张度'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '血常规'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '血清阴离子测定'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '宿主中介试验'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '碳源利用试验'}
-急性胃肠炎 - 疾病所需检查 -> {'名称': '明胶液化试验'}
-急性胃肠炎 - 疾病使用药品 -> {'名称': '诺氟沙星胶囊'}
-急性胃肠炎 - 疾病使用药品 -> {'名称': '乳酸左氧氟沙星片'}
-急性胃肠炎 - 疾病使用药品 -> {'名称': '乳酸左氧氟沙星分散片'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '腹泻为水样带黏'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '恶心'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '腹泻'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '大便不成形'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '小儿前囟凹陷'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '腹痛'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '深黄色或带绿色'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '肠道吸收水分增加'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '恶心与呕吐'}
-急性胃肠炎 - 疾病的症状 -> {'名称': '发烧'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '菠菜粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '香粳米粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '白扁豆粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '百合粳米鸡'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '白扁豆粳米粥'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '素炒菠菜'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鲜菠菜水'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鸡心'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鹿肉'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '菠菜汤'}
-急性胃肠炎 - 疾病宜吃食物 -> {'名称': '鸡蛋'}
-急性胃肠炎 - 疾病所属科目 -> {'名称': '消化内科'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '南瓜子仁'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '黑豆'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '白果（鲜）'}
-急性胃肠炎 - 疾病忌吃食物 -> {'名称': '绿豆'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '抗生素'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '补液'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '抑酸剂'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '保护胃肠黏膜'}
-急性胃肠炎 - 治疗的方法 -> {'名称': '药物治疗'}
-急性胃肠炎 - 疾病并发疾病 -> {'疾病易感人群': '无特定人群', '名称': '脱水', '治愈概率': '98%', '治疗周期': '1-2周', '预防措施': '积极治疗原发病，并发症。\n1.等渗性脱水有低血容量性休克时，禁单纯补液。\n2.低渗性脱水禁忌早期补充5%或10%的葡萄糖溶液。\n3.高渗性脱水出现严重高钠血症时，禁忌快速输入高渗糖水，以免加重脑水肿。'}
-急性肠炎 - 疾病所需检查 -> {'名称': '便常规'}
-急性肠炎 - 疾病所需检查 -> {'名称': '血常规'}
-急性肠炎 - 疾病使用药品 -> {'名称': '诺氟沙星胶囊'}
-急性肠炎 - 疾病使用药品 -> {'名称': '乳酸左氧氟沙星片'}
-急性肠炎 - 疾病的症状 -> {'名称': '恶心'}
-急性肠炎 - 疾病的症状 -> {'名称': '粘液便'}
-急性肠炎 - 疾病的症状 -> {'名称': '腹泻'}
-急性肠炎 - 疾病的症状 -> {'名称': '脱水'}
-急性肠炎 - 疾病的症状 -> {'名称': '休克'}
-急性肠炎 - 疾病的症状 -> {'名称': '腹部压痛'}
-急性肠炎 - 疾病的症状 -> {'名称': '腹痛'}
-急性肠炎 - 疾病的症状 -> {'名称': '四肢无力'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '冬瓜草鱼汤'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '粟子芥菜冬菇汤'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鹅肉'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '平菇粥'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉蒸饺'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '平菇豆腐汤'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '素炒黄花菜'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡肉白薯粥'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '炒鲜黄花菜'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '南瓜子仁'}
-急性肠炎 - 疾病宜吃食物 -> {'名称': '鸡腿'}
-急性肠炎 - 疾病所属科目 -> {'名称': '消化内科'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '黄酒'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '鸭血(白鸭)'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '鸭肉'}
-急性肠炎 - 疾病忌吃食物 -> {'名称': '鸭蛋'}
-急性肠炎 - 治疗的方法 -> {'名称': '支持治疗'}
-急性肠炎 - 治疗的方法 -> {'名称': '药物治疗'}
-急性肠炎 - 疾病并发疾病 -> {'疾病易感人群': '多见于女性和儿童老年人', '名称': '贫血', '治愈概率': '60--80%', '治疗周期': '1--6个月', '预防措施': '平时应多吃含铁丰富的食物，如瘦肉、猪肝、蛋黄及海带、发菜、紫菜、木耳、香茹豆类等。要注意饮食的合理配合，如餐后适当吃些水果，水果中含有丰富的维生素C和果酸，能促进铁的吸收。而餐后饮用浓茶，则因铁与茶中的鞣酸结合生成沉淀，影响铁的吸收。另外，用铁锅烹调食物，对预防贫血大有益处。 叶酸和维生素B12也是造血必不可少的物质。新鲜的绿色蔬菜、水果、瓜类、豆类及肉食中，含有丰富的叶酸，肉类及肝、肾、心等内脏中，含有丰富的维生素B12， 但经高温烹调后，可使50%以上的叶酸和10—30%的维生素B12遭到破坏。因此， 生活中既要注意饮食多样化，又要讲究烹饪技术，尽量避免过度蒸煮食物。'}
-急性胃炎 - 疾病所需检查 -> {'名称': '便常规'}
-急性胃炎 - 疾病所需检查 -> {'名称': '内镜检查'}
-急性胃炎 - 疾病所需检查 -> {'名称': '胸部透视'}
-急性胃炎 - 疾病所需检查 -> {'名称': '胃镜'}
-急性胃炎 - 疾病所需检查 -> {'名称': '胃液潜血试验'}
-急性胃炎 - 疾病使用药品 -> {'名称': '盐酸雷尼替丁胶囊'}
-急性胃炎 - 疾病使用药品 -> {'名称': '碳酸氢钠片'}
-急性胃炎 - 疾病使用药品 -> {'名称': '奥美拉唑肠溶胶囊'}
-急性胃炎 - 疾病使用药品 -> {'名称': '硫糖铝咀嚼片'}
-急性胃炎 - 疾病使用药品 -> {'名称': '丙谷胺片'}
-急性胃炎 - 疾病的症状 -> {'名称': '恶心'}
-急性胃炎 - 疾病的症状 -> {'名称': '腹泻'}
-急性胃炎 - 疾病的症状 -> {'名称': '嗳气'}
-急性胃炎 - 疾病的症状 -> {'名称': '食欲减退'}
-急性胃炎 - 疾病的症状 -> {'名称': '胃粘膜损伤'}
-急性胃炎 - 疾病的症状 -> {'名称': '肠鸣'}
-急性胃炎 - 疾病的症状 -> {'名称': '休克'}
-急性胃炎 - 疾病的症状 -> {'名称': '胃粘膜充血'}
-急性胃炎 - 疾病的症状 -> {'名称': '腹痛'}
-急性胃炎 - 疾病的症状 -> {'名称': '指甲有黄色细点'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '冬菇菜花'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '鸡肉'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '炒芹菜'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '松炸菜花'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '芝麻'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '清炒绿豆芽'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '菠菜绿豆芽'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '鸡心'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '芹菜粥'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '鹿肉'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '凉拌海米芹菜'}
-急性胃炎 - 疾病宜吃食物 -> {'名称': '素熘菜花'}
-急性胃炎 - 疾病所属科目 -> {'名称': '消化内科'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '白酒'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '南瓜子仁'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '白果（鲜）'}
-急性胃炎 - 疾病忌吃食物 -> {'名称': '绿豆'}
-急性胃炎 - 治疗的方法 -> {'名称': '黏膜保护剂'}
-急性胃炎 - 治疗的方法 -> {'名称': '抑酸剂'}
-急性胃炎 - 治疗的方法 -> {'名称': '对症治疗'}
-急性胃炎 - 治疗的方法 -> {'名称': '药物治疗'}
-急性胃炎 - 疾病并发疾病 -> {'疾病易感人群': '无特定人群', '名称': '脱水', '治愈概率': '98%', '治疗周期': '1-2周', '预防措施': '积极治疗原发病，并发症。\n1.等渗性脱水有低血容量性休克时，禁单纯补液。\n2.低渗性脱水禁忌早期补充5%或10%的葡萄糖溶液。\n3.高渗性脱水出现严重高钠血症时，禁忌快速输入高渗糖水，以免加重脑水肿。'}
+Shanghai - IN_CITY -> {'name': 'Shanghai'}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9527692218259316, 'runways': 1, 'altitude': 114, 'descr': 'Al Maktoum International Airport', 'longest': 14764}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4415651326637131, 'runways': 1, 'altitude': 3321, 'descr': 'Baotou Airport', 'longest': 8038}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5134594982104053, 'runways': 1, 'altitude': 10, 'descr': 'Tianjin Binhai International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7296415536131164, 'runways': 4, 'altitude': 46, 'descr': 'Vladivostok International Airport', 'longest': 11483}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.24595368554832647, 'runways': 1, 'altitude': 2874, 'descr': 'Changbaishan Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.675829811780528, 'runways': 3, 'altitude': 1416, 'descr': 'Zurich-Kloten Airport', 'longest': 12139}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.9943091064585503, 'runways': 2, 'altitude': 141, 'descr': 'Tokyo Narita', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.3148416730909958, 'runways': 2, 'altitude': 3305, 'descr': 'Imam Khomeini International Airport', 'longest': 13940}
+Shanghai - HAS_ROUTE -> {'pagerank': 7.812313354381447, 'runways': 6, 'altitude': -11, 'descr': 'Amsterdam Airport Schiphol', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2574257941823578, 'runways': 1, 'altitude': 1273, 'descr': 'Luliang Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.0870505194590663, 'runways': 1, 'altitude': 32, 'descr': 'Fukuoka Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.27458538220061574, 'runways': 1, 'altitude': 297, 'descr': 'Hanamaki Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.1248998611290704, 'runways': 1, 'altitude': 75, 'descr': 'Haikou Meilan International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.251661644000607, 'runways': 1, 'altitude': 477, 'descr': 'Qiqihar Sanjiazi Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.040920272966961, 'runways': 2, 'altitude': 106, 'descr': 'Taiwan Taoyuan International Airport', 'longest': 12008}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3561822332400808, 'runways': 1, 'altitude': 98, 'descr': 'Rizhao Shanzihe Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7558731358433746, 'runways': 1, 'altitude': 109, 'descr': 'Yangon International Airport', 'longest': 11200}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4076465329996405, 'runways': 1, 'altitude': 1088, 'descr': 'Hiroshima Airport', 'longest': 9842}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.668822909135786, 'runways': 3, 'altitude': 21, 'descr': 'Sydney Kingsford Smith', 'longest': 12999}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.587850199484761, 'runways': 6, 'altitude': 19, 'descr': 'Boston Logan', 'longest': 10083}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.25613746908210894, 'runways': 1, 'altitude': 1152, 'descr': 'Nanchong Airport', 'longest': 5906}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.307443300855271, 'runways': 2, 'altitude': 28, 'descr': 'Hong Kong - Chek Lap Kok International Airport', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.1063391493144648, 'runways': 1, 'altitude': 131, 'descr': 'Beijing Nanyuan Airport', 'longest': 9514}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.4373130958373308, 'runways': 2, 'altitude': 14, 'descr': 'Bali - Ngurah Rai International Airport', 'longest': 9790}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.9189558368835793, 'runways': 1, 'altitude': 489, 'descr': 'General Abelardo L. Rodríguez International Airport', 'longest': 9711}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.24224103406584, 'runways': 2, 'altitude': 26, 'descr': 'Osaka, Kansai International Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.954902451246322, 'runways': 2, 'altitude': 13, 'descr': 'Brisbane International Airport', 'longest': 11680}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.26969829375242516, 'runways': 1, 'altitude': 883, 'descr': 'Mudanjiang Hailang International Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5267075604080116, 'runways': 2, 'altitude': 75, 'descr': 'Manila, Ninoy Aquino International Airport', 'longest': 12261}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.2749885319032392, 'runways': 1, 'altitude': 82, 'descr': 'Phuket International Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5964698375879711, 'runways': 1, 'altitude': 20, 'descr': 'Quanzhou Airport', 'longest': 8465}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.42572656256981395, 'runways': 1, 'altitude': 1690, 'descr': 'Mianyang Airport', 'longest': 4593}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5229380627470901, 'runways': 1, 'altitude': 4557, 'descr': 'Ordos Ejin Horo Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 11.97978260670334, 'runways': 7, 'altitude': 607, 'descr': 'Dallas/Fort Worth International Airport', 'longest': 13401}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3741792330491338, 'runways': 1, 'altitude': 25, 'descr': 'Matsuyama Airport', 'longest': 8200}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.43616268124041074, 'runways': 2, 'altitude': 15, 'descr': 'Nagasaki Airport', 'longest': 9840}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5417727298766728, 'runways': 2, 'altitude': 82, 'descr': 'Sapporo, New Chitose Airport', 'longest': 9840}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.78910304308447, 'runways': 3, 'altitude': 17, 'descr': 'Newark, Liberty', 'longest': 11000}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.3169676843698426, 'runways': 2, 'altitude': 5, 'descr': 'Suvarnabhumi Bangkok International Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.595989514678308, 'runways': 2, 'altitude': 15, 'descr': 'Sendai Airport', 'longest': 9842}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.65828372600209, 'runways': 2, 'altitude': 768, 'descr': 'Milan, Malpensa International Airport', 'longest': 12861}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3033808239393678, 'runways': 1, 'altitude': 105, 'descr': 'Hyakuri Airport', 'longest': 8860}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.0891383967026245, 'runways': 2, 'altitude': 39, 'descr': 'Noi Bai International Airport', 'longest': 12466}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4801937700415077, 'runways': 1, 'altitude': 906, 'descr': 'Kagoshima Airport', 'longest': 9840}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.30614571100626425, 'runways': 1, 'altitude': 262, 'descr': 'Jiamusi Airport', 'longest': 7218}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.875174672585536, 'runways': 3, 'altitude': 432, 'descr': 'Seattle-Tacoma', 'longest': 11901}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5803965936526382, 'runways': 1, 'altitude': 59, 'descr': 'Yantai Laishan Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.6742429148346178, 'runways': 1, 'altitude': 113, 'descr': 'Wuhan Tianhe International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.31802489679833396, 'runways': 1, 'altitude': 584, 'descr': 'Tongliao Airport', 'longest': 7546}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.24375281354582748, 'runways': 1, 'altitude': 46, 'descr': 'Qinhuangdao Beidaihe Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.20844883794986, 'runways': 3, 'altitude': 118, 'descr': 'Montreal / Pierre Elliott Trudeau International Airport', 'longest': 11000}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4095991583234243, 'runways': 2, 'altitude': 36, 'descr': 'Komatsu Airport', 'longest': 8876}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.032784198884927, 'runways': 1, 'altitude': 3736, 'descr': 'Longdongbao Airport', 'longest': 10500}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4905774130686865, 'runways': 1, 'altitude': 1242, 'descr': 'Yuncheng Guangong Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.5012739836172475, 'runways': 4, 'altitude': 12, 'descr': 'New York John F. Kennedy International Airport', 'longest': 14511}
+Shanghai - HAS_ROUTE -> {'pagerank': 8.193558075446687, 'runways': 4, 'altitude': 127, 'descr': 'Los Angeles International Airport', 'longest': 12091}
+Shanghai - HAS_ROUTE -> {'id': '2979', 'pagerank': 0.22105772763455384, 'altitude': 2703, 'descr': 'Hami Airport', 'longest': 7710}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.456144058129923, 'runways': 1, 'altitude': 145, 'descr': 'Weihai Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.20606682915725744, 'runways': 1, 'altitude': 1, 'descr': 'Jinzhou Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.38325244255950397, 'runways': 1, 'altitude': 215, 'descr': 'Saipan International Airport', 'longest': 8700}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2912965295520746, 'runways': 1, 'altitude': 3442, 'descr': 'Datong Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8566817370934184, 'runways': 1, 'altitude': 31, 'descr': 'Mactan Cebu International Airport', 'longest': 10827}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4250667765219985, 'runways': 1, 'altitude': 203, 'descr': 'Shubuling Airport', 'longest': 7546}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.226211591218843, 'runways': 3, 'altitude': 137, 'descr': 'Stockholm-Arlanda Airport', 'longest': 10830}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.6777050775197293, 'runways': 1, 'altitude': 1036, 'descr': 'Chiang Mai International Airport', 'longest': 10171}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7135198038389605, 'runways': 1, 'altitude': 40, 'descr': 'Phnom Penh International Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5060575908683851, 'runways': 1, 'altitude': 2090, 'descr': 'Manas International Airport', 'longest': 13792}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7318625015235534, 'runways': 1, 'altitude': 706, 'descr': 'Longjia Airport', 'longest': 10500}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8376333253877342, 'runways': 1, 'altitude': 233, 'descr': 'Shijiazhuang Daguocun International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.6537144653853062, 'runways': 1, 'altitude': 663, 'descr': 'Taichung Ching Chuang Kang Airport', 'longest': 12000}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.961618536348004, 'runways': 6, 'altitude': 645, 'descr': 'Detroit Metropolitan, Wayne County', 'longest': 12003}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9810573777001921, 'runways': 1, 'altitude': 421, 'descr': 'Nanning Wuxu Airport', 'longest': 8858}
+Shanghai - HAS_ROUTE -> {'id': '2416', 'pagerank': 0.16843678242682114, 'altitude': 241, 'descr': 'Yangyang International Airport', 'city': 'Sokcho / Gangneung'}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.24105107787357377, 'runways': 1, 'altitude': 2018, 'descr': 'Guangyuan Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'id': '690', 'pagerank': 1.1800907079315084, 'altitude': 12, 'descr': 'Naha Airport', 'longest': 9840}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.1657935616762467, 'runways': 3, 'altitude': 62, 'descr': 'Norman Y. Mineta San Jose International Airport', 'longest': 11000}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7289304469037609, 'runways': 1, 'altitude': 60, 'descr': 'Siem Reap International Airport', 'longest': 8366}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.16843678242682114, 'runways': 1, 'altitude': 305, 'descr': 'Hengyang Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.34746383430260225, 'runways': 1, 'altitude': 387, 'descr': 'Ganzhou Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3137619409859267, 'runways': 1, 'altitude': 624, 'descr': 'Yanji Chaoyangchuan Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'id': '2409', 'pagerank': 0.3999266761428362, 'altitude': 433, 'descr': 'Mt. Fuji Shizuoka Airport', 'city': 'Makinohara / Shimada'}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.2536726976244745, 'runways': 3, 'altitude': 184, 'descr': 'Brussels Airport', 'longest': 11936}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2360384278559989, 'runways': 1, 'altitude': 11327, 'descr': 'Jiuzhai Huanglong Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9409010617917739, 'runways': 1, 'altitude': 2125, 'descr': 'Ürümqi Diwopu International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.3111842499630229, 'runways': 1, 'altitude': 495, 'descr': 'Zhengzhou Xinzheng International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.19077380506383118, 'runways': 1, 'altitude': 6, 'descr': 'Foshan Shadi Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.0090373677429296, 'runways': 2, 'altitude': 622, 'descr': 'Moscow, Sheremetyevo International Airport', 'longest': 12139}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.811687674181247, 'runways': 3, 'altitude': 14, 'descr': 'Vancouver International Airport', 'longest': 11500}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8506138211628543, 'runways': 1, 'altitude': 108, 'descr': 'Hefei Luogang International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.801333956503142, 'runways': 2, 'altitude': 600, 'descr': 'Vienna International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.0153685254806306, 'runways': 1, 'altitude': 2575, 'descr': 'Taiyuan Wusu Airport', 'longest': 10500}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.21909257176648742, 'runways': 1, 'altitude': 108, 'descr': 'Turpan Jiaohe Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.1166706252059277, 'runways': 2, 'altitude': 6, 'descr': 'Gimhae International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.306828663130705, 'runways': 1, 'altitude': 1808, 'descr': 'Wanxian Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.37886433936874536, 'runways': 1, 'altitude': 23, 'descr': 'Phu Quoc Airport', 'longest': 6900}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.23371566230472757, 'runways': 1, 'altitude': 20, 'descr': 'Surat Thani Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.650400701225339, 'runways': 2, 'altitude': 88, 'descr': 'Abu Dhabi International Airport', 'longest': 13452}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4108628424389217, 'runways': 1, 'altitude': 2920, 'descr': 'Zunyi Xinzhou Airport', 'longest': 5577}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.527823227277686, 'runways': 1, 'altitude': 82, 'descr': 'Krabi Airport', 'longest': 9842}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.7083277836911235, 'runways': 1, 'altitude': 217, 'descr': 'Changsha Huanghua International Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.37816661827385323, 'runways': 1, 'altitude': 924, 'descr': 'Yibin Caiba Airport', 'longest': 7054}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.497744782434036, 'runways': 3, 'altitude': 12, 'descr': 'Barcelona International Airport', 'longest': 11654}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.9821106238066495, 'runways': 2, 'altitude': 7630, 'descr': 'Addis Ababa Bole International Airport', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.185835987163839, 'runways': 3, 'altitude': 179, 'descr': 'Helsinki Ventaa', 'longest': 11286}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7787961579118479, 'runways': 1, 'altitude': 10, 'descr': 'Kota Kinabalu International Airport', 'longest': 9800}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.977353791143904, 'runways': 2, 'altitude': 62, 'descr': 'Dubai International Airport', 'longest': 13124}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.724340770245749, 'runways': 3, 'altitude': 48, 'descr': 'King Abdulaziz International Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.740567433891849, 'runways': 2, 'altitude': 50, 'descr': 'Guangzhou Baiyun International Airport', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.284958761345856, 'runways': 2, 'altitude': 23, 'descr': 'Auckland International Airport', 'longest': 11926}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8066216014671739, 'runways': 1, 'altitude': 10, 'descr': 'Wenzhou Yongqiang Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4583517210385922, 'runways': 1, 'altitude': 692, 'descr': 'Dayong Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.33296946064849087, 'runways': 1, 'altitude': 134, 'descr': 'Jining Qufu Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.127568733009189, 'runways': 3, 'altitude': 69, 'descr': 'Kuala Lumpur International Airport', 'longest': 13288}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.5871828763313216, 'runways': 1, 'altitude': 13, 'descr': "Shenzhen Bao'an International Airport", 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'id': '106', 'pagerank': 4.937895965171951, 'altitude': 13, 'descr': 'Doha, Hamad International Airport', 'longest': 15912}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.982341273329881, 'runways': 3, 'altitude': 116, 'descr': 'Beijing Capital International Airport', 'longest': 12468}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.4373072662108752, 'runways': 1, 'altitude': 1365, 'descr': 'Chongqing Jiangbei International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.823781643843338, 'runways': 2, 'altitude': 118, 'descr': 'Jeju International Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 10.389948350302957, 'runways': 5, 'altitude': 1026, 'descr': 'Hartsfield - Jackson Atlanta International Airport', 'longest': 12390}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2812059525731608, 'runways': 1, 'altitude': 125, 'descr': 'Weifang Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.18886059647631123, 'runways': 1, 'altitude': 46, 'descr': 'Anshan Air Base', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.246720059946632, 'runways': 1, 'altitude': 30, 'descr': 'Colombo, Bandaranaike International Airport', 'longest': 10991}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2077841639301325, 'runways': 1, 'altitude': 30, 'descr': 'Shanhaiguan Airport', 'longest': 8005}
+Shanghai - HAS_ROUTE -> {'id': '68', 'pagerank': 5.012976402617253, 'runways': 3, 'altitude': 15, 'longest': 12795}
+Shanghai - HAS_ROUTE -> {'pagerank': 11.162988178920267, 'runways': 7, 'altitude': 672, 'descr': "Chicago O'Hare International Airport", 'longest': 13000}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.029898163857233, 'runways': 1, 'altitude': 76, 'descr': 'Yaoqiang Airport', 'longest': 11814}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.743902427552337, 'runways': 4, 'altitude': 13, 'descr': 'San Francisco International Airport', 'longest': 11870}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.43441918192243106, 'runways': 1, 'altitude': 14, 'descr': 'Kalibo International Airport', 'longest': 7175}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.478075557564429, 'runways': 2, 'altitude': 484, 'descr': 'Clark International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3777796284144061, 'runways': 1, 'altitude': 295, 'descr': 'Bailian Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4055105483867608, 'runways': 1, 'altitude': 300, 'descr': 'Mandalay International Airport', 'longest': 14003}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.525257157301838, 'runways': 2, 'altitude': 434, 'descr': 'Melbourne International Airport', 'longest': 11998}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.8270669590484332, 'runways': 1, 'altitude': 59, 'descr': 'Xiamen Gaoqi International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.23505212152895266, 'runways': 1, 'altitude': 889, 'descr': 'Sanming Shaxian Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.3534904870855469, 'runways': 2, 'altitude': 34, 'descr': 'Soekarno-Hatta International Airport', 'longest': 12008}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.4417475021327424, 'runways': 1, 'altitude': 49, 'descr': 'Nanjing Lukou Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.6021432284564827, 'runways': 1, 'altitude': 198, 'descr': 'Taoxian Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.714918841753765, 'runways': 3, 'altitude': 1998, 'descr': 'Adolfo Suarez Barajas Airport International Airport', 'longest': 13711}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.1789388761697686, 'runways': 1, 'altitude': 20, 'descr': 'Macau International Airport', 'longest': 10544}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.101326780963253, 'runways': 3, 'altitude': 17, 'descr': 'Copenhagen Kastrup Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2236612086373192, 'runways': 1, 'altitude': 50, 'descr': 'Tangshan Sannühe Airport', 'longest': 8858}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5396571506271797, 'runways': 1, 'altitude': 15, 'descr': 'Chubu Centrair International Airport', 'longest': 11483}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.39644816475042904, 'runways': 2, 'altitude': 29, 'descr': 'Niigata Airport', 'longest': 8200}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7543631236774754, 'runways': 1, 'altitude': 6, 'descr': 'Malé International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.26381415444362594, 'runways': 1, 'altitude': 321, 'descr': 'Meixian Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.388815427054727, 'runways': 1, 'altitude': 28, 'descr': 'Lianshui Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 8.203204538770196, 'runways': 4, 'altitude': 364, 'descr': 'Frankfurt am Main', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3521605911863629, 'runways': 1, 'altitude': 806, 'descr': 'Okayama Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.34212823632196215, 'runways': 1, 'altitude': 1207, 'descr': 'Shiyan Wudangshan Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8991398370645531, 'runways': 1, 'altitude': 31, 'descr': 'Kaohsiung International Airport', 'longest': 10335}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.31560077993839236, 'runways': 1, 'altitude': 219, 'descr': 'Xiangfan Airport', 'longest': 7808}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.41805122260415883, 'runways': 1, 'altitude': 121, 'descr': 'Zhanjiang Airport', 'longest': 7546}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7009857203010121, 'runways': 2, 'altitude': 116, 'descr': 'Daegu Airport', 'longest': 9039}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5991688502294885, 'runways': 1, 'altitude': 33, 'descr': 'Liuting Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.126670317025154, 'runways': 2, 'altitude': 202, 'descr': 'London Gatwick', 'longest': 10364}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.16843678242682114, 'runways': 1, 'altitude': 2347, 'descr': 'Zhangjiakou Ningyuan Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.6220089325806248, 'runways': 1, 'altitude': 3763, 'descr': 'Yinchuan Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.5656798354848074, 'runways': 4, 'altitude': 13, 'descr': 'Honolulu International Airport', 'longest': 12312}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3073575855589269, 'runways': 1, 'altitude': 607, 'descr': 'Takamatsu Airport', 'longest': 8200}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.20938233298444753, 'runways': 1, 'altitude': 18, 'descr': 'Dandong Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.16843678242682114, 'runways': 1, 'altitude': 1657, 'descr': 'Hanzhong Airport', 'longest': 8203}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.3592038928580825, 'runways': 3, 'altitude': 777, 'descr': 'Indira Gandhi International Airport', 'longest': 14534}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.6311306449871266, 'runways': 1, 'altitude': 1625, 'descr': 'Chengdu Shuangliu International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.106808315820341, 'runways': 2, 'altitude': 83, 'descr': 'London Heathrow', 'longest': 12799}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.1412035735087667, 'runways': 1, 'altitude': 6217, 'descr': 'Kunming Wujiaba International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9944935957797516, 'runways': 1, 'altitude': 92, 'descr': 'Sanya Phoenix International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.339780868740824, 'runways': 3, 'altitude': 23, 'descr': 'Seoul, Incheon International Airport', 'longest': 13000}
+Shanghai - HAS_ROUTE -> {'pagerank': 8.401469085296544, 'runways': 4, 'altitude': 392, 'descr': 'Paris Charles de Gaulle', 'longest': 13829}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.186936479555701, 'runways': 3, 'altitude': 22, 'descr': 'Singapore, Changi International Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7037890204841294, 'runways': 2, 'altitude': 33, 'descr': 'Da Nang International Airport', 'longest': 10000}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.4493510560958427, 'runways': 1, 'altitude': 186, 'descr': 'Sir Seewoosagur Ramgoolam International Airport', 'longest': 11056}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.25593588657471106, 'runways': 1, 'altitude': 229, 'descr': 'Handan Airport', 'longest': 7218}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.6465383070555468, 'runways': 2, 'altitude': 298, 'descr': 'Antonio B. Won Pat International Airport', 'longest': 10015}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.238701570041493, 'runways': 1, 'altitude': 46, 'descr': 'Fuzhou Changle International Airport', 'longest': 11841}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.24140881032476555, 'runways': 1, 'altitude': 4150, 'descr': 'Xingyi Airport', 'longest': 7546}
+Shanghai - HAS_ROUTE -> {'pagerank': 8.42580121770578, 'runways': 4, 'altitude': 325, 'descr': 'Istanbul International Airport', 'longest': 13451}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.4295820832924147, 'runways': 2, 'altitude': 78, 'descr': 'Pulkovo Airport', 'longest': 12402}
+Shanghai - HAS_ROUTE -> {'id': '759', 'pagerank': 0.32338616491982913, 'altitude': 6, 'descr': 'Saga Airport', 'longest': 6562}
+Shanghai - HAS_ROUTE -> {'id': '700', 'pagerank': 0.5409188335773275, 'altitude': 73, 'descr': 'Brunei International Airport', 'city': 'Bandar Seri Begawan'}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.16843678242682114, 'runways': 1, 'altitude': 2, 'descr': 'Yingkou Lanqi Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3018467524294749, 'runways': 1, 'altitude': 95, 'descr': 'Toyama Airport', 'longest': 6562}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.4887153623481073, 'runways': 1, 'altitude': 107, 'descr': 'Zhoushuizi Airport', 'longest': 10827}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5027179526235356, 'runways': 1, 'altitude': 7112, 'descr': 'Xining Caojiabu Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9594784716566853, 'runways': 1, 'altitude': 13, 'descr': 'Ningbo Lishe International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.595753924405267, 'runways': 4, 'altitude': 35, 'descr': 'Tokyo Haneda International Airport', 'longest': 9840}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4464916400323901, 'runways': 1, 'altitude': 18, 'descr': 'Taipei Songshan Airport', 'longest': 8547}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.29119815281150324, 'runways': 1, 'altitude': 3, 'descr': 'Zhoushan Airport', 'longest': 7546}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.287542414135125, 'runways': 1, 'altitude': 1572, 'descr': "Xi'an Xianyang International Airport", 'longest': 9842}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4185236268847313, 'runways': 1, 'altitude': 75, 'descr': 'Beihai Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.6910464950914146, 'runways': 1, 'altitude': 457, 'descr': 'Taiping Airport', 'longest': 10500}
+Shanghai - HAS_ROUTE -> {'id': '165', 'pagerank': 1.237750269039035, 'altitude': 33, 'longest': 12468, 'city': 'Ho Chi Minh City'}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9554400129897271, 'runways': 2, 'altitude': 3556, 'descr': 'Baita International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.293986565715963, 'runways': 3, 'altitude': 135, 'descr': 'Tel Aviv, Ben Gurion International Airport', 'longest': 13327}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4406357774605494, 'runways': 1, 'altitude': 33, 'descr': 'Sihanoukville International Airport', 'longest': 4251}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.6739005906581915, 'runways': 1, 'altitude': 52, 'descr': 'Shantou Waisha Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9506059588248901, 'runways': 1, 'altitude': 570, 'descr': 'Guilin Liangjiang International Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.38313344103765445, 'runways': 1, 'altitude': 3015, 'descr': 'Changzhi Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 6.9002205068526, 'runways': 2, 'altitude': 1487, 'descr': 'Munich International Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.05500503798506, 'runways': 2, 'altitude': 1247, 'descr': 'Prague, Ruzyne International Airport', 'longest': 12189}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7169076800298013, 'runways': 1, 'altitude': 18, 'descr': 'Zhuhai Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.415815133062495, 'runways': 2, 'altitude': 9, 'descr': 'Don Mueang International Airport', 'longest': 12139}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2637808538642983, 'runways': 1, 'altitude': 15, 'descr': 'Dongying Shengli Airport', 'longest': 6890}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3397088787811245, 'runways': 1, 'altitude': 807, 'descr': 'Luzhou Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.45293146204676665, 'runways': 1, 'altitude': 51, 'descr': 'Muan International Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8934651474058475, 'runways': 1, 'altitude': 143, 'descr': 'Nanchang Changbei International Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7640095438068467, 'runways': 1, 'altitude': 6388, 'descr': 'Lanzhou Zhongchuan Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'id': '321', 'pagerank': 1.23182202785205, 'altitude': 10, 'descr': 'Heydar Aliyev International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.23957881501541356, 'runways': 1, 'altitude': 919, 'descr': 'Dachuan Airport', 'longest': 6562}
+Shanghai - HAS_ROUTE -> {'pagerank': 7.378619943321168, 'runways': 5, 'altitude': 569, 'descr': 'Toronto Pearson International Airport', 'longest': 11120}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.41305915609579047, 'runways': 1, 'altitude': 643, 'descr': 'Yichang Airport', 'longest': 8500}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.22974513200062494, 'runways': 1, 'altitude': 157, 'descr': 'Mattala Rajapaksa International Airport', 'longest': 11483}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.18886059647631123, 'runways': 1, 'altitude': 50, 'descr': 'Huizhou Airport', 'longest': 7874}
+Shanghai - IN_CITY -> {'name': 'Shanghai'}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.41305915609579047, 'runways': 1, 'altitude': 643, 'descr': 'Yichang Airport', 'longest': 8500}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.27414038930576534, 'runways': 1, 'altitude': 281, 'descr': 'Jinggangshan Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.1412035735087667, 'runways': 1, 'altitude': 6217, 'descr': 'Kunming Wujiaba International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8934651474058475, 'runways': 1, 'altitude': 143, 'descr': 'Nanchang Changbei International Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.31220076167169525, 'runways': 1, 'altitude': 104, 'descr': 'Fuyang Xiguan Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.31769576126390214, 'runways': 1, 'altitude': 614, 'descr': 'Nanping Wuyishan Airport', 'longest': 6890}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.6742429148346178, 'runways': 1, 'altitude': 113, 'descr': 'Wuhan Tianhe International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8066216014671739, 'runways': 1, 'altitude': 10, 'descr': 'Wenzhou Yongqiang Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.22457533602418978, 'runways': 1, 'altitude': 142, 'descr': 'Jiujiang Lushan Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.456144058129923, 'runways': 1, 'altitude': 145, 'descr': 'Weihai Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.0153685254806306, 'runways': 1, 'altitude': 2575, 'descr': 'Taiyuan Wusu Airport', 'longest': 10500}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.287542414135125, 'runways': 1, 'altitude': 1572, 'descr': "Xi'an Xianyang International Airport", 'longest': 9842}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.6311306449871266, 'runways': 1, 'altitude': 1625, 'descr': 'Chengdu Shuangliu International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3777796284144061, 'runways': 1, 'altitude': 295, 'descr': 'Bailian Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4250667765219985, 'runways': 1, 'altitude': 203, 'descr': 'Shubuling Airport', 'longest': 7546}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.25593588657471106, 'runways': 1, 'altitude': 229, 'descr': 'Handan Airport', 'longest': 7218}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2547333205663446, 'runways': 1, 'altitude': 2075, 'descr': 'Qianjiang Wulingshan Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.431523892734765, 'runways': 1, 'altitude': 46, 'descr': 'Lianyungang Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9506059588248901, 'runways': 1, 'altitude': 570, 'descr': 'Guilin Liangjiang International Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.37842535992998194, 'runways': 1, 'altitude': 10, 'descr': 'Yancheng Airport', 'longest': 7218}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4415651326637131, 'runways': 1, 'altitude': 3321, 'descr': 'Baotou Airport', 'longest': 8038}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4464916400323901, 'runways': 1, 'altitude': 18, 'descr': 'Taipei Songshan Airport', 'longest': 8547}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.8376333253877342, 'runways': 1, 'altitude': 233, 'descr': 'Shijiazhuang Daguocun International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5346445544622006, 'runways': 1, 'altitude': 115, 'descr': 'Xuzhou Guanyin Airport', 'longest': 11548}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.388815427054727, 'runways': 1, 'altitude': 28, 'descr': 'Lianshui Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9554400129897271, 'runways': 2, 'altitude': 3556, 'descr': 'Baita International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.34746383430260225, 'runways': 1, 'altitude': 387, 'descr': 'Ganzhou Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.33951225997656437, 'runways': 2, 'altitude': 58, 'descr': 'Gimpo International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.029898163857233, 'runways': 1, 'altitude': 76, 'descr': 'Yaoqiang Airport', 'longest': 11814}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.4108628424389217, 'runways': 1, 'altitude': 2920, 'descr': 'Zunyi Xinzhou Airport', 'longest': 5577}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.29191570784260384, 'runways': 1, 'altitude': 112, 'descr': 'Jingdezhen Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2913948450250249, 'runways': 1, 'altitude': 128, 'descr': 'Changde Airport', 'longest': 8366}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.1789388761697686, 'runways': 1, 'altitude': 20, 'descr': 'Macau International Airport', 'longest': 10544}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5803965936526382, 'runways': 1, 'altitude': 59, 'descr': 'Yantai Laishan Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.4373072662108752, 'runways': 1, 'altitude': 1365, 'descr': 'Chongqing Jiangbei International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9944935957797516, 'runways': 1, 'altitude': 92, 'descr': 'Sanya Phoenix International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.47910997416335527, 'runways': 1, 'altitude': 446, 'descr': 'Tunxi International Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 3.740567433891849, 'runways': 2, 'altitude': 50, 'descr': 'Guangzhou Baiyun International Airport', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.42572656256981395, 'runways': 1, 'altitude': 1690, 'descr': 'Mianyang Airport', 'longest': 4593}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.30264136623367127, 'runways': 1, 'altitude': 6440, 'descr': 'Liupanshui Yuezhao Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7169076800298013, 'runways': 1, 'altitude': 18, 'descr': 'Zhuhai Airport', 'longest': 13123}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.238701570041493, 'runways': 1, 'altitude': 46, 'descr': 'Fuzhou Changle International Airport', 'longest': 11841}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5970712610540874, 'runways': 1, 'altitude': 7359, 'descr': 'Lijiang Airport', 'longest': 9843}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.3111842499630229, 'runways': 1, 'altitude': 495, 'descr': 'Zhengzhou Xinzheng International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.21909257176648742, 'runways': 1, 'altitude': 108, 'descr': 'Turpan Jiaohe Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.7640095438068467, 'runways': 1, 'altitude': 6388, 'descr': 'Lanzhou Zhongchuan Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.307443300855271, 'runways': 2, 'altitude': 28, 'descr': 'Hong Kong - Chek Lap Kok International Airport', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.6739005906581915, 'runways': 1, 'altitude': 52, 'descr': 'Shantou Waisha Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.1676304677902325, 'runways': 1, 'altitude': 1225, 'descr': 'Longyan Guanzhishan Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.33296946064849087, 'runways': 1, 'altitude': 134, 'descr': 'Jining Qufu Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.3337844764342606, 'runways': 1, 'altitude': 840, 'descr': 'Luoyang Airport', 'longest': 8202}
+Shanghai - HAS_ROUTE -> {'pagerank': 5.982341273329881, 'runways': 3, 'altitude': 116, 'descr': 'Beijing Capital International Airport', 'longest': 12468}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2760116319675187, 'runways': 1, 'altitude': 46, 'descr': 'Anqing Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.22067148322634964, 'runways': 1, 'altitude': 430, 'descr': 'Mingyueshan Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 2.5871828763313216, 'runways': 1, 'altitude': 13, 'descr': "Shenzhen Bao'an International Airport", 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 4.595753924405267, 'runways': 4, 'altitude': 35, 'descr': 'Tokyo Haneda International Airport', 'longest': 9840}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2738216941084452, 'runways': 1, 'altitude': 407, 'descr': 'Nanyang Airport', 'longest': 9186}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5134594982104053, 'runways': 1, 'altitude': 10, 'descr': 'Tianjin Binhai International Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.6021432284564827, 'runways': 1, 'altitude': 198, 'descr': 'Taoxian Airport', 'longest': 10499}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.2425137898041025, 'runways': 1, 'altitude': 60, 'descr': 'Jiuhuashan Airport', 'longest': 7874}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.8270669590484332, 'runways': 1, 'altitude': 59, 'descr': 'Xiamen Gaoqi International Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9810573777001921, 'runways': 1, 'altitude': 421, 'descr': 'Nanning Wuxu Airport', 'longest': 8858}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.27321969707480404, 'runways': 1, 'altitude': 4751, 'descr': 'Bijie Feixiong Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.1063391493144648, 'runways': 1, 'altitude': 131, 'descr': 'Beijing Nanyuan Airport', 'longest': 9514}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.38313344103765445, 'runways': 1, 'altitude': 3015, 'descr': 'Changzhi Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.7083277836911235, 'runways': 1, 'altitude': 217, 'descr': 'Changsha Huanghua International Airport', 'longest': 8530}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.5991688502294885, 'runways': 1, 'altitude': 33, 'descr': 'Liuting Airport', 'longest': 11155}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.032784198884927, 'runways': 1, 'altitude': 3736, 'descr': 'Longdongbao Airport', 'longest': 10500}
+Shanghai - HAS_ROUTE -> {'pagerank': 1.0622240687261393, 'runways': 4, 'altitude': 98, 'descr': 'Beijing Daxing International Airport', 'longest': 12467}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.9409010617917739, 'runways': 1, 'altitude': 2125, 'descr': 'Ürümqi Diwopu International Airport', 'longest': 11811}
+Shanghai - HAS_ROUTE -> {'pagerank': 0.5964698375879711, 'runways': 1, 'altitude': 20, 'descr': 'Quanzhou Airport', 'longest': 8465}
+Beijing - IN_CITY -> {'name': 'Beijing'}
+Beijing - HAS_ROUTE -> {'pagerank': 6.78910304308447, 'runways': 3, 'altitude': 17, 'descr': 'Newark, Liberty', 'longest': 11000}
+Beijing - HAS_ROUTE -> {'pagerank': 6.5012739836172475, 'runways': 4, 'altitude': 12, 'descr': 'New York John F. Kennedy International Airport', 'longest': 14511}
+Beijing - HAS_ROUTE -> {'pagerank': 0.6220089325806248, 'runways': 1, 'altitude': 3763, 'descr': 'Yinchuan Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 0.34212823632196215, 'runways': 1, 'altitude': 1207, 'descr': 'Shiyan Wudangshan Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.363481351594379, 'runways': 1, 'altitude': 1902, 'descr': 'Chifeng Airport', 'longest': 5774}
+Beijing - HAS_ROUTE -> {'pagerank': 0.18886059647631123, 'runways': 1, 'altitude': 46, 'descr': 'Anshan Air Base', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 8.401469085296544, 'runways': 4, 'altitude': 392, 'descr': 'Paris Charles de Gaulle', 'longest': 13829}
+Beijing - HAS_ROUTE -> {'pagerank': 4.875174672585536, 'runways': 3, 'altitude': 432, 'descr': 'Seattle-Tacoma', 'longest': 11901}
+Beijing - HAS_ROUTE -> {'pagerank': 0.28565910488249857, 'runways': 3, 'altitude': 1690, 'descr': 'Ulan-Ude Airport (Mukhino)', 'longest': 9780}
+Beijing - HAS_ROUTE -> {'id': '1509', 'pagerank': 0.23542717294555435, 'altitude': 2890, 'descr': 'Mangshi Airport', 'longest': 7218}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8506138211628543, 'runways': 1, 'altitude': 108, 'descr': 'Hefei Luogang International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 3.65828372600209, 'runways': 2, 'altitude': 768, 'descr': 'Milan, Malpensa International Airport', 'longest': 12861}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8991398370645531, 'runways': 1, 'altitude': 31, 'descr': 'Kaohsiung International Airport', 'longest': 10335}
+Beijing - HAS_ROUTE -> {'pagerank': 0.34746383430260225, 'runways': 1, 'altitude': 387, 'descr': 'Ganzhou Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.37816661827385323, 'runways': 1, 'altitude': 924, 'descr': 'Yibin Caiba Airport', 'longest': 7054}
+Beijing - HAS_ROUTE -> {'pagerank': 1.238701570041493, 'runways': 1, 'altitude': 46, 'descr': 'Fuzhou Changle International Airport', 'longest': 11841}
+Beijing - HAS_ROUTE -> {'pagerank': 2.1412035735087667, 'runways': 1, 'altitude': 6217, 'descr': 'Kunming Wujiaba International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 6.106808315820341, 'runways': 2, 'altitude': 83, 'descr': 'London Heathrow', 'longest': 12799}
+Beijing - HAS_ROUTE -> {'pagerank': 5.20844883794986, 'runways': 3, 'altitude': 118, 'descr': 'Montreal / Pierre Elliott Trudeau International Airport', 'longest': 11000}
+Beijing - HAS_ROUTE -> {'pagerank': 1.021081489188499, 'runways': 2, 'altitude': 764, 'descr': 'Koltsovo Airport', 'longest': 9925}
+Beijing - HAS_ROUTE -> {'pagerank': 0.35900036164551413, 'runways': 1, 'altitude': 16, 'descr': 'Nantong Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2637808538642983, 'runways': 1, 'altitude': 15, 'descr': 'Dongying Shengli Airport', 'longest': 6890}
+Beijing - HAS_ROUTE -> {'pagerank': 1.1248998611290704, 'runways': 1, 'altitude': 75, 'descr': 'Haikou Meilan International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 2.725004586218306, 'runways': 3, 'altitude': 382, 'descr': 'Cairo International Airport', 'longest': 13124}
+Beijing - HAS_ROUTE -> {'pagerank': 0.45558726280563944, 'runways': 1, 'altitude': 40, 'descr': 'Cam Ranh Airport', 'longest': 10000}
+Beijing - HAS_ROUTE -> {'pagerank': 2.4373072662108752, 'runways': 1, 'altitude': 1365, 'descr': 'Chongqing Jiangbei International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4905774130686865, 'runways': 1, 'altitude': 1242, 'descr': 'Yuncheng Guangong Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 1.032784198884927, 'runways': 1, 'altitude': 3736, 'descr': 'Longdongbao Airport', 'longest': 10500}
+Beijing - HAS_ROUTE -> {'id': '92', 'pagerank': 4.669027850383046, 'altitude': 681, 'descr': 'Oslo Gardermoen Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'id': '165', 'pagerank': 1.237750269039035, 'altitude': 33, 'longest': 12468, 'city': 'Ho Chi Minh City'}
+Beijing - HAS_ROUTE -> {'pagerank': 4.185835987163839, 'runways': 3, 'altitude': 179, 'descr': 'Helsinki Ventaa', 'longest': 11286}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3561822332400808, 'runways': 1, 'altitude': 98, 'descr': 'Rizhao Shanzihe Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 5.2536726976244745, 'runways': 3, 'altitude': 184, 'descr': 'Brussels Airport', 'longest': 11936}
+Beijing - HAS_ROUTE -> {'pagerank': 0.19094555055762644, 'runways': 1, 'altitude': 496, 'descr': 'Saertu Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.43441918192243106, 'runways': 1, 'altitude': 14, 'descr': 'Kalibo International Airport', 'longest': 7175}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22859928652305536, 'runways': 1, 'altitude': 3650, 'descr': 'Wuhai Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2812059525731608, 'runways': 1, 'altitude': 125, 'descr': 'Weifang Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4583517210385922, 'runways': 1, 'altitude': 692, 'descr': 'Dayong Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.42572656256981395, 'runways': 1, 'altitude': 1690, 'descr': 'Mianyang Airport', 'longest': 4593}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3337844764342606, 'runways': 1, 'altitude': 840, 'descr': 'Luoyang Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 11.97978260670334, 'runways': 7, 'altitude': 607, 'descr': 'Dallas/Fort Worth International Airport', 'longest': 13401}
+Beijing - HAS_ROUTE -> {'pagerank': 11.162988178920267, 'runways': 7, 'altitude': 672, 'descr': "Chicago O'Hare International Airport", 'longest': 13000}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5477774535792667, 'runways': 1, 'altitude': 1675, 'descr': 'Irkutsk Airport', 'longest': 10384}
+Beijing - HAS_ROUTE -> {'pagerank': 0.31769576126390214, 'runways': 1, 'altitude': 614, 'descr': 'Nanping Wuyishan Airport', 'longest': 6890}
+Beijing - HAS_ROUTE -> {'pagerank': 0.33951225997656437, 'runways': 2, 'altitude': 58, 'descr': 'Gimpo International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 1.5267075604080116, 'runways': 2, 'altitude': 75, 'descr': 'Manila, Ninoy Aquino International Airport', 'longest': 12261}
+Beijing - HAS_ROUTE -> {'pagerank': 0.25613746908210894, 'runways': 1, 'altitude': 1152, 'descr': 'Nanchong Airport', 'longest': 5906}
+Beijing - HAS_ROUTE -> {'pagerank': 1.6910464950914146, 'runways': 1, 'altitude': 457, 'descr': 'Taiping Airport', 'longest': 10500}
+Beijing - HAS_ROUTE -> {'pagerank': 4.9821106238066495, 'runways': 2, 'altitude': 7630, 'descr': 'Addis Ababa Bole International Airport', 'longest': 12467}
+Beijing - HAS_ROUTE -> {'pagerank': 7.812313354381447, 'runways': 6, 'altitude': -11, 'descr': 'Amsterdam Airport Schiphol', 'longest': 12467}
+Beijing - HAS_ROUTE -> {'pagerank': 4.675829811780528, 'runways': 3, 'altitude': 1416, 'descr': 'Zurich-Kloten Airport', 'longest': 12139}
+Beijing - HAS_ROUTE -> {'pagerank': 0.33296946064849087, 'runways': 1, 'altitude': 134, 'descr': 'Jining Qufu Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 1.9189558368835793, 'runways': 1, 'altitude': 489, 'descr': 'General Abelardo L. Rodríguez International Airport', 'longest': 9711}
+Beijing - HAS_ROUTE -> {'pagerank': 0.31220076167169525, 'runways': 1, 'altitude': 104, 'descr': 'Fuyang Xiguan Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3137619409859267, 'runways': 1, 'altitude': 624, 'descr': 'Yanji Chaoyangchuan Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 2.650400701225339, 'runways': 2, 'altitude': 88, 'descr': 'Abu Dhabi International Airport', 'longest': 13452}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2754390346899158, 'runways': 1, 'altitude': 10, 'descr': 'Huangyan Luqiao Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9594784716566853, 'runways': 1, 'altitude': 13, 'descr': 'Ningbo Lishe International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'id': '342', 'pagerank': 2.1252177749244088, 'altitude': 427, 'descr': 'Boryspil International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 1.1166706252059277, 'runways': 2, 'altitude': 6, 'descr': 'Gimhae International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 0.6739005906581915, 'runways': 1, 'altitude': 52, 'descr': 'Shantou Waisha Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.18924945904466514, 'runways': 1, 'altitude': 173, 'descr': 'Chaoyang Airport', 'longest': 6562}
+Beijing - HAS_ROUTE -> {'pagerank': 8.203204538770196, 'runways': 4, 'altitude': 364, 'descr': 'Frankfurt am Main', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.858015385747594, 'runways': 1, 'altitude': 1165, 'descr': 'Astana International Airport', 'longest': 11484}
+Beijing - HAS_ROUTE -> {'pagerank': 3.9808834977010235, 'runways': 1, 'altitude': 374, 'descr': 'Lisbon Portela Airport', 'longest': 12484}
+Beijing - HAS_ROUTE -> {'pagerank': 7.378619943321168, 'runways': 5, 'altitude': 569, 'descr': 'Toronto Pearson International Airport', 'longest': 11120}
+Beijing - HAS_ROUTE -> {'pagerank': 0.41915921276237633, 'runways': 1, 'altitude': 16, 'descr': 'Taizhou Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 1.0153685254806306, 'runways': 1, 'altitude': 2575, 'descr': 'Taiyuan Wusu Airport', 'longest': 10500}
+Beijing - HAS_ROUTE -> {'pagerank': 0.30614571100626425, 'runways': 1, 'altitude': 262, 'descr': 'Jiamusi Airport', 'longest': 7218}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22272893136878366, 'runways': 1, 'altitude': 3389, 'descr': 'Bayannur Tianjitai Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.20938233298444753, 'runways': 1, 'altitude': 18, 'descr': 'Dandong Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8066216014671739, 'runways': 1, 'altitude': 10, 'descr': 'Wenzhou Yongqiang Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.24595368554832647, 'runways': 1, 'altitude': 2874, 'descr': 'Changbaishan Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 1.8387696838668868, 'runways': 1, 'altitude': 23, 'descr': 'Hangzhou Xiaoshan International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 6.9002205068526, 'runways': 2, 'altitude': 1487, 'descr': 'Munich International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 1.0597849460877002, 'runways': 2, 'altitude': 1417, 'descr': 'Tashkent International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5964698375879711, 'runways': 1, 'altitude': 20, 'descr': 'Quanzhou Airport', 'longest': 8465}
+Beijing - HAS_ROUTE -> {'pagerank': 0.47151246272978375, 'runways': 2, 'altitude': 244, 'descr': 'Khabarovsk-Novy Airport', 'longest': 13124}
+Beijing - HAS_ROUTE -> {'pagerank': 0.23957881501541356, 'runways': 1, 'altitude': 919, 'descr': 'Dachuan Airport', 'longest': 6562}
+Beijing - HAS_ROUTE -> {'id': '1150', 'pagerank': 0.5213968042544592, 'altitude': 16, 'descr': 'Sunan Shuofang International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 1.7083277836911235, 'runways': 1, 'altitude': 217, 'descr': 'Changsha Huanghua International Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 6.226211591218843, 'runways': 3, 'altitude': 137, 'descr': 'Stockholm-Arlanda Airport', 'longest': 10830}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7558731358433746, 'runways': 1, 'altitude': 109, 'descr': 'Yangon International Airport', 'longest': 11200}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22623621977080996, 'runways': 1, 'altitude': 3087, 'descr': "Yan'an Airport", 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9554400129897271, 'runways': 2, 'altitude': 3556, 'descr': 'Baita International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.38313344103765445, 'runways': 1, 'altitude': 3015, 'descr': 'Changzhi Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.27467202267406277, 'runways': 1, 'altitude': 3865, 'descr': 'Yulin Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2912965295520746, 'runways': 1, 'altitude': 3442, 'descr': 'Datong Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.27414038930576534, 'runways': 1, 'altitude': 281, 'descr': 'Jinggangshan Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 1.4373130958373308, 'runways': 2, 'altitude': 14, 'descr': 'Bali - Ngurah Rai International Airport', 'longest': 9790}
+Beijing - HAS_ROUTE -> {'pagerank': 8.34114108524013, 'runways': 5, 'altitude': 96, 'descr': 'George Bush Intercontinental', 'longest': 12001}
+Beijing - HAS_ROUTE -> {'pagerank': 1.5396571506271797, 'runways': 1, 'altitude': 15, 'descr': 'Chubu Centrair International Airport', 'longest': 11483}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3800187800736419, 'runways': 1, 'altitude': 2169, 'descr': 'Dongshan Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5229380627470901, 'runways': 1, 'altitude': 4557, 'descr': 'Ordos Ejin Horo Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2913948450250249, 'runways': 1, 'altitude': 128, 'descr': 'Changde Airport', 'longest': 8366}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22067148322634964, 'runways': 1, 'altitude': 430, 'descr': 'Mingyueshan Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.18886059647631123, 'runways': 1, 'altitude': 50, 'descr': 'Huizhou Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 4.089981515787396, 'runways': 2, 'altitude': 39, 'descr': 'Mumbai, Chhatrapati Shivaji International Airport', 'longest': 11302}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7640095438068467, 'runways': 1, 'altitude': 6388, 'descr': 'Lanzhou Zhongchuan Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.26969829375242516, 'runways': 1, 'altitude': 883, 'descr': 'Mudanjiang Hailang International Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'id': '106', 'pagerank': 4.937895965171951, 'altitude': 13, 'descr': 'Doha, Hamad International Airport', 'longest': 15912}
+Beijing - HAS_ROUTE -> {'pagerank': 1.3148416730909958, 'runways': 2, 'altitude': 3305, 'descr': 'Imam Khomeini International Airport', 'longest': 13940}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4185236268847313, 'runways': 1, 'altitude': 75, 'descr': 'Beihai Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9944935957797516, 'runways': 1, 'altitude': 92, 'descr': 'Sanya Phoenix International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5027179526235356, 'runways': 1, 'altitude': 7112, 'descr': 'Xining Caojiabu Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 0.18605986141362982, 'runways': 1, 'altitude': 5453, 'descr': 'Baoshan Yunduan Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.24105107787357377, 'runways': 1, 'altitude': 2018, 'descr': 'Guangyuan Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 6.1008358741580615, 'runways': 2, 'altitude': 7316, 'descr': 'Mexico City, Licenciado Benito Juarez International Airport', 'longest': 12966}
+Beijing - HAS_ROUTE -> {'pagerank': 0.251661644000607, 'runways': 1, 'altitude': 477, 'descr': 'Qiqihar Sanjiazi Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 3.040920272966961, 'runways': 2, 'altitude': 106, 'descr': 'Taiwan Taoyuan International Airport', 'longest': 12008}
+Beijing - HAS_ROUTE -> {'pagerank': 0.23229555384470646, 'runways': 1, 'altitude': 981, 'descr': 'Ulanhot Airport', 'longest': 5906}
+Beijing - HAS_ROUTE -> {'pagerank': 0.47910997416335527, 'runways': 1, 'altitude': 446, 'descr': 'Tunxi International Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 1.5991688502294885, 'runways': 1, 'altitude': 33, 'descr': 'Liuting Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 2.508257029814982, 'runways': 2, 'altitude': 362, 'descr': 'Warsaw Chopin Airport', 'longest': 12106}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2576453496010522, 'runways': 1, 'altitude': 4622, 'descr': 'Ulanqab Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3725876651748251, 'runways': 2, 'altitude': 191, 'descr': 'Cheongju International Airport', 'longest': 9000}
+Beijing - HAS_ROUTE -> {'pagerank': 5.743902427552337, 'runways': 4, 'altitude': 13, 'descr': 'San Francisco International Airport', 'longest': 11870}
+Beijing - HAS_ROUTE -> {'pagerank': 1.5120025828607988, 'runways': 1, 'altitude': 335, 'descr': 'Belgrade Nikola Tesla Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 4.808279031248992, 'runways': 2, 'altitude': 157, 'descr': 'Berlin Brandenburg International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 2.9029218269756765, 'runways': 2, 'altitude': 135, 'descr': 'Tocumen International Airport', 'longest': 10006}
+Beijing - HAS_ROUTE -> {'pagerank': 2.5871828763313216, 'runways': 1, 'altitude': 13, 'descr': "Shenzhen Bao'an International Airport", 'longest': 11155}
+Beijing - HAS_ROUTE -> {'id': '2175', 'pagerank': 0.2322773381686953, 'altitude': 760, 'descr': 'Jixi Xingkaihu Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 6.234775406843103, 'runways': 2, 'altitude': 5558, 'descr': 'Johannesburg, OR Tambo International Airport', 'longest': 14495}
+Beijing - HAS_ROUTE -> {'pagerank': 0.17042381404949009, 'runways': 1, 'altitude': 1096, 'descr': 'Karamay Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3945720498280828, 'runways': 3, 'altitude': 692, 'descr': 'Ashgabat Airport', 'longest': 12467}
+Beijing - HAS_ROUTE -> {'pagerank': 4.3592038928580825, 'runways': 3, 'altitude': 777, 'descr': 'Indira Gandhi International Airport', 'longest': 14534}
+Beijing - HAS_ROUTE -> {'pagerank': 1.246720059946632, 'runways': 1, 'altitude': 30, 'descr': 'Colombo, Bandaranaike International Airport', 'longest': 10991}
+Beijing - HAS_ROUTE -> {'id': '68', 'pagerank': 5.012976402617253, 'runways': 3, 'altitude': 15, 'longest': 12795}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2547333205663446, 'runways': 1, 'altitude': 2075, 'descr': 'Qianjiang Wulingshan Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 5.587850199484761, 'runways': 6, 'altitude': 19, 'descr': 'Boston Logan', 'longest': 10083}
+Beijing - HAS_ROUTE -> {'pagerank': 1.6021432284564827, 'runways': 1, 'altitude': 198, 'descr': 'Taoxian Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 2.1657935616762467, 'runways': 3, 'altitude': 62, 'descr': 'Norman Y. Mineta San Jose International Airport', 'longest': 11000}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9810573777001921, 'runways': 1, 'altitude': 421, 'descr': 'Nanning Wuxu Airport', 'longest': 8858}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7289304469037609, 'runways': 1, 'altitude': 60, 'descr': 'Siem Reap International Airport', 'longest': 8366}
+Beijing - HAS_ROUTE -> {'pagerank': 0.30264136623367127, 'runways': 1, 'altitude': 6440, 'descr': 'Liupanshui Yuezhao Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.431523892734765, 'runways': 1, 'altitude': 46, 'descr': 'Lianyungang Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 0.30283948328255506, 'runways': 2, 'altitude': 11713, 'descr': 'Lhasa Gonggar Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 5.811687674181247, 'runways': 3, 'altitude': 14, 'descr': 'Vancouver International Airport', 'longest': 11500}
+Beijing - HAS_ROUTE -> {'pagerank': 4.6491552074719795, 'runways': 2, 'altitude': 242, 'descr': 'Dublin International Airport', 'longest': 8652}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3712554489353921, 'runways': 2, 'altitude': 4364, 'descr': 'Chinggis Khaan International Airport', 'longest': 10170}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2760116319675187, 'runways': 1, 'altitude': 46, 'descr': 'Anqing Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 1.3111842499630229, 'runways': 1, 'altitude': 495, 'descr': 'Zhengzhou Xinzheng International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 0.37842535992998194, 'runways': 1, 'altitude': 10, 'descr': 'Yancheng Airport', 'longest': 7218}
+Beijing - HAS_ROUTE -> {'pagerank': 3.0090373677429296, 'runways': 2, 'altitude': 622, 'descr': 'Moscow, Sheremetyevo International Airport', 'longest': 12139}
+Beijing - HAS_ROUTE -> {'pagerank': 0.41805122260415883, 'runways': 1, 'altitude': 121, 'descr': 'Zhanjiang Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 5.714918841753765, 'runways': 3, 'altitude': 1998, 'descr': 'Adolfo Suarez Barajas Airport International Airport', 'longest': 13711}
+Beijing - HAS_ROUTE -> {'pagerank': 6.977353791143904, 'runways': 2, 'altitude': 62, 'descr': 'Dubai International Airport', 'longest': 13124}
+Beijing - HAS_ROUTE -> {'pagerank': 0.306828663130705, 'runways': 1, 'altitude': 1808, 'descr': 'Wanxian Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 2.4295820832924147, 'runways': 2, 'altitude': 78, 'descr': 'Pulkovo Airport', 'longest': 12402}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22974513200062494, 'runways': 1, 'altitude': 157, 'descr': 'Mattala Rajapaksa International Airport', 'longest': 11483}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9506059588248901, 'runways': 1, 'altitude': 570, 'descr': 'Guilin Liangjiang International Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 8.193558075446687, 'runways': 4, 'altitude': 127, 'descr': 'Los Angeles International Airport', 'longest': 12091}
+Beijing - HAS_ROUTE -> {'id': '10', 'pagerank': 5.825059084187614, 'altitude': 313, 'longest': 11500, 'city': 'Washington D.C.'}
+Beijing - HAS_ROUTE -> {'pagerank': 0.38325244255950397, 'runways': 1, 'altitude': 215, 'descr': 'Saipan International Airport', 'longest': 8700}
+Beijing - HAS_ROUTE -> {'pagerank': 0.388815427054727, 'runways': 1, 'altitude': 28, 'descr': 'Lianshui Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 1.5417727298766728, 'runways': 2, 'altitude': 82, 'descr': 'Sapporo, New Chitose Airport', 'longest': 9840}
+Beijing - HAS_ROUTE -> {'pagerank': 1.9498329248231108, 'runways': 2, 'altitude': 685, 'descr': 'Vnukovo International Airport', 'longest': 10039}
+Beijing - HAS_ROUTE -> {'pagerank': 3.127568733009189, 'runways': 3, 'altitude': 69, 'descr': 'Kuala Lumpur International Airport', 'longest': 13288}
+Beijing - HAS_ROUTE -> {'pagerank': 1.3534904870855469, 'runways': 2, 'altitude': 34, 'descr': 'Soekarno-Hatta International Airport', 'longest': 12008}
+Beijing - HAS_ROUTE -> {'pagerank': 1.4417475021327424, 'runways': 1, 'altitude': 49, 'descr': 'Nanjing Lukou Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.20730222131745268, 'runways': 1, 'altitude': 1200, 'descr': 'Tonghua Sanyuanpu Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'id': '321', 'pagerank': 1.23182202785205, 'altitude': 10, 'descr': 'Heydar Aliyev International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'id': '1526', 'pagerank': 0.3947946217278842, 'altitude': 262, 'descr': 'Yiwu Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 0.823781643843338, 'runways': 2, 'altitude': 118, 'descr': 'Jeju International Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 5.961618536348004, 'runways': 6, 'altitude': 645, 'descr': 'Detroit Metropolitan, Wayne County', 'longest': 12003}
+Beijing - HAS_ROUTE -> {'pagerank': 0.29119815281150324, 'runways': 1, 'altitude': 3, 'descr': 'Zhoushan Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7135198038389605, 'runways': 1, 'altitude': 40, 'descr': 'Phnom Penh International Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7318625015235534, 'runways': 1, 'altitude': 706, 'descr': 'Longjia Airport', 'longest': 10500}
+Beijing - HAS_ROUTE -> {'pagerank': 0.47042363455203673, 'runways': 1, 'altitude': 942, 'descr': 'Yemelyanovo Airport', 'longest': 12150}
+Beijing - HAS_ROUTE -> {'pagerank': 0.6777050775197293, 'runways': 1, 'altitude': 1036, 'descr': 'Chiang Mai International Airport', 'longest': 10171}
+Beijing - HAS_ROUTE -> {'pagerank': 3.9917718247558494, 'runways': 3, 'altitude': 3557, 'descr': 'Calgary International Airport', 'longest': 12675}
+Beijing - HAS_ROUTE -> {'pagerank': 4.339780868740824, 'runways': 3, 'altitude': 23, 'descr': 'Seoul, Incheon International Airport', 'longest': 13000}
+Beijing - HAS_ROUTE -> {'pagerank': 2.24224103406584, 'runways': 2, 'altitude': 26, 'descr': 'Osaka, Kansai International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9409010617917739, 'runways': 1, 'altitude': 2125, 'descr': 'Ürümqi Diwopu International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.45293146204676665, 'runways': 1, 'altitude': 51, 'descr': 'Muan International Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.29191570784260384, 'runways': 1, 'altitude': 112, 'descr': 'Jingdezhen Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22888932025365052, 'runways': 2, 'altitude': 117, 'descr': 'Sunan International Airport', 'longest': 12475}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4250667765219985, 'runways': 1, 'altitude': 203, 'descr': 'Shubuling Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 3.5061812451962364, 'runways': 3, 'altitude': 135, 'descr': 'Edinburgh Airport', 'longest': 8400}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7543631236774754, 'runways': 1, 'altitude': 6, 'descr': 'Malé International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 5.101326780963253, 'runways': 3, 'altitude': 17, 'descr': 'Copenhagen Kastrup Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2120406324563599, 'runways': 1, 'altitude': 3316, 'descr': 'Xilinhot Airport', 'longest': 5906}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4108628424389217, 'runways': 1, 'altitude': 2920, 'descr': 'Zunyi Xinzhou Airport', 'longest': 5577}
+Beijing - HAS_ROUTE -> {'pagerank': 8.42580121770578, 'runways': 4, 'altitude': 325, 'descr': 'Istanbul International Airport', 'longest': 13451}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8727481432118185, 'runways': 1, 'altitude': 1668, 'descr': 'Islamabad, Benazir Bhutto International Airport', 'longest': 10785}
+Beijing - HAS_ROUTE -> {'pagerank': 3.740567433891849, 'runways': 2, 'altitude': 50, 'descr': 'Guangzhou Baiyun International Airport', 'longest': 12467}
+Beijing - HAS_ROUTE -> {'pagerank': 2.6311306449871266, 'runways': 1, 'altitude': 1625, 'descr': 'Chengdu Shuangliu International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4415651326637131, 'runways': 1, 'altitude': 3321, 'descr': 'Baotou Airport', 'longest': 8038}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5970712610540874, 'runways': 1, 'altitude': 7359, 'descr': 'Lijiang Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7169076800298013, 'runways': 1, 'altitude': 18, 'descr': 'Zhuhai Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7009857203010121, 'runways': 2, 'altitude': 116, 'descr': 'Daegu Airport', 'longest': 9039}
+Beijing - HAS_ROUTE -> {'pagerank': 1.1789388761697686, 'runways': 1, 'altitude': 20, 'descr': 'Macau International Airport', 'longest': 10544}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9278260150662845, 'runways': 2, 'altitude': 365, 'descr': 'Tolmachevo Airport', 'longest': 11818}
+Beijing - HAS_ROUTE -> {'pagerank': 4.186936479555701, 'runways': 3, 'altitude': 22, 'descr': 'Singapore, Changi International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.35282068200783273, 'runways': 2, 'altitude': 325, 'descr': 'Yakutsk Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 3.293986565715963, 'runways': 3, 'altitude': 135, 'descr': 'Tel Aviv, Ben Gurion International Airport', 'longest': 13327}
+Beijing - HAS_ROUTE -> {'pagerank': 1.4493510560958427, 'runways': 1, 'altitude': 186, 'descr': 'Sir Seewoosagur Ramgoolam International Airport', 'longest': 11056}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7787961579118479, 'runways': 1, 'altitude': 10, 'descr': 'Kota Kinabalu International Airport', 'longest': 9800}
+Beijing - HAS_ROUTE -> {'pagerank': 4.954902451246322, 'runways': 2, 'altitude': 13, 'descr': 'Brisbane International Airport', 'longest': 11680}
+Beijing - HAS_ROUTE -> {'pagerank': 1.8270669590484332, 'runways': 1, 'altitude': 59, 'descr': 'Xiamen Gaoqi International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2861536801196513, 'runways': 1, 'altitude': 2231, 'descr': 'Manzhouli Xijiao Airport', 'longest': 9252}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3777796284144061, 'runways': 1, 'altitude': 295, 'descr': 'Bailian Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 0.456144058129923, 'runways': 1, 'altitude': 145, 'descr': 'Weihai Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 5.549572356458283, 'runways': 2, 'altitude': 257, 'descr': 'Manchester Airport', 'longest': 10000}
+Beijing - HAS_ROUTE -> {'pagerank': 2.287542414135125, 'runways': 1, 'altitude': 1572, 'descr': "Xi'an Xianyang International Airport", 'longest': 9842}
+Beijing - HAS_ROUTE -> {'pagerank': 0.21770236569686735, 'runways': 1, 'altitude': 7050, 'descr': 'Dali Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 0.527823227277686, 'runways': 1, 'altitude': 82, 'descr': 'Krabi Airport', 'longest': 9842}
+Beijing - HAS_ROUTE -> {'pagerank': 5.668822909135786, 'runways': 3, 'altitude': 21, 'descr': 'Sydney Kingsford Smith', 'longest': 12999}
+Beijing - HAS_ROUTE -> {'pagerank': 6.126670317025154, 'runways': 2, 'altitude': 202, 'descr': 'London Gatwick', 'longest': 10364}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5803965936526382, 'runways': 1, 'altitude': 59, 'descr': 'Yantai Laishan Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 3.401324241925916, 'runways': 2, 'altitude': 82, 'descr': 'Algiers, Houari Boumediene Airport', 'longest': 11483}
+Beijing - HAS_ROUTE -> {'pagerank': 0.1897036098193499, 'runways': 1, 'altitude': 3301, 'descr': 'Erenhot Saiwusu International Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8934651474058475, 'runways': 1, 'altitude': 143, 'descr': 'Nanchang Changbei International Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8905620803075028, 'runways': 1, 'altitude': 2234, 'descr': 'Almaty Airport', 'longest': 14427}
+Beijing - HAS_ROUTE -> {'pagerank': 3.197765442289713, 'runways': 2, 'altitude': 243, 'descr': 'Quatro de Fevereiro Airport', 'longest': 12190}
+Beijing - HAS_ROUTE -> {'pagerank': 3.3169676843698426, 'runways': 2, 'altitude': 5, 'descr': 'Suvarnabhumi Bangkok International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'id': '690', 'pagerank': 1.1800907079315084, 'altitude': 12, 'descr': 'Naha Airport', 'longest': 9840}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2574257941823578, 'runways': 1, 'altitude': 1273, 'descr': 'Luliang Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22457533602418978, 'runways': 1, 'altitude': 142, 'descr': 'Jiujiang Lushan Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.21900426535104436, 'runways': 1, 'altitude': 3051, 'descr': 'Korla Airport', 'longest': 9121}
+Beijing - HAS_ROUTE -> {'pagerank': 1.4887153623481073, 'runways': 1, 'altitude': 107, 'descr': 'Zhoushuizi Airport', 'longest': 10827}
+Beijing - HAS_ROUTE -> {'pagerank': 4.617034435712039, 'runways': 2, 'altitude': 13, 'descr': 'Shanghai - Pudong International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.7296415536131164, 'runways': 4, 'altitude': 46, 'descr': 'Vladivostok International Airport', 'longest': 11483}
+Beijing - HAS_ROUTE -> {'pagerank': 4.284958761345856, 'runways': 2, 'altitude': 23, 'descr': 'Auckland International Airport', 'longest': 11926}
+Beijing - HAS_ROUTE -> {'pagerank': 0.31802489679833396, 'runways': 1, 'altitude': 584, 'descr': 'Tongliao Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.31560077993839236, 'runways': 1, 'altitude': 219, 'descr': 'Xiangfan Airport', 'longest': 7808}
+Beijing - HAS_ROUTE -> {'pagerank': 0.23701818738596178, 'runways': 1, 'altitude': 2300, 'descr': 'Tongren Fenghuang Airport', 'longest': 6562}
+Beijing - HAS_ROUTE -> {'pagerank': 1.4774423432346893, 'runways': 1, 'altitude': 10, 'descr': 'Shanghai Hongqiao International Airport', 'longest': 11154}
+Beijing - HAS_ROUTE -> {'pagerank': 0.41305915609579047, 'runways': 1, 'altitude': 643, 'descr': 'Yichang Airport', 'longest': 8500}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8566817370934184, 'runways': 1, 'altitude': 31, 'descr': 'Mactan Cebu International Airport', 'longest': 10827}
+Beijing - HAS_ROUTE -> {'pagerank': 4.595753924405267, 'runways': 4, 'altitude': 35, 'descr': 'Tokyo Haneda International Airport', 'longest': 9840}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5035554724178102, 'runways': 1, 'altitude': 19, 'descr': 'Changzhou Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 1.029898163857233, 'runways': 1, 'altitude': 76, 'descr': 'Yaoqiang Airport', 'longest': 11814}
+Beijing - HAS_ROUTE -> {'pagerank': 4.801333956503142, 'runways': 2, 'altitude': 600, 'descr': 'Vienna International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.18818150385869095, 'runways': 1, 'altitude': 4040, 'descr': 'Zhongwei Shapotou Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 1.0891383967026245, 'runways': 2, 'altitude': 39, 'descr': 'Noi Bai International Airport', 'longest': 12466}
+Beijing - HAS_ROUTE -> {'pagerank': 6.3339713542339, 'runways': 4, 'altitude': 2181, 'descr': 'Las Vegas Mc Carran', 'longest': 14512}
+Beijing - HAS_ROUTE -> {'pagerank': 4.307443300855271, 'runways': 2, 'altitude': 28, 'descr': 'Hong Kong - Chek Lap Kok International Airport', 'longest': 12467}
+Beijing - HAS_ROUTE -> {'id': '108', 'pagerank': 2.7788718961075163, 'altitude': 12, 'descr': "Nice-Cote d'Azur Airport", 'longest': 9712}
+Beijing - HAS_ROUTE -> {'pagerank': 3.9943091064585503, 'runways': 2, 'altitude': 141, 'descr': 'Tokyo Narita', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3397088787811245, 'runways': 1, 'altitude': 807, 'descr': 'Luzhou Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'id': '2979', 'pagerank': 0.22105772763455384, 'altitude': 2703, 'descr': 'Hami Airport', 'longest': 7710}
+Beijing - HAS_ROUTE -> {'pagerank': 2.5656798354848074, 'runways': 4, 'altitude': 13, 'descr': 'Honolulu International Airport', 'longest': 12312}
+Beijing - HAS_ROUTE -> {'pagerank': 1.2749885319032392, 'runways': 1, 'altitude': 82, 'descr': 'Phuket International Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 3.525257157301838, 'runways': 2, 'altitude': 434, 'descr': 'Melbourne International Airport', 'longest': 11998}
+Beijing - HAS_ROUTE -> {'pagerank': 1.6742429148346178, 'runways': 1, 'altitude': 113, 'descr': 'Wuhan Tianhe International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 5.1451641744305805, 'runways': 2, 'altitude': 147, 'descr': 'Dusseldorf International Airport', 'longest': 9842}
+Beijing - HAS_ROUTE -> {'pagerank': 3.133429543484864, 'runways': 2, 'altitude': 1411, 'descr': 'Geneva-Cointrin International Airport', 'longest': 12795}
+Beijing - IN_CITY -> {'name': 'Beijing'}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5035554724178102, 'runways': 1, 'altitude': 19, 'descr': 'Changzhou Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.27467202267406277, 'runways': 1, 'altitude': 3865, 'descr': 'Yulin Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.431523892734765, 'runways': 1, 'altitude': 46, 'descr': 'Lianyungang Airport', 'longest': 8202}
+Beijing - HAS_ROUTE -> {'pagerank': 1.7083277836911235, 'runways': 1, 'altitude': 217, 'descr': 'Changsha Huanghua International Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.23229555384470646, 'runways': 1, 'altitude': 981, 'descr': 'Ulanhot Airport', 'longest': 5906}
+Beijing - HAS_ROUTE -> {'pagerank': 3.740567433891849, 'runways': 2, 'altitude': 50, 'descr': 'Guangzhou Baiyun International Airport', 'longest': 12467}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9554400129897271, 'runways': 2, 'altitude': 3556, 'descr': 'Baita International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 0.19077380506383118, 'runways': 1, 'altitude': 6, 'descr': 'Foshan Shadi Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2738216941084452, 'runways': 1, 'altitude': 407, 'descr': 'Nanyang Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.31560077993839236, 'runways': 1, 'altitude': 219, 'descr': 'Xiangfan Airport', 'longest': 7808}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2120406324563599, 'runways': 1, 'altitude': 3316, 'descr': 'Xilinhot Airport', 'longest': 5906}
+Beijing - HAS_ROUTE -> {'pagerank': 0.363481351594379, 'runways': 1, 'altitude': 1902, 'descr': 'Chifeng Airport', 'longest': 5774}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4250667765219985, 'runways': 1, 'altitude': 203, 'descr': 'Shubuling Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 2.5871828763313216, 'runways': 1, 'altitude': 13, 'descr': "Shenzhen Bao'an International Airport", 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 2.6311306449871266, 'runways': 1, 'altitude': 1625, 'descr': 'Chengdu Shuangliu International Airport', 'longest': 11811}
+Beijing - HAS_ROUTE -> {'pagerank': 4.617034435712039, 'runways': 2, 'altitude': 13, 'descr': 'Shanghai - Pudong International Airport', 'longest': 13123}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3561822332400808, 'runways': 1, 'altitude': 98, 'descr': 'Rizhao Shanzihe Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22623621977080996, 'runways': 1, 'altitude': 3087, 'descr': "Yan'an Airport", 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.29119815281150324, 'runways': 1, 'altitude': 3, 'descr': 'Zhoushan Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8934651474058475, 'runways': 1, 'altitude': 143, 'descr': 'Nanchang Changbei International Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.4415651326637131, 'runways': 1, 'altitude': 3321, 'descr': 'Baotou Airport', 'longest': 8038}
+Beijing - HAS_ROUTE -> {'pagerank': 0.8066216014671739, 'runways': 1, 'altitude': 10, 'descr': 'Wenzhou Yongqiang Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.20593272905265475, 'runways': 1, 'altitude': 4593, 'descr': 'Qingyang Airport', 'longest': 5791}
+Beijing - HAS_ROUTE -> {'pagerank': 1.8270669590484332, 'runways': 1, 'altitude': 59, 'descr': 'Xiamen Gaoqi International Airport', 'longest': 11155}
+Beijing - HAS_ROUTE -> {'pagerank': 0.41805122260415883, 'runways': 1, 'altitude': 121, 'descr': 'Zhanjiang Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2912965295520746, 'runways': 1, 'altitude': 3442, 'descr': 'Datong Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 0.5229380627470901, 'runways': 1, 'altitude': 4557, 'descr': 'Ordos Ejin Horo Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.27321969707480404, 'runways': 1, 'altitude': 4751, 'descr': 'Bijie Feixiong Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2861536801196513, 'runways': 1, 'altitude': 2231, 'descr': 'Manzhouli Xijiao Airport', 'longest': 9252}
+Beijing - HAS_ROUTE -> {'pagerank': 1.4774423432346893, 'runways': 1, 'altitude': 10, 'descr': 'Shanghai Hongqiao International Airport', 'longest': 11154}
+Beijing - HAS_ROUTE -> {'pagerank': 2.4373072662108752, 'runways': 1, 'altitude': 1365, 'descr': 'Chongqing Jiangbei International Airport', 'longest': 10499}
+Beijing - HAS_ROUTE -> {'pagerank': 0.20735476880709974, 'runways': 1, 'altitude': 4812, 'descr': 'Anshun Huangguoshu Airport', 'longest': 9186}
+Beijing - HAS_ROUTE -> {'pagerank': 0.38313344103765445, 'runways': 1, 'altitude': 3015, 'descr': 'Changzhi Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.20593272905265475, 'runways': 1, 'altitude': 4740, 'descr': 'Jinchuan Airport', 'longest': 9843}
+Beijing - HAS_ROUTE -> {'pagerank': 0.3800187800736419, 'runways': 1, 'altitude': 2169, 'descr': 'Dongshan Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2077382136914894, 'runways': 1, 'altitude': 220, 'descr': 'Quzhou Airport', 'longest': 6234}
+Beijing - HAS_ROUTE -> {'pagerank': 0.22859928652305536, 'runways': 1, 'altitude': 3650, 'descr': 'Wuhai Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.251661644000607, 'runways': 1, 'altitude': 477, 'descr': 'Qiqihar Sanjiazi Airport', 'longest': 8530}
+Beijing - HAS_ROUTE -> {'pagerank': 0.24140881032476555, 'runways': 1, 'altitude': 4150, 'descr': 'Xingyi Airport', 'longest': 7546}
+Beijing - HAS_ROUTE -> {'pagerank': 0.2425137898041025, 'runways': 1, 'altitude': 60, 'descr': 'Jiuhuashan Airport', 'longest': 7874}
+Beijing - HAS_ROUTE -> {'pagerank': 1.6910464950914146, 'runways': 1, 'altitude': 457, 'descr': 'Taiping Airport', 'longest': 10500}
+Beijing - HAS_ROUTE -> {'pagerank': 0.9594784716566853, 'runways': 1, 'altitude': 13, 'descr': 'Ningbo Lishe International Airport', 'longest': 10499}
+Beijing - IN_CITY -> {'name': 'Beijing'}

@@ -23,7 +23,9 @@ def find_entity_type_in_neo4j(client, entity_name):
         return record["labels"]
     return None
 
-def entity_recognition_with_model(question, entity_types, client, model):
+def entity_recognition_with_model(question, entity_types, client, model, response_placeholder):
+    response_placeholder.text("正在进行实体识别... 0.0")
+    
     """
     使用GPT-4 API进行实体识别，将问题中的关键实体匹配到Neo4j的实体类型中。
     如果未能在Neo4j中找到实体类型，则使用模型从已知实体类型中选择最合适的类型。
@@ -62,6 +64,8 @@ def entity_recognition_with_model(question, entity_types, client, model):
         return None, None
     if isinstance(response, AIMessage):
         response = response.content  # 提取 AIMessage 中的内容
+        
+    response_placeholder.text("正在进行实体识别... 0.1")
 
     # 输出内容解析
     lines = response.split("\n")
@@ -71,12 +75,14 @@ def entity_recognition_with_model(question, entity_types, client, model):
         entity_names = [item.strip() for item in line.replace("实体名称：", "").replace("，", ",").replace("\'", "").split(",")]
 
     # 语义扩展
-    expanded_entities = []
-    for entity_name in entity_names:
-        expanded = semantic_expansion(entity_name, model)
-        expanded_entities.extend(expanded)
+    # expanded_entities = []
+    # for entity_name in entity_names:
+    #     expanded = semantic_expansion(entity_name, model)
+    #     expanded_entities.extend(expanded)
     
-    entity_names.extend(expanded_entities)
+    # entity_names.extend(expanded_entities)
+    
+    # response_placeholder.text("正在进行实体识别... 0.2")
 
     # 翻译为英文
     english_entity_names = []
@@ -85,6 +91,8 @@ def entity_recognition_with_model(question, entity_types, client, model):
         english_entity_names.extend(english)
 
     entity_names.extend(english_entity_names)
+    
+    response_placeholder.text("正在进行实体识别... 0.3")
 
     final_types = []
     print("全部实体类型：", entity_types)
@@ -104,6 +112,8 @@ def entity_recognition_with_model(question, entity_types, client, model):
             if isinstance(selected_type_response, AIMessage):
                 selected_type_response = selected_type_response.content.strip()
             final_types.append(selected_type_response)
+            
+    response_placeholder.text("正在进行实体识别... 0.4")
 
     return final_types, entity_names
 
