@@ -1,6 +1,7 @@
 import py2neo
 from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
+import entityRecognition
 
 API_KEY = "sk-AYjPnVCKzpm79mAxjjg8kU38baXdoMC1G7xYcmECW41mE14m"
 API_URL = "https://xiaoai.plus/v1/"
@@ -18,6 +19,34 @@ def create_model(temperature: float, streaming: bool = False):
 # Create the language model
 model = create_model(temperature=0.8, streaming=False)
 
+def get_graph_structure(client):
+    """
+    获取Neo4j中的图结构，包括节点和关系。
+    """
+    graph_structure = ""
+    graph_structure += "所有节点类型：\n"
+    result = client.run("CALL db.labels()")
+    for record in result:
+        graph_structure += f"{record['label']}, "
+
+    graph_structure += "\n所有关系类型：\n"
+    result = client.run("CALL db.relationshipTypes()")
+    for record in result:
+        graph_structure += f"{record['relationshipType']}, "
+    
+    graph_structure += "\n节点连接关系：\n"
+    result = client.run("""
+        MATCH (n)-[r]->(m)
+        RETURN DISTINCT labels(n) AS from_node, labels(m) AS to_node, type(r) AS relationship
+    """)
+    for record in result:
+        from_node = record['from_node'][0] if record['from_node'] else "Unknown"
+        to_node = record['to_node'][0] if record['to_node'] else "Unknown"
+        relationship = record['relationship']
+        graph_structure += f"{from_node} - {relationship} -> {to_node})\n"
+
+    return graph_structure
+
 def get_relationship_types(client):
     """
     获取Neo4j中所有关系类型
@@ -29,29 +58,39 @@ def get_relationship_types(client):
 
     return relationship_types
 
-def intent_recognition_with_model(question, relationship_types):
+def intent_recognition_with_model(question, relationship_types, graph_structure, node_types):
     """
     使用GPT-4 API进行意图识别，判断问题中包含的关系类型。
     """
     examples = """
-    示例：
-    问题："感冒了可以吃西红柿鸡蛋汤吗？"
-    意图：疾病宜吃食物
+    所有关系类型：
+    疾病症状，疾病常用药品，疾病宜吃食物，疾病忌吃食物，疾病治疗方法
+    问题："我现在感觉头晕和胃疼，该吃什么才能好？"
+    意图：疾病症状，疾病常用药品，疾病宜吃食物
 
-    问题："喝午时茶可以缓解胃疼？"
-    意图：疾病使用药品
+    所有关系类型：
+    IN_REGION, IN_COUNTRY, IN_CITY, HAS_ROUTE, COMPANY_NAME, FLIGHT_TIME
+    问题："我现在在亚洲旅游，希望后续去美国，有什么推荐的航班？"
+    意图：IN_REGION, IN_COUNTRY, IN_CITY, HAS_ROUTE
     """
 
     prompt = f"""
-    你是一个智能助手，帮助识别问题的意图。
-    在以下关系类型中选择最贴近问题的意图：
-    {', '.join(relationship_types)}。
-
+    你现在连接到了一个Neo4j知识图谱，我将提供给你一个问题，你需要根据知识图谱的结构和关系类型进行逻辑推理，找出所有对解答问题有帮助的关系类型，以下是一些示例：
     {examples}
 
-    输入问题："{question}"
-    输出格式：意图：关系类型（如果有贴近多个关系意图，可以返回多个）
+    以下是此知识图谱的结构：
+    {graph_structure}
+
+    以下从此问题中提取的所有节点类型，你需要通过推理确保提取出的关系可以将这些节点连接起来：
+    {', '.join(node_types)}
+
+    以下是所有关系类型，你必须严格从这其中进行选择：
+    {', '.join(relationship_types)}
+
+    问题："{question}"
+    输出格式：意图：关系类型
     """
+
     response = model.invoke(prompt)  # 调用 GPT-4 模型
     if response is None:
         print("模型返回了空响应。")
@@ -61,7 +100,8 @@ def intent_recognition_with_model(question, relationship_types):
 
     # 提取意图
     if response.startswith("意图："):
-        intent = response.replace("意图：", "").strip()
+        intent = response.replace("意图：", "").replace("，", ",").strip()
+        print("意图识别结果：", intent)
         return intent
 
     print("模型返回的格式不正确：", response)
@@ -69,17 +109,18 @@ def intent_recognition_with_model(question, relationship_types):
 
 def main():
     # 连接 Neo4j 数据库
-    client = py2neo.Graph("bolt://localhost:7687", user="neo4j", password="12345678", name="neo4j")
+    client = py2neo.Graph('neo4j+s://7151d126.databases.neo4j.io', user='neo4j', password='MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ')
 
     # 获取关系类型
+    graph_structure = get_graph_structure(client)
     relationship_types = get_relationship_types(client)
     print("Neo4j中的关系类型：", relationship_types)
 
     # 用户输入
-    question = "我感冒了怎么办？"
+    question = "我希望2月11号从北京飞去多哈，有什么推荐的航线，需要转机吗？"
 
     # 意图识别
-    intent = intent_recognition_with_model(question, relationship_types)
+    intent = intent_recognition_with_model(question, relationship_types, graph_structure)
     if intent:
         print(f"识别的意图：{intent}")
     else:

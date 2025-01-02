@@ -33,7 +33,7 @@ def find_entity_type_in_neo4j(client, entity_name):
     """
     从Neo4j中查找实体类型
     """
-    query = f"MATCH (n) WHERE n.名称 = '{entity_name}' RETURN labels(n) AS labels"
+    query = f"MATCH (n) WHERE any(prop in keys(n) WHERE n[prop] = '{entity_name}') RETURN labels(n) AS labels"
     result = client.run(query)
     for record in result:
         return record["labels"]
@@ -45,33 +45,32 @@ def entity_recognition_with_model(question, entity_types, client):
     如果未能在Neo4j中找到实体类型，则使用模型从已知实体类型中选择最合适的类型。
     """
     examples = """
-    示例：
+    所有实体类型：
+    疾病，药品，食物，疾病症状
     问题："感冒后需要吃什么药？"
     输出：
     实体类型：疾病
     实体名称：感冒
 
-    问题："感冒了可以和西红柿鸡蛋汤吗？"
+    所有实体类型：
+    大洲，国家，城市，机场，航线
+    问题："从北京飞往莫斯科的航班有哪些？"
     输出：
-    实体类型：疾病, 食物
-    实体名称：感冒, 西红柿鸡蛋汤
-
-    问题："得了流感在饮食上要注意什么？"
-    输出：
-    实体类型：疾病
-    实体名称：流感
+    实体类型：城市，城市
+    实体名称：北京，莫斯科
     """
 
     prompt = f"""
-    你是一个智能助手，帮助识别问题中的实体并与以下Neo4j实体类型匹配：
+    你现在连接到了一个Neo4j知识图谱, 以下是其中的所有实体类型:
     {', '.join(entity_types)}。
 
+    我将提供给你一个问题，你需要根据以上给出的实体类型，识别问题中的实体，并匹配到对应的实体类型（必须为知识图谱中存在的实体类型）中，以下是一些匹配示例：
     {examples}
 
+    现在请根据以下问题识别实体：
     输入问题："{question}"
     输出格式：
-    实体类型：类型1, 类型2, ...
-    实体名称：名称1, 名称2, ...
+    名称1, 名称2, ...
     """
     response = model.invoke(prompt)  # 调用 GPT-4 模型
     if response is None:
@@ -82,16 +81,30 @@ def entity_recognition_with_model(question, entity_types, client):
 
     # 输出内容解析
     lines = response.split("\n")
-    entity_types = []
     entity_names = []
 
     for line in lines:
-        if line.startswith("实体类型："):
-            entity_types = [item.strip() for item in line.replace("实体类型：", "").split(",")]
-        elif line.startswith("实体名称："):
-            entity_names = [item.strip() for item in line.replace("实体名称：", "").split(",")]
+        entity_names = [item.strip() for item in line.replace("实体名称：", "").replace("，", ",").replace("\'", "").split(",")]
+
+    # 语义扩展
+    expanded_entities = []
+    for entity_name in entity_names:
+        expanded = semantic_expansion(entity_name)
+        expanded_entities.extend(expanded)
+    
+    entity_names.extend(expanded_entities)
+
+    # 翻译为英文
+    english_entity_names = []
+    for entity_name in entity_names:
+        english = translate_to_english([entity_name])
+        english_entity_names.extend(english)
+
+    entity_names.extend(english_entity_names)
 
     final_types = []
+    print("全部实体类型：", entity_types)
+    print("识别的实体：", entity_names)
     for entity in entity_names:
         neo4j_type = find_entity_type_in_neo4j(client, entity)
         if neo4j_type:
@@ -99,7 +112,7 @@ def entity_recognition_with_model(question, entity_types, client):
         else:
             # 如果Neo4j中未找到实体类型，调用模型选择最合适的实体类型
             selection_prompt = f"""
-            在以下实体类型中选择最适合实体"{entity}"的类型：
+            在以下实体类型中选择最适合实体"{entity}"的类型，要求必须为以下实体类型之一：
             {', '.join(entity_types)}
             输出格式：类型
             """
@@ -115,42 +128,49 @@ def semantic_expansion(entity_name):
     使用GPT-4 API对识别出的实体进行语义扩展。
     """
     prompt = f"""
-    对以下实体进行语义扩展，提供可以对应的同义词，应保证扩展词与原词含义几乎完全一致：
+    对以下实体进行语义扩展，提供可以对应的同义词，必须保证扩展词与原词含义完全一致，只是叫法不同。
     实体：{entity_name}
-    输出格式：<扩展实体1>, <扩展实体2>, ...
+    请严格按照以下格式输出：
+    <扩展实体1>, <扩展实体2>, ...
     """
     response = model.invoke(prompt)
     if isinstance(response, AIMessage):
         response = response.content  # 提取 AIMessage 中的内容
-    expanded_entities = [e.strip() for e in response.split(",") if e.strip()]
+    expanded_entities = [e.strip() for e in response.replace("，", ",").replace("\'", "").split(",") if e.strip()]
+    
     return expanded_entities
+
+def translate_to_english(entity_names):
+    """
+    使用GPT-4 API将中文实体名称翻译为英文。
+    """
+    prompt = f"""
+    将以下中文实体名称翻译为英文：
+    {', '.join(entity_names)}
+    请严格按照以下格式输出：
+    <英文实体1>, <英文实体2>, ...
+    """
+    response = model.invoke(prompt)
+    if isinstance(response, AIMessage):
+        response = response.content  # 提取 AIMessage 中的内容
+    english_entity_names = [e.strip() for e in response.replace("，", ",").replace("\'", "").split(",") if e.strip()]
+    return english_entity_names
 
 def main():
     # 连接 Neo4j 数据库
-    client = py2neo.Graph("bolt://localhost:7687", user="neo4j", password="12345678", name="neo4j")
-
+    client = py2neo.Graph('neo4j+s://7151d126.databases.neo4j.io', user='neo4j', password='MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ')
     # 获取实体类型
     entity_types = get_entity_types(client)
-    print("Neo4j中的实体类型：", entity_types)
+    print("知识图谱中的实体类型：", entity_types)
 
     # 用户输入
-    question = "吃蘑菇炒菜心和板蓝根可以治疗痛风吗？"
+    question = "怎么从北京去上海？"
 
     # 实体识别
     entity_types_recognized, entity_names_recognized = entity_recognition_with_model(question, entity_types, client)
     if entity_types_recognized and entity_names_recognized:
         print(f"识别的实体类型：{', '.join(entity_types_recognized)}")
         print(f"识别的具体实体：{', '.join(entity_names_recognized)}")
-
-        # 语义扩展
-        expanded_entities = []
-        for entity_name in entity_names_recognized:
-            expanded = semantic_expansion(entity_name)
-            print(f"实体 '{entity_name}' 的语义扩展结果：{', '.join(expanded)}")
-            expanded_entities.extend(expanded)
-
-        # 输出语义扩展结果
-        #print("所有扩展实体：", expanded_entities)
     else:
         print("未能识别出有效的实体。")
 

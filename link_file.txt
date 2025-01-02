@@ -1,1 +1,4 @@
-疾病所需检查
+IN_COUNTRY
+ IN_REGION
+ IN_CITY
+ HAS_ROUTE

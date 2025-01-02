@@ -1,6 +1,6 @@
 import py2neo
 from entityRecognition import entity_recognition_with_model, get_entity_types
-from intentRecognition import intent_recognition_with_model, get_relationship_types
+from intentRecognition import intent_recognition_with_model, get_relationship_types, get_graph_structure
 from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
 
@@ -39,34 +39,72 @@ class RAGProcessor:
         for node in origin_nodes:
             query = f"""
             MATCH (n)-[r:{relationships}]->(m)
-            WHERE n.名称 = '{node}'
-            RETURN m.名称 AS connected_node, type(r) AS relationship_type
+            WHERE any(prop in keys(n) WHERE n[prop] = '{node}')
+            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
+                   type(r) AS relationship_type
             """
             queries.append(query)
 
             query = f"""
             MATCH (n)-[r:{relationships}]->(m)
-            WHERE m.名称 = '{node}'
-            RETURN n.名称 AS connected_node, type(r) AS relationship_type
+            WHERE any(prop in keys(m) WHERE m[prop] = '{node}')
+            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
+                   type(r) AS relationship_type
             """
             queries.append(query)
         return queries
 
-    def execute_queries(self, queries):
+    def execute_queries(self, queries, origin_nodes):
         """
         执行Cypher查询，并返回结果。
         """
         results = []
-        for query in queries:
+        new_origin_nodes = origin_nodes.copy()
+        for index, query in enumerate(queries):
             try:
                 result = self.client.run(query)
                 for record in result:
-                    results.append({
-                        "connected_node": record["connected_node"],
-                        "relationship_type": record["relationship_type"]
-                    })
+                    if record["m_limited_properties"]:
+                        print(record)
+                        results.append({
+                            "origin_node": origin_nodes[index // 2],
+                            "relationship_type": record["relationship_type"],
+                            "connected_node": record["m_limited_properties"],
+                        })
+                        new_origin_nodes.append(record["m_limited_properties"].get(0))
+                    elif record["n_limited_properties"]:
+                        results.append({
+                            "origin_node": record["n_limited_properties"],
+                            "relationship_type": record["relationship_type"],
+                            "connected_node": origin_nodes[index // 2],
+                        })
+                        new_origin_nodes.append(record["n_limited_properties"].get(0))
             except Exception as e:
                 print(f"执行Cypher查询失败：{e}")
+        return results, new_origin_nodes
+    
+    def depth_search(self, origin_nodes, epoch=1):
+        results = []
+        for _ in range(epoch):
+            queries = []
+            for node in origin_nodes:
+                query = f"""
+                MATCH (n)-[r]->(m)
+                WHERE any(prop in keys(n) WHERE n[prop] = '{node}')
+                RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
+                    type(r) AS relationship_type
+                """
+                queries.append(query)
+
+                query = f"""
+                MATCH (n)-[r]->(m)
+                WHERE any(prop in keys(m) WHERE m[prop] = '{node}')
+                RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
+                    type(r) AS relationship_type
+                """
+                queries.append(query)
+            result, origin_nodes = self.execute_queries(queries, origin_nodes)
+            results.extend(result)
         return results
 
     def write_to_file(self, file_path, content):
@@ -84,9 +122,17 @@ class RAGProcessor:
         使用GPT模型生成基于上下文的回答。
         """
         context = "相关知识点包括: " + ", ".join(
-            {f"{data['relationship_type']} -> {data['connected_node']}" for data in context_data}
+            {f"{data['origin_node']} - {data['relationship_type']} -> {data['connected_node']})" for data in context_data}
         )
-        full_prompt = f"{context}\n\n用户问题: {user_prompt}\n回答:"
+        full_prompt = f"""
+        你现在连接到了一个知识图谱，后续将提供给你一个问题，以下是关于该问题你可能运用到的所有相关信息：\n
+        {context}\n\n
+
+        下面将给出用户的问题，请你严格根据前面给出的信息进行推理和回答，同时尽量使回答涵盖每种关系类型下的信息，以丰富回答内容。
+        在回答过程中，严禁使用任何其余知识和信息，如果前面给出的信息不足以回答用户的问题，请直接告知用户你无法回答。
+        用户问题: {user_prompt}\n
+        回答:
+        """
         print("Full Prompt："+full_prompt)
 
         try:
@@ -105,6 +151,11 @@ def main():
     neo4j_user = "neo4j"
     neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
 
+    # 此参数为航班知识图谱
+    # neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
+    # neo4j_user = "neo4j"
+    # neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
+
     rag_processor = RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
     try:
         rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
@@ -117,7 +168,8 @@ def main():
     relationship_types = get_relationship_types(rag_processor.client)
 
     # 用户输入
-    user_question = "怎么知道我有没有糖尿病？"
+    user_question = "我得了感冒，怎么才能好起来？"
+    # user_question = "我现在在中国，这个假期想去日本东京旅行，从哪里出发比较好？"
 
     # 实体识别
     entity_types_recognized, entity_names_recognized = entity_recognition_with_model(user_question, entity_types, rag_processor.client)
@@ -131,7 +183,8 @@ def main():
     rag_processor.write_to_file(node_file, entity_names_recognized)
 
     # 意图识别
-    intent = intent_recognition_with_model(user_question, relationship_types)
+    graph_structure = get_graph_structure(rag_processor.client)
+    intent = intent_recognition_with_model(user_question, relationship_types, graph_structure, entity_types_recognized)
 
     if not intent:
         print("未能识别出有效的意图。")
@@ -152,13 +205,17 @@ def main():
     rag_processor.write_to_file(cypher_file, queries)
 
     # 执行查询
-    query_results = rag_processor.execute_queries(queries)
+    query_results, new_origin_nodes = rag_processor.execute_queries(queries, entity_names_recognized)
+    print("查询结果：", query_results)
+
+    # 深度搜索（可选）
+    query_results = rag_processor.depth_search(new_origin_nodes, epoch=0)
 
     # 检查查询结果并写入到文件
     result_file = "result_file.txt"
     if query_results:
         formatted_results = [
-            f"Connected Node: {result['connected_node']}, Relationship Type: {result['relationship_type']}"
+            f"{result['origin_node']} - {result['relationship_type']} -> {result['connected_node']}"
             for result in query_results
         ]
         rag_processor.write_to_file(result_file, formatted_results)

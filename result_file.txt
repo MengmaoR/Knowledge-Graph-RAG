@@ -1,10 +1,1 @@
-Connected Node: 胰岛素原, Relationship Type: 疾病所需检查
-Connected Node: 口服葡萄糖耐量试验, Relationship Type: 疾病所需检查
-Connected Node: 血糖, Relationship Type: 疾病所需检查
-Connected Node: 极低密度脂蛋白胆固醇（VLDL-c，VLDL-ch ）, Relationship Type: 疾病所需检查
-Connected Node: 胰岛素, Relationship Type: 疾病所需检查
-Connected Node: 空腹血葡萄糖, Relationship Type: 疾病所需检查
-Connected Node: 尿糖（GLU）, Relationship Type: 疾病所需检查
-Connected Node: 抗胰岛素受体抗体, Relationship Type: 疾病所需检查
-Connected Node: 血清乙酰乙酸, Relationship Type: 疾病所需检查
-Connected Node: 血糖仪试纸带法, Relationship Type: 疾病所需检查
+未找到相关的连接节点。
