@@ -43,6 +43,13 @@ class RAGProcessor:
             RETURN m.名称 AS connected_node, type(r) AS relationship_type
             """
             queries.append(query)
+
+            query = f"""
+            MATCH (n)-[r:{relationships}]->(m)
+            WHERE m.名称 = '{node}'
+            RETURN n.名称 AS connected_node, type(r) AS relationship_type
+            """
+            queries.append(query)
         return queries
 
     def execute_queries(self, queries):
@@ -93,18 +100,24 @@ class RAGProcessor:
 
 def main():
     # 配置Neo4j连接参数
-    neo4j_uri = "bolt://localhost:7687"
+    # 此参数为医疗知识图谱
+    neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
     neo4j_user = "neo4j"
-    neo4j_password = "12345678"
+    neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
 
     rag_processor = RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+    try:
+        rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
+        print("成功连接到Neo4j数据库。")
+    except Exception as e:
+        print(f"连接Neo4j数据库失败：{e}")
 
     # 获取实体和关系类型
     entity_types = get_entity_types(rag_processor.client)
     relationship_types = get_relationship_types(rag_processor.client)
 
     # 用户输入
-    user_question = "吃什么能缓解或者治疗痛风，吃螃蟹有用吗？"
+    user_question = "我感到头疼、头晕、浑身乏力、腰酸背痛，这是什么病？吃些什么可以缓解一下？我需不需要进行检查和治疗？"
 
     # 实体识别
     entity_types_recognized, entity_names_recognized = entity_recognition_with_model(user_question, entity_types, rag_processor.client)
