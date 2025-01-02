@@ -119,7 +119,7 @@ def main():
         
         # 实体识别
         response_placeholder.text("正在进行实体识别...")
-        entity_types_recognized, entity_names_recognized = entity_recognition_with_model(question, entity_types, rag_processor.client)
+        entity_types_recognized, entity_names_recognized = entity_recognition_with_model(question, entity_types, rag_processor.client, llm)
         if not entity_names_recognized:
             print("未能识别出有效的实体。")
             return
@@ -133,7 +133,7 @@ def main():
         # 意图识别
         response_placeholder.text("正在进行意图识别...")
         graph_structure = get_graph_structure(rag_processor.client)
-        intent = intent_recognition_with_model(question, relationship_types, graph_structure, entity_types_recognized)
+        intent = intent_recognition_with_model(question, relationship_types, graph_structure, entity_types_recognized, llm)
         if not intent:
             print("未能识别出有效的意图。")
             return
@@ -176,7 +176,7 @@ def main():
             rag_processor.write_to_file(result_file, ["未找到相关的连接节点。"])
 
         # 调用大模型生成回答
-        answer = rag_processor.generate_answer(question, query_results)
+        answer = rag_processor.generate_answer(question, query_results, llm)
 
         # 输出回答
         print("回答:", answer)

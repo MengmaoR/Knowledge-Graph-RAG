@@ -3,22 +3,6 @@ from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
 import entityRecognition
 
-API_KEY = "sk-AYjPnVCKzpm79mAxjjg8kU38baXdoMC1G7xYcmECW41mE14m"
-API_URL = "https://xiaoai.plus/v1/"
-
-# Function to create the language model instance
-def create_model(temperature: float, streaming: bool = False):
-    return ChatOpenAI(
-        openai_api_key=API_KEY,
-        openai_api_base=API_URL,
-        temperature=temperature,
-        model_name="gpt-4o-mini",
-        streaming=streaming,
-    )
-
-# Create the language model
-model = create_model(temperature=0.8, streaming=False)
-
 def get_graph_structure(client):
     """
     获取Neo4j中的图结构，包括节点和关系。
@@ -58,7 +42,7 @@ def get_relationship_types(client):
 
     return relationship_types
 
-def intent_recognition_with_model(question, relationship_types, graph_structure, node_types):
+def intent_recognition_with_model(question, relationship_types, graph_structure, node_types, model):
     """
     使用GPT-4 API进行意图识别，判断问题中包含的关系类型。
     """

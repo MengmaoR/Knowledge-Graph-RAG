@@ -4,22 +4,6 @@ from intentRecognition import intent_recognition_with_model, get_relationship_ty
 from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
 
-API_KEY = "sk-AYjPnVCKzpm79mAxjjg8kU38baXdoMC1G7xYcmECW41mE14m"
-API_URL = "https://xiaoai.plus/v1/"
-
-# Function to create the language model instance
-def create_model(temperature: float, streaming: bool = False):
-    return ChatOpenAI(
-        openai_api_key=API_KEY,
-        openai_api_base=API_URL,
-        temperature=temperature,
-        model_name="gpt-4o-mini",
-        streaming=streaming,
-    )
-
-# Create the language model
-model = create_model(temperature=0.8, streaming=False)
-
 class RAGProcessor:
     def __init__(self, neo4j_uri, neo4j_user, neo4j_password):
         self.client = py2neo.Graph(neo4j_uri, user=neo4j_user, password=neo4j_password)
@@ -117,7 +101,7 @@ class RAGProcessor:
         except Exception as e:
             print(f"写入文件 {file_path} 失败：{e}")
 
-    def generate_answer(self, user_prompt, context_data):
+    def generate_answer(self, user_prompt, context_data, model):
         """
         使用GPT模型生成基于上下文的回答。
         """

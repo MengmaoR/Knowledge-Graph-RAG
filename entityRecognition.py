@@ -2,22 +2,6 @@ import py2neo
 from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
 
-API_KEY = "sk-AYjPnVCKzpm79mAxjjg8kU38baXdoMC1G7xYcmECW41mE14m"
-API_URL = "https://xiaoai.plus/v1/"
-
-# Function to create the language model instance
-def create_model(temperature: float, streaming: bool = False):
-    return ChatOpenAI(
-        openai_api_key=API_KEY,
-        openai_api_base=API_URL,
-        temperature=temperature,
-        model_name="gpt-4o-mini",
-        streaming=streaming,
-    )
-
-# Create the language model
-model = create_model(temperature=0.8, streaming=False)
-
 def get_entity_types(client):
     """
     获取Neo4j中所有实体类型
@@ -39,7 +23,7 @@ def find_entity_type_in_neo4j(client, entity_name):
         return record["labels"]
     return None
 
-def entity_recognition_with_model(question, entity_types, client):
+def entity_recognition_with_model(question, entity_types, client, model):
     """
     使用GPT-4 API进行实体识别，将问题中的关键实体匹配到Neo4j的实体类型中。
     如果未能在Neo4j中找到实体类型，则使用模型从已知实体类型中选择最合适的类型。
@@ -89,7 +73,7 @@ def entity_recognition_with_model(question, entity_types, client):
     # 语义扩展
     expanded_entities = []
     for entity_name in entity_names:
-        expanded = semantic_expansion(entity_name)
+        expanded = semantic_expansion(entity_name, model)
         expanded_entities.extend(expanded)
     
     entity_names.extend(expanded_entities)
@@ -97,7 +81,7 @@ def entity_recognition_with_model(question, entity_types, client):
     # 翻译为英文
     english_entity_names = []
     for entity_name in entity_names:
-        english = translate_to_english([entity_name])
+        english = translate_to_english([entity_name], model)
         english_entity_names.extend(english)
 
     entity_names.extend(english_entity_names)
@@ -123,7 +107,7 @@ def entity_recognition_with_model(question, entity_types, client):
 
     return final_types, entity_names
 
-def semantic_expansion(entity_name):
+def semantic_expansion(entity_name, model):
     """
     使用GPT-4 API对识别出的实体进行语义扩展。
     """
@@ -140,7 +124,7 @@ def semantic_expansion(entity_name):
     
     return expanded_entities
 
-def translate_to_english(entity_names):
+def translate_to_english(entity_names, model):
     """
     使用GPT-4 API将中文实体名称翻译为英文。
     """
