@@ -1,40 +1,10 @@
 
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE n.名称 = '头疼'
+            MATCH (n)-[r:疾病所需检查]->(m)
+            WHERE n.名称 = '糖尿病'
             RETURN m.名称 AS connected_node, type(r) AS relationship_type
             
 
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE m.名称 = '头疼'
-            RETURN n.名称 AS connected_node, type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE n.名称 = '头晕'
-            RETURN m.名称 AS connected_node, type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE m.名称 = '头晕'
-            RETURN n.名称 AS connected_node, type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE n.名称 = '浑身乏力'
-            RETURN m.名称 AS connected_node, type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE m.名称 = '浑身乏力'
-            RETURN n.名称 AS connected_node, type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE n.名称 = '腰酸背痛'
-            RETURN m.名称 AS connected_node, type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:疾病的症状|疾病宜吃食物|疾病所需检查|治疗的方法]->(m)
-            WHERE m.名称 = '腰酸背痛'
+            MATCH (n)-[r:疾病所需检查]->(m)
+            WHERE m.名称 = '糖尿病'
             RETURN n.名称 AS connected_node, type(r) AS relationship_type
             

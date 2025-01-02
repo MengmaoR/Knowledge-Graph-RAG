@@ -68,7 +68,7 @@ def generate_prompt(intent, query):
 #     for res,his in glm_model.stream_chat(glm_tokenizer, prompt, history=[]):
 #         yield res
 
-def main(is_admin, usname):
+def main():
     # cache_model = 'best_roberta_rnn_model_ent_aug' # lifang535 delete
     model_name = 'gpt-4o-mini' # lifang535 add
     st.title(f"医疗智能问答机器人")
@@ -76,13 +76,7 @@ def main(is_admin, usname):
     with st.sidebar:
         col1, col2 = st.columns([0.6, 0.6])
         with col1:
-            st.image(os.path.join("img", "logo.jpg"), use_column_width=True) # lifang535 delete - mengmao add back
-            # st.image(os.path.join("img", "logo.jpg"), use_container_width=True) # lifang535 add - mengmao delete, use_container_width unexcepted
-
-        st.caption(
-            f"""<p align="left">欢迎您，{'管理员' if is_admin else '用户'}{usname}！当前版本：{1.0}</p>""",
-            unsafe_allow_html=True,
-        )
+            st.image(os.path.join("ui_img", "logo.jpg"), use_container_width=True)
 
         if 'chat_windows' not in st.session_state:
             st.session_state.chat_windows = [[]]
@@ -98,24 +92,14 @@ def main(is_admin, usname):
 
         selected_option = st.selectbox(
             label='请选择大语言模型:',
-            options=['Qwen 1.5', 'Llama2-Chinese']
+            options=['GPT-4o', 'GPT-4o mini'],
         )
         choice = 'qwen:32b' if selected_option == 'Qwen 1.5' else 'llama2-chinese:13b-chat-q8_0'
 
         show_ent = show_int = show_prompt = False
-        if is_admin:
-            show_ent = st.sidebar.checkbox("显示实体识别结果")
-            show_int = st.sidebar.checkbox("显示意图识别结果")
-            show_prompt = st.sidebar.checkbox("显示查询的知识库信息")
-            if st.button('修改知识图谱'):
-            # 显示一个链接，用户可以点击这个链接在新标签页中打开百度
-                st.markdown('[点击这里修改知识图谱](http://127.0.0.1:7474/)', unsafe_allow_html=True)
-
-        if st.button("返回登录"):
-            st.session_state.logged_in = False
-            st.session_state.admin = False
-            # st.experimental_rerun() # lifang535 delete
-            st.rerun() # lifang535 add
+        show_ent = st.sidebar.checkbox("显示实体识别结果")
+        show_int = st.sidebar.checkbox("显示意图识别结果")
+        show_prompt = st.sidebar.checkbox("显示查询的知识库信息")
 
     load_model(model_name)
     # client = py2neo.Graph('http://localhost:7474', user='neo4j', password='wei8kang7.long', name='neo4j') # lifang535 delete
@@ -177,3 +161,6 @@ def main(is_admin, usname):
 
 
     st.session_state.messages[active_window_index] = current_messages
+
+if __name__ == "__main__":
+    main()

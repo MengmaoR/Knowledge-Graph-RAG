@@ -117,7 +117,7 @@ def main():
     relationship_types = get_relationship_types(rag_processor.client)
 
     # 用户输入
-    user_question = "我感到头疼、头晕、浑身乏力、腰酸背痛，这是什么病？吃些什么可以缓解一下？我需不需要进行检查和治疗？"
+    user_question = "怎么知道我有没有糖尿病？"
 
     # 实体识别
     entity_types_recognized, entity_names_recognized = entity_recognition_with_model(user_question, entity_types, rag_processor.client)
