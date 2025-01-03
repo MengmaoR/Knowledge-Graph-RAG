@@ -28,28 +28,13 @@ def create_model(temperature: float, streaming: bool = False, model_name: str = 
     )
 
 # Load the language model
-llm = create_model(temperature=0.8, streaming=True, model_name="gpt-4o-mini")
+llm = create_model(temperature=0.5, streaming=True, model_name="gpt-4o-mini")
 
 @st.cache_resource
 def load_model(model_name):
-    llm = create_model(temperature=0.8, streaming=True, model_name=model_name)
+    llm = create_model(temperature=0.5, streaming=True, model_name=model_name)
     print(f"[load_model] llm: {llm}")
     return llm
-
-# Generate prompt for the LLM
-def generate_prompt(intent, query, query_results):
-    entities = {}
-    yitu = []
-    prompt = "<指令>你是一个医疗问答机器人，你需要根据给定的提示回答用户的问题。</指令>"
-    prompt += f"<用户>{query}</用户>"
-    prompt += f"<用户意图>{intent}</用户意图>"
-
-    # Formatting the results from the RAG process
-    context_data = "\n".join(
-        [f"{result['relationship_type']} -> {result['connected_node']}" for result in query_results]
-    )
-
-    return prompt, context_data, entities
 
 def main():
     # Neo4j connection configuration (change to your actual Neo4j details)
@@ -59,9 +44,6 @@ def main():
 
     # Initialize RAGProcessor
     rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
-
-    llm = load_model('gpt-4o-mini')
-    # st.title(f"医疗智能问答机器人")
 
     with st.sidebar:
         col1, col2 = st.columns([0.6, 0.6])
@@ -85,20 +67,23 @@ def main():
             options=['医疗信息知识图谱', '航班信息知识图谱', '自定义知识图谱'],
         )
     
+    title = ""
     if database_option == '医疗信息知识图谱':
-        st.title("医疗智能问答机器人")
+        title = st.title("医疗智能问答机器人")
         neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
         neo4j_user = "neo4j"
         neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
         rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)      
     elif database_option == '航班信息知识图谱':
-        st.title("航班智能问答机器人")
+        title = st.title("航班智能问答机器人")
         neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
         neo4j_user = "neo4j"
         neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
         rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
     elif database_option == '自定义知识图谱':
-        st.title("自定义智能问答机器人")
+        if title == "":
+            title = st.text_input("请输入知识图谱标题:")
+        st.title(title)
         neo4j_uri = st.text_input("请输入 Neo4j 数据库 URI:")
         neo4j_user = st.text_input("请输入 Neo4j 数据库用户名:")
         neo4j_password = st.text_input("请输入Neo4j数据库密码:", type="password")
@@ -125,9 +110,11 @@ def main():
         show_ent = st.sidebar.checkbox("显示实体识别结果", value=True)
         show_int = st.sidebar.checkbox("显示意图识别结果", value=True)
         show_prompt = st.sidebar.checkbox("显示查询的知识库信息", value=True)
-        deep_search = st.sidebar.checkbox("深度搜索", value=False)
+        deep_search = st.sidebar.checkbox("深度搜索(*)", value=False)
         if deep_search:
             epoch = st.sidebar.number_input("搜索迭代次数", value=1)
+        st.sidebar.text("*深度搜索可以提供更全面和丰富的回答，但可能大幅增加查询时间。")
+
 
     current_messages = st.session_state.messages[active_window_index]
 
@@ -140,7 +127,7 @@ def main():
                         st.write(message.get("ent", ""))
                 if show_int:
                     with st.expander("意图识别结果"):
-                        st.write(message.get("yitu", ""))
+                        st.write(message.get("inte", ""))
                 if show_prompt:
                     with st.expander("点击显示知识库信息"):
                         st.write(message.get("prompt", ""))
@@ -151,6 +138,7 @@ def main():
             st.markdown(question)
 
         response_placeholder = st.empty()
+        st.empty()
 
         # 获取实体和关系类型
         entity_types = get_entity_types(rag_processor.client)
@@ -229,27 +217,31 @@ def main():
 
         # 调用大模型生成回答
         response_placeholder.text("正在生成回答...")
-        answer = rag_processor.generate_answer(question, prompt, enti, inte, llm)
+        answer = rag_processor.generate_answer(question, prompt, enti, inte, title, llm)
 
         # 输出回答
-        print("回答:", answer)
+        if answer is not None:
+            print("回答:", answer)
     
-        response_placeholder.markdown(answer)
-        response_placeholder.markdown("")
+            response_placeholder.markdown(answer)
+            response_placeholder.markdown("")
 
-        with st.chat_message("assistant"):
-            st.markdown(answer)
-            if show_ent:
-                with st.expander("实体识别结果"):
-                    st.write(enti)
-            if show_int:
-                with st.expander("意图识别结果"):
-                    st.write(inte)
-            if show_prompt:
-                with st.expander("点击显示知识库信息"):
-                    st.write(prompt)
+            with st.chat_message("assistant"):
+                st.markdown(answer)
+                if show_ent:
+                    with st.expander("实体识别结果"):
+                        st.write(enti)
+                if show_int:
+                    with st.expander("意图识别结果"):
+                        st.write(inte)
+                if show_prompt:
+                    with st.expander("点击显示知识库信息"):
+                        st.write(prompt)
+        else:
+            st.empty()
 
-        current_messages.append({"role": "assistant", "content": answer, "yitu": intent, "prompt": prompt, "ent": str({})})
+        current_messages.append({"role": "assistant", "content": answer, "inte": intent, "prompt": prompt, "ent": enti})
+        answer = None
 
     st.session_state.messages[active_window_index] = current_messages
 

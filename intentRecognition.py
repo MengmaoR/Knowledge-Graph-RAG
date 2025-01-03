@@ -58,8 +58,7 @@ def intent_recognition_with_model(question, relationship_types, graph_structure,
     """
 
     prompt = f"""
-    你现在连接到了一个Neo4j知识图谱，我将提供给你一个问题，你需要根据知识图谱的结构和关系类型进行逻辑推理，找出所有对解答问题有帮助的关系类型，以下是一些示例：
-    {examples}
+    你现在连接到了一个Neo4j知识图谱，我将提供给你一个问题，你需要根据知识图谱的结构和关系类型进行逻辑推理，找出所有对解答问题有帮助的关系类型.
 
     以下是此知识图谱的结构：
     {graph_structure}
@@ -67,11 +66,12 @@ def intent_recognition_with_model(question, relationship_types, graph_structure,
     以下从此问题中提取的所有节点类型，你需要通过推理确保提取出的关系可以将这些节点连接起来：
     {', '.join(node_types)}
 
-    以下是所有关系类型，你必须严格从这其中进行选择：
+    以下是所有关系类型，你必须严格从这其中进行选择，禁止回答任何其他语句：
     {', '.join(relationship_types)}
 
     问题："{question}"
-    输出格式：意图：关系类型
+    输出格式：意图：关系1, 关系2, ...
+    你需要严格按照输出格式进行输出，禁止输出其他任何内容，如果无法识别意图，请不要输出。
     """
 
     response = model.invoke(prompt)  # 调用 GPT-4 模型

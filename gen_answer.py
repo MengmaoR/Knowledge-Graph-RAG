@@ -106,20 +106,22 @@ class RAGProcessor:
         except Exception as e:
             print(f"写入文件 {file_path} 失败：{e}")
 
-    def generate_answer(self, user_prompt, context_data, enti, inte, model):
+    def generate_answer(self, user_prompt, context_data, enti, inte, title, model):
         """
         使用GPT模型生成基于上下文的回答。
         """
         full_prompt = f"""
-        你现在连接到了一个知识图谱，后续将提供给你一个问题，以下是关于该问题你可能运用到的所有相关信息：\n
+        你是一个{title}，你现在连接到了一个知识图谱，后续将提供给你一个问题，以下是关于该问题你可能运用到的所有相关信息：\n
         {context_data}\n
 
-        下面将给出用户的问题，请你严格根据前面给出的信息进行推理和回答，在回答过程中严禁使用任何其余知识和信息，如果前面给出的信息不足以回答用户的问题，请直接告知用户你无法回答。
         为了丰富回答内容，你需要使回答涵盖每种关系类型下的查询信息，同时将重点关注于实体识别结果和意图识别结果。
         实体识别结果: \n{enti}\n
         意图识别结果: \n{inte}\n
-        
+
+        下面将给出用户的问题，请你严格根据前面给出的信息进行推理和回答，在回答过程中严禁使用任何其余知识和信息，如果前面给出的信息不足以回答用户的问题，请直接告知用户你无法回答。
         用户问题: {user_prompt}\n
+
+        你的回答必须保持严谨和专业，对于每一行回答，你都必须列举出知识信息作为佐证，所有知识信息必须处理为易于理解的自然语言描述再进行输出，如果无法列出佐证，则不要回答。
         回答:
         """
         print("Full Prompt："+full_prompt)

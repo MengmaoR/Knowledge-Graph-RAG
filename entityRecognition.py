@@ -50,13 +50,14 @@ def entity_recognition_with_model(question, entity_types, client, model, respons
     你现在连接到了一个Neo4j知识图谱, 以下是其中的所有实体类型:
     {', '.join(entity_types)}。
 
-    我将提供给你一个问题，你需要根据以上给出的实体类型，识别问题中的实体，并匹配到对应的实体类型（必须为知识图谱中存在的实体类型）中，以下是一些匹配示例：
+    我将提供给你一个问题，你需要根据以上给出的实体类型，识别问题中的实体，并匹配到对应的实体类型（必须为知识图谱中存在的实体类型）中。以下是一些示例：
     {examples}
 
     现在请根据以下问题识别实体：
     输入问题："{question}"
     输出格式：
     名称1, 名称2, ...
+    你需要严格按照输出格式进行输出，禁止输出其他任何内容，如果无法识别实体，请不要输出。
     """
     response = model.invoke(prompt)  # 调用 GPT-4 模型
     if response is None:
@@ -122,10 +123,11 @@ def semantic_expansion(entity_name, model):
     使用GPT-4 API对识别出的实体进行语义扩展。
     """
     prompt = f"""
-    对以下实体进行语义扩展，提供与此实体含义完全一致的专业术语或专业词汇，对每个实体仅提供一个扩展：
+    对以下实体进行语义扩展，提供与此实体含义完全一致的专业术语或专业词汇，对每个实体只能提供一个扩展，禁止提供多个扩展：
     实体：{entity_name}
     请严格按照以下格式输出：
     <扩展实体1>, <扩展实体2>, ...
+    你需要严格按照输出格式进行输出，禁止输出其他任何内容，如果无需要扩展的实体，则不要输出。
     """
     response = model.invoke(prompt)
     if isinstance(response, AIMessage):
@@ -143,6 +145,7 @@ def translate_to_english(entity_names, model):
     {', '.join(entity_names)}
     请严格按照以下格式输出：
     <英文实体1>, <英文实体2>, ...
+    你需要严格按照输出格式进行输出，禁止输出其他任何内容，如果无需要翻译的内容，则不要输出。
     """
     response = model.invoke(prompt)
     if isinstance(response, AIMessage):
