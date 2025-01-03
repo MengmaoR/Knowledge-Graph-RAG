@@ -61,7 +61,7 @@ def main():
     rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
 
     llm = load_model('gpt-4o-mini')
-    st.title(f"医疗智能问答机器人")
+    # st.title(f"医疗智能问答机器人")
 
     with st.sidebar:
         col1, col2 = st.columns([0.6, 0.6])
@@ -79,10 +79,46 @@ def main():
         window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
         selected_window = st.selectbox('请选择对话窗口:', window_options)
         active_window_index = int(selected_window.split()[1]) - 1
+        
+        database_option = st.selectbox(
+            label='请选择知识图谱:',
+            options=['医疗信息知识图谱', '航班信息知识图谱', '自定义知识图谱'],
+        )
+    
+    if database_option == '医疗信息知识图谱':
+        st.title("医疗智能问答机器人")
+        neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
+        neo4j_user = "neo4j"
+        neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+        rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)      
+    elif database_option == '航班信息知识图谱':
+        st.title("航班智能问答机器人")
+        neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
+        neo4j_user = "neo4j"
+        neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
+        rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+    elif database_option == '自定义知识图谱':
+        st.title("自定义智能问答机器人")
+        neo4j_uri = st.text_input("请输入 Neo4j 数据库 URI:")
+        neo4j_user = st.text_input("请输入 Neo4j 数据库用户名:")
+        neo4j_password = st.text_input("请输入Neo4j数据库密码:", type="password")
+        try:
+            rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+        except Exception as e:
+            st.text(f"请输入正确的Neo4j数据库连接信息：{e}")
+    else:
+        pass
+    # 等待连接到Neo4j数据库
+    try:
+        rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
+        print("成功连接到Neo4j数据库。")
+    except Exception as e:
+        print(f"连接Neo4j数据库失败：{e}")
 
+    with st.sidebar:
         selected_option = st.selectbox(
             label='请选择大语言模型:',
-            options=['GPT-4o', 'GPT-4o mini'],
+            options=['GPT-4o mini', 'GPT-4o'],
         )
         choice = 'gpt-4o' if selected_option == 'GPT-4o' else 'gpt-4o-mini'
 
@@ -122,20 +158,32 @@ def main():
         
         # 实体识别
         response_placeholder.text("正在进行实体识别...")
-        entity_types_recognized, entity_names_recognized = entity_recognition_with_model(question, entity_types, rag_processor.client, llm)
+        entity_types_recognized, entity_names_recognized = entity_recognition_with_model(question, entity_types, rag_processor.client, llm, response_placeholder)
+        response_placeholder.text("正在进行实体识别... 1")
         if not entity_names_recognized:
             print("未能识别出有效的实体。")
             return
         
+        response_placeholder.text("正在进行实体识别... 2")
+        
         # 写入实体识别结果到 node_file.txt
         node_file = "node_file.txt"
         rag_processor.write_to_file(node_file, entity_names_recognized)
+        
+        response_placeholder.text("正在进行实体识别... 3")
+
         enti = entity_names_recognized
 
         # 意图识别
         response_placeholder.text("正在进行意图识别...")
         graph_structure = get_graph_structure(rag_processor.client)
+        
+        response_placeholder.text("正在进行意图识别... 1")
+        
         intent = intent_recognition_with_model(question, relationship_types, graph_structure, entity_types_recognized, llm)
+        
+        response_placeholder.text("正在进行意图识别... 2")
+        
         if not intent:
             print("未能识别出有效的意图。")
             return
@@ -162,6 +210,7 @@ def main():
 
         # 深度搜索（可选）
         if deep_search:
+            response_placeholder.text("正在执行深度搜索...")
             query_results += rag_processor.depth_search(new_origin_nodes, epoch)
 
         # 检查查询结果并写入到文件

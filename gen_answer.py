@@ -48,7 +48,9 @@ class RAGProcessor:
             try:
                 result = self.client.run(query)
                 for record in result:
-                    if record["m_limited_properties"]:
+                    # if record["m_limited_properties"]:
+                    # 如果 record 中包含 m_limited_properties 这个键
+                    if record.get("m_limited_properties"):
                         print(record)
                         results.append({
                             "origin_node": origin_nodes[index // 2],
@@ -56,7 +58,8 @@ class RAGProcessor:
                             "connected_node": record["m_limited_properties"],
                         })
                         new_origin_nodes.append(record["m_limited_properties"].get(0))
-                    elif record["n_limited_properties"]:
+                    # elif record["n_limited_properties"]:
+                    elif record.get("n_limited_properties"):
                         results.append({
                             "origin_node": record["n_limited_properties"],
                             "relationship_type": record["relationship_type"],
@@ -65,6 +68,8 @@ class RAGProcessor:
                         new_origin_nodes.append(record["n_limited_properties"].get(0))
             except Exception as e:
                 print(f"执行Cypher查询失败：{e}")
+                continue
+
         return results, new_origin_nodes
     
     def depth_search(self, origin_nodes, epoch=1):
