@@ -101,19 +101,19 @@ class RAGProcessor:
         except Exception as e:
             print(f"写入文件 {file_path} 失败：{e}")
 
-    def generate_answer(self, user_prompt, context_data, model):
+    def generate_answer(self, user_prompt, context_data, enti, inte, model):
         """
         使用GPT模型生成基于上下文的回答。
         """
-        context = "相关知识点包括: " + ", ".join(
-            {f"{data['origin_node']} - {data['relationship_type']} -> {data['connected_node']})" for data in context_data}
-        )
         full_prompt = f"""
         你现在连接到了一个知识图谱，后续将提供给你一个问题，以下是关于该问题你可能运用到的所有相关信息：\n
-        {context}\n\n
+        {context_data}\n
 
-        下面将给出用户的问题，请你严格根据前面给出的信息进行推理和回答，同时尽量使回答涵盖每种关系类型下的信息，以丰富回答内容。
-        在回答过程中，严禁使用任何其余知识和信息，如果前面给出的信息不足以回答用户的问题，请直接告知用户你无法回答。
+        下面将给出用户的问题，请你严格根据前面给出的信息进行推理和回答，在回答过程中严禁使用任何其余知识和信息，如果前面给出的信息不足以回答用户的问题，请直接告知用户你无法回答。
+        为了丰富回答内容，你需要使回答涵盖每种关系类型下的查询信息，同时将重点关注于实体识别结果和意图识别结果。
+        实体识别结果: \n{enti}\n
+        意图识别结果: \n{inte}\n
+        
         用户问题: {user_prompt}\n
         回答:
         """
@@ -131,14 +131,14 @@ class RAGProcessor:
 def main():
     # 配置Neo4j连接参数
     # 此参数为医疗知识图谱
-    # neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
-    # neo4j_user = "neo4j"
-    # neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+    neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
+    neo4j_user = "neo4j"
+    neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
 
     # 此参数为航班知识图谱
-    neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
-    neo4j_user = "neo4j"
-    neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
+    # neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
+    # neo4j_user = "neo4j"
+    # neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
 
     rag_processor = RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
     try:
@@ -152,8 +152,8 @@ def main():
     relationship_types = get_relationship_types(rag_processor.client)
 
     # 用户输入
-    # user_question = "我得了感冒，怎么才能好起来？"
-    user_question = "我现在在中国，这个假期想去日本东京旅行，从哪里出发比较好？"
+    user_question = "我一直肚子疼，怎么才能好起来？"
+    # user_question = "我现在在中国，这个假期想去日本东京旅行，从哪里出发比较好？"
 
     # 实体识别
     entity_types_recognized, entity_names_recognized = entity_recognition_with_model(user_question, entity_types, rag_processor.client)
@@ -196,19 +196,21 @@ def main():
     query_results += rag_processor.depth_search(new_origin_nodes, epoch=0)
 
     # 检查查询结果并写入到文件
+    prompt = []
     result_file = "result_file.txt"
     if query_results:
         formatted_results = [
             f"{result['origin_node']} - {result['relationship_type']} -> {result['connected_node']}"
             for result in query_results
         ]
+        prompt.append(formatted_results)
         rag_processor.write_to_file(result_file, formatted_results)
     else:
         print("未找到相关的连接节点。")
         rag_processor.write_to_file(result_file, ["未找到相关的连接节点。"])
 
     # 调用大模型生成回答
-    answer = rag_processor.generate_answer(user_question, query_results)
+    answer = rag_processor.generate_answer(user_question, prompt, entity_names_recognized, intent)
 
     # 输出回答
     print("回答:", answer)

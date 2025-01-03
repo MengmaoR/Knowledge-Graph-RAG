@@ -1,7 +1,6 @@
 import py2neo
 from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
-import entityRecognition
 
 def get_graph_structure(client):
     """

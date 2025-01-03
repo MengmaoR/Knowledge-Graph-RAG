@@ -27,6 +27,9 @@ def create_model(temperature: float, streaming: bool = False, model_name: str = 
         streaming=streaming,
     )
 
+# Load the language model
+llm = create_model(temperature=0.8, streaming=True, model_name="gpt-4o-mini")
+
 @st.cache_resource
 def load_model(model_name):
     llm = create_model(temperature=0.8, streaming=True, model_name=model_name)
@@ -128,7 +131,6 @@ def main():
         node_file = "node_file.txt"
         rag_processor.write_to_file(node_file, entity_names_recognized)
         enti = entity_names_recognized
-        print(f"识别的实体：{enti}")
 
         # 意图识别
         response_placeholder.text("正在进行意图识别...")
@@ -147,6 +149,7 @@ def main():
         rag_processor.write_to_file(link_file, intent_relationships)
 
         # 生成查询语句
+        response_placeholder.text("正在检索知识图谱...")
         queries = rag_processor.generate_cypher_query(entity_names_recognized, intent_relationships)
 
         # 写入生成的查询语句到 cypher_file.txt
@@ -176,7 +179,8 @@ def main():
             rag_processor.write_to_file(result_file, ["未找到相关的连接节点。"])
 
         # 调用大模型生成回答
-        answer = rag_processor.generate_answer(question, query_results, llm)
+        response_placeholder.text("正在生成回答...")
+        answer = rag_processor.generate_answer(question, prompt, enti, inte, llm)
 
         # 输出回答
         print("回答:", answer)
