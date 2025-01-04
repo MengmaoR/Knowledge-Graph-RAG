@@ -1,96 +1,48 @@
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '脑癌')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = '国家：美国')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '脑癌')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = '国家：美国')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '活久点')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = '美利坚合众国')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '活久点')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = '美利坚合众国')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '胶质瘤')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = 'United States')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '胶质瘤')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = 'United States')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '长效抗凝剂')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = 'United States of America')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '长效抗凝剂')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'Brain cancer')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'Brain cancer')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'Huo Jiu Dian')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'Huo Jiu Dian')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'glioma')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'glioma')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'Long-acting anticoagulant')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:治疗的方法|疾病使用药品|疾病宜吃食物|疾病忌吃食物|疾病并发疾病]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'Long-acting anticoagulant')
+            MATCH (n)-[r:IN_COUNTRY|ON_CONTINENT]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = 'United States of America')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
