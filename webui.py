@@ -172,7 +172,7 @@ def main():
         deep_search = st.sidebar.checkbox("深度搜索(*)", value=False)
         if deep_search:
             epoch = st.sidebar.number_input("搜索迭代次数", value=1)
-            expend_origin = st.sidebar.checkbox("扩展搜索节点", value=True)
+            expend_origin = st.sidebar.checkbox("扩展搜索节点", value=False)
         if deep_search == False:
             st.sidebar.text("*深度搜索可以提供更全面和丰富的回答，但可能大幅增加查询时间。")
         if deep_search:
