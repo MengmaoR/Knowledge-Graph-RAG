@@ -252,8 +252,7 @@ def main():
             response_placeholder.text("正在执行深度搜索...")
             if expend_origin:
                 print("扩展后起始节点:", new_origin_nodes)
-                new_origin_nodes = rag_processor.expand_origin_nodes(new_origin_nodes)
-                print("扩展后起始节点:", new_origin_nodes)
+                query_results += rag_processor.depth_search(new_origin_nodes, epoch)
             else:
                 query_results += rag_processor.depth_search(entity_names_recognized, epoch)
 
@@ -278,7 +277,7 @@ def main():
         # 调用大模型生成回答
         response_placeholder.text("正在生成回答...")
         title = st.session_state.title[st.session_state.active_window_index]
-        answer = rag_processor.generate_answer(question, prompt, enti, inte, title, llm)
+        answer = rag_processor.generate_answer(question, prompt, graph_structure, enti, inte, title, llm)
 
         # 输出回答
         if answer is not None:
