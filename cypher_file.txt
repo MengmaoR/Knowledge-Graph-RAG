@@ -1,48 +1,24 @@
 
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '北京')
+            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = '感冒')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '北京')
+            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = '感冒')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '美国')
+            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = 'Cold')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '美国')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'Beijing')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'Beijing')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'United States')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_CITY|IN_COUNTRY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'United States')
+            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = 'Cold')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             

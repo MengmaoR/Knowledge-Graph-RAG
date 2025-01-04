@@ -17,6 +17,14 @@ import gen_answer as gen
 API_KEY = "sk-AYjPnVCKzpm79mAxjjg8kU38baXdoMC1G7xYcmECW41mE14m"
 API_URL = "https://xiaoai.plus/v1/"
 
+MEDICAL_NEO4J_URI = "neo4j+s://26ec9262.databases.neo4j.io"
+MEDICAL_NEO4J_USER = "neo4j"
+MEDICAL_NEO4J_PASSWORD = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+
+FLIGHT_NEO4J_URI = "neo4j+s://7151d126.databases.neo4j.io"
+FLIGHT_NEO4J_USER = "neo4j"
+FLIGHT_NEO4J_PASSWORD = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
+
 # Function to create the language model instance
 def create_model(temperature: float, streaming: bool = False, model_name: str = "gpt-4o-mini"):
     return ChatOpenAI(
@@ -48,17 +56,51 @@ def generate_prompt(intent, query, query_results):
 
     return prompt, context_data, entities
 
+def show_message(current_messages, show_ent, show_int, show_prompt):
+    for message in current_messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+            if message["role"] == "assistant":
+                if show_ent:
+                    with st.expander("实体识别结果"):
+                        st.write(message.get("ent", ""))
+                if show_int:
+                    with st.expander("意图识别结果"):
+                        st.write(message.get("yitu", ""))
+                if show_prompt:
+                    with st.expander("点击显示知识库信息"):
+                        st.write(message.get("prompt", ""))
+
 def main():
-    # Neo4j connection configuration (change to your actual Neo4j details)
-    neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
-    neo4j_user = "neo4j"
-    neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+    # global active_window_index
+    if 'active_window_index' not in st.session_state:
+        st.session_state.active_window_index = 0
+        active_window_index = 0
+        print(f"[if 'active_window_index' not in st.session_state:]")
+    else:
+        active_window_index = st.session_state.active_window_index
+    
+    # active_window_index_file = "active_window_index"
+    # if os.path.exists(active_window_index_file):
+    #     with open(active_window_index_file, "r") as f:
+    #         active_window_index = int(f.read())
+    # else:
+    #     active_window_index = 0
+    
+    
+    
+    # # Neo4j connection configuration (change to your actual Neo4j details)
+    # neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
+    # neo4j_user = "neo4j"
+    # neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
 
     # Initialize RAGProcessor
-    rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+    rag_processor = gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)
 
     llm = load_model('gpt-4o-mini')
     # st.title(f"医疗智能问答机器人")
+    
+    database_options = ['医疗信息知识图谱']
 
     with st.sidebar:
         col1, col2 = st.columns([0.6, 0.6])
@@ -69,13 +111,40 @@ def main():
             st.session_state.chat_windows = [[]]
             st.session_state.messages = [[]]
 
+        print(f"[before if] active_window_index: {active_window_index}")
         if st.button('新建对话窗口'):
             st.session_state.chat_windows.append([])
             st.session_state.messages.append([])
-
-        window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
-        selected_window = st.selectbox('请选择对话窗口:', window_options)
-        active_window_index = int(selected_window.split()[1]) - 1
+            
+            window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
+            active_window_index = len(st.session_state.chat_windows) - 1
+            st.session_state.active_window_index = active_window_index 
+            selected_window = st.selectbox('请选择对话窗口:', window_options, index=active_window_index)
+            # with open(active_window_index_file, "w") as f:
+            #     f.write(str(active_window_index))
+            print(f"[if] active_window_index: {active_window_index}")
+            
+            # database_option = st.selectbox(
+            #     label='请选择知识图谱:',
+            #     options=['医疗信息知识图谱', '航班信息知识图谱', '自定义知识图谱'],
+            # )
+            # database_options.append(database_option)
+        else:
+            window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
+            selected_window = st.selectbox('请选择对话窗口:', window_options, index=active_window_index)
+            print(f"[else] active_window_index: {active_window_index}")
+            active_window_index = int(selected_window.split()[1]) - 1
+            st.session_state.active_window_index = active_window_index
+            # with open(active_window_index_file, "w") as f:
+            #     f.write(str(active_window_index))
+            print(f"[else'] active_window_index: {active_window_index}")
+        print(f"[after else] active_window_index: {active_window_index}")
+            # database_option = database_options[active_window_index]
+        # window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
+        # selected_window = st.selectbox('请选择对话窗口:', window_options, index=active_window_index)
+        # print(f"[else] active_window_index: {active_window_index}")
+        # active_window_index = int(selected_window.split()[1]) - 1
+        # print(f"[else'] active_window_index: {active_window_index}")
         
         database_option = st.selectbox(
             label='请选择知识图谱:',
@@ -84,33 +153,25 @@ def main():
     
     if database_option == '医疗信息知识图谱':
         st.title("医疗智能问答机器人")
-        neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
-        neo4j_user = "neo4j"
-        neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
-        rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)      
+        rag_processor = gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)    
     elif database_option == '航班信息知识图谱':
         st.title("航班智能问答机器人")
-        neo4j_uri = "neo4j+s://7151d126.databases.neo4j.io"
-        neo4j_user = "neo4j"
-        neo4j_password = "MyK4DmqZDhWWGy18FItMZWFlpins1PWDTVTZZLFm2cQ"
-        rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+        rag_processor = gen.RAGProcessor(FLIGHT_NEO4J_URI, FLIGHT_NEO4J_USER, FLIGHT_NEO4J_PASSWORD)
     elif database_option == '自定义知识图谱':
         st.title("自定义智能问答机器人")
         neo4j_uri = st.text_input("请输入 Neo4j 数据库 URI:")
         neo4j_user = st.text_input("请输入 Neo4j 数据库用户名:")
-        neo4j_password = st.text_input("请输入Neo4j数据库密码:", type="password")
-        try:
-            rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
-        except Exception as e:
-            st.text(f"请输入正确的Neo4j数据库连接信息：{e}")
+        neo4j_password = st.text_input("请输入 Neo4j 数据库密码:", type="password")
+        # 确定按钮
+        if st.button("连接到 Neo4j 数据库"):
+            try:
+                rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+                rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
+                st.text(f"连接 Neo4j 数据库成功！")
+            except Exception as e:
+                st.text(f"连接 Neo4j 数据库失败：{e}")
     else:
         pass
-    # 等待连接到Neo4j数据库
-    try:
-        rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
-        print("成功连接到Neo4j数据库。")
-    except Exception as e:
-        print(f"连接Neo4j数据库失败：{e}")
 
     with st.sidebar:
         selected_option = st.selectbox(
@@ -129,6 +190,7 @@ def main():
     current_messages = st.session_state.messages[active_window_index]
 
     for message in current_messages:
+        # print(f"[lifang535] message: {message}")
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
             if message["role"] == "assistant":
@@ -142,11 +204,15 @@ def main():
                     with st.expander("点击显示知识库信息"):
                         st.write(message.get("prompt", ""))
 
+    current_messages_copy = current_messages.copy()
+    
     if question := st.chat_input("Ask me anything!", key=f"chat_input_{active_window_index}"):
-        current_messages.append({"role": "user", "content": question})
+        print(f"用户问题：{question}")
+        current_messages_copy.append({"role": "user", "content": question})
         with st.chat_message("user"):
             st.markdown(question)
-
+        # st.session_state.messages[active_window_index] = current_messages_copy
+        
         response_placeholder = st.empty()
 
         # 获取实体和关系类型
@@ -244,9 +310,24 @@ def main():
                 with st.expander("点击显示知识库信息"):
                     st.write(prompt)
 
-        current_messages.append({"role": "assistant", "content": answer, "yitu": intent, "prompt": prompt, "ent": str({})})
+        current_messages_copy.append({"role": "assistant", "content": answer, "yitu": intent, "prompt": prompt, "ent": str({})})
+        
+        # for message in current_messages:
+        #     # print(f"[lifang535] message: {message}")
+        #     with st.chat_message(message["role"]):
+        #         st.markdown(message["content"])
+        #         if message["role"] == "assistant":
+        #             if show_ent:
+        #                 with st.expander("实体识别结果"):
+        #                     st.write(message.get("ent", ""))
+        #             if show_int:
+        #                 with st.expander("意图识别结果"):
+        #                     st.write(message.get("yitu", ""))
+        #             if show_prompt:
+        #                 with st.expander("点击显示知识库信息"):
+        #                     st.write(message.get("prompt", ""))
 
-    st.session_state.messages[active_window_index] = current_messages
+    st.session_state.messages[active_window_index] = current_messages_copy
 
 if __name__ == "__main__":
     main()
