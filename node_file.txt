@@ -1,2 +1,4 @@
 感冒
+治疗
 Cold
+Treatment

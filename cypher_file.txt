@@ -1,24 +1,48 @@
 
-            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            MATCH (n)-[r:治疗的方法]->(m)
             WHERE any(prop in keys(n) WHERE n[prop] = '感冒')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            MATCH (n)-[r:治疗的方法]->(m)
             WHERE any(prop in keys(m) WHERE m[prop] = '感冒')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            MATCH (n)-[r:治疗的方法]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = '治疗')
+            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
+                   type(r) AS relationship_type
+            
+
+            MATCH (n)-[r:治疗的方法]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = '治疗')
+            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
+                   type(r) AS relationship_type
+            
+
+            MATCH (n)-[r:治疗的方法]->(m)
             WHERE any(prop in keys(n) WHERE n[prop] = 'Cold')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_REGION|HAS_ROUTE]->(m)
+            MATCH (n)-[r:治疗的方法]->(m)
             WHERE any(prop in keys(m) WHERE m[prop] = 'Cold')
+            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
+                   type(r) AS relationship_type
+            
+
+            MATCH (n)-[r:治疗的方法]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = 'Treatment')
+            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
+                   type(r) AS relationship_type
+            
+
+            MATCH (n)-[r:治疗的方法]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = 'Treatment')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             

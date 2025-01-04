@@ -72,30 +72,29 @@ def show_message(current_messages, show_ent, show_int, show_prompt):
                         st.write(message.get("prompt", ""))
 
 def main():
-    # global active_window_index
     if 'active_window_index' not in st.session_state:
         st.session_state.active_window_index = 0
-        active_window_index = 0
-        print(f"[if 'active_window_index' not in st.session_state:]")
-    else:
-        active_window_index = st.session_state.active_window_index
     
-    # active_window_index_file = "active_window_index"
-    # if os.path.exists(active_window_index_file):
-    #     with open(active_window_index_file, "r") as f:
-    #         active_window_index = int(f.read())
-    # else:
-    #     active_window_index = 0
-    
-    
-    
-    # # Neo4j connection configuration (change to your actual Neo4j details)
-    # neo4j_uri = "neo4j+s://26ec9262.databases.neo4j.io"
-    # neo4j_user = "neo4j"
-    # neo4j_password = "HRd_pRCk7IF3bC624Ih20jaQ-wLUXmGPLUg_FzGGVOM"
+    if 'chat_windows' not in st.session_state:
+        st.session_state.chat_windows = [[]]
+        
+    if 'messages' not in st.session_state:
+        st.session_state.messages = [[]]
+        
+    if 'rag_processors' not in st.session_state:
+        st.session_state.rag_processors = [gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)]
 
+    if 'title' not in st.session_state:
+        st.session_state.title = ["医疗智能问答机器人"]
+        
+    if 'database_option_indexes' not in st.session_state:
+        st.session_state.database_option_indexes = [0]
+        
+    if 'new_window' not in st.session_state:
+        st.session_state.new_window = False
+        
     # Initialize RAGProcessor
-    rag_processor = gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)
+    rag_processor = st.session_state.rag_processors[st.session_state.active_window_index]
 
     llm = load_model('gpt-4o-mini')
     # st.title(f"医疗智能问答机器人")
@@ -107,71 +106,66 @@ def main():
         with col1:
             st.image(os.path.join("ui_img", "logo.jpg"), use_container_width=True)
 
-        if 'chat_windows' not in st.session_state:
-            st.session_state.chat_windows = [[]]
-            st.session_state.messages = [[]]
-
-        print(f"[before if] active_window_index: {active_window_index}")
         if st.button('新建对话窗口'):
+            st.session_state.new_window = True
+            
             st.session_state.chat_windows.append([])
             st.session_state.messages.append([])
+            st.session_state.rag_processors.append(gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)) # TODO: Add RAGProcessor
+            st.session_state.title.append("医疗智能问答机器人") # TODO: titles
+            st.session_state.database_option_indexes.append(0)
             
-            window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
-            active_window_index = len(st.session_state.chat_windows) - 1
-            st.session_state.active_window_index = active_window_index 
-            selected_window = st.selectbox('请选择对话窗口:', window_options, index=active_window_index)
-            # with open(active_window_index_file, "w") as f:
-            #     f.write(str(active_window_index))
-            print(f"[if] active_window_index: {active_window_index}")
+            st.session_state.active_window_index = len(st.session_state.chat_windows) - 1
             
-            # database_option = st.selectbox(
-            #     label='请选择知识图谱:',
-            #     options=['医疗信息知识图谱', '航班信息知识图谱', '自定义知识图谱'],
-            # )
-            # database_options.append(database_option)
-        else:
-            window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
-            selected_window = st.selectbox('请选择对话窗口:', window_options, index=active_window_index)
-            print(f"[else] active_window_index: {active_window_index}")
-            active_window_index = int(selected_window.split()[1]) - 1
-            st.session_state.active_window_index = active_window_index
-            # with open(active_window_index_file, "w") as f:
-            #     f.write(str(active_window_index))
-            print(f"[else'] active_window_index: {active_window_index}")
-        print(f"[after else] active_window_index: {active_window_index}")
-            # database_option = database_options[active_window_index]
-        # window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
-        # selected_window = st.selectbox('请选择对话窗口:', window_options, index=active_window_index)
-        # print(f"[else] active_window_index: {active_window_index}")
-        # active_window_index = int(selected_window.split()[1]) - 1
-        # print(f"[else'] active_window_index: {active_window_index}")
+        window_options = [f"对话窗口 {i + 1}" for i in range(len(st.session_state.chat_windows))]
+        # if st.session_state.new_window:
+        selected_window = st.selectbox('请选择对话窗口:', window_options, index=len(st.session_state.chat_windows) - 1)
+        # else:
+        #     selected_window = st.selectbox('请选择对话窗口:', window_options)
+
+        if st.session_state.active_window_index != int(selected_window.split()[1]) - 1:
+            # print(f"[st.session_state.new_window = False]")
+            st.session_state.new_window = False
         
+        st.session_state.active_window_index = int(selected_window.split()[1]) - 1
+
+        rag_processor = st.session_state.rag_processors[st.session_state.active_window_index]
+
+    if st.session_state.new_window:
         database_option = st.selectbox(
             label='请选择知识图谱:',
             options=['医疗信息知识图谱', '航班信息知识图谱', '自定义知识图谱'],
+            index=st.session_state.database_option_indexes[st.session_state.active_window_index],
         )
+        if database_option == '医疗信息知识图谱':
+            rag_processor = gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)
+            st.session_state.rag_processors[st.session_state.active_window_index] = rag_processor
+            st.session_state.title[st.session_state.active_window_index] = "医疗智能问答机器人"
+            st.session_state.database_option_indexes[st.session_state.active_window_index] = 0
+        elif database_option == '航班信息知识图谱':
+            rag_processor = gen.RAGProcessor(FLIGHT_NEO4J_URI, FLIGHT_NEO4J_USER, FLIGHT_NEO4J_PASSWORD)
+            st.session_state.rag_processors[st.session_state.active_window_index] = rag_processor
+            st.session_state.title[st.session_state.active_window_index] = "航班智能问答机器人"
+            st.session_state.database_option_indexes[st.session_state.active_window_index] = 1
+        elif database_option == '自定义知识图谱':
+            neo4j_uri = st.text_input("请输入 Neo4j 数据库 URI:")
+            neo4j_user = st.text_input("请输入 Neo4j 数据库用户名:")
+            neo4j_password = st.text_input("请输入 Neo4j 数据库密码:", type="password")
+            # 确定按钮
+            if st.button("连接到 Neo4j 数据库"):
+                try:
+                    rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
+                    st.session_state.rag_processors[st.session_state.active_window_index] = rag_processor
+                    st.session_state.title[st.session_state.active_window_index] = "自定义智能问答机器人"
+                    st.session_state.database_option_indexes[st.session_state.active_window_index] = 2
+                    rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
+                    st.text(f"连接 Neo4j 数据库成功！")
+                except Exception as e:
+                    st.text(f"连接 Neo4j 数据库失败：{e}")
+        else:
+            pass
     
-    if database_option == '医疗信息知识图谱':
-        st.title("医疗智能问答机器人")
-        rag_processor = gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)    
-    elif database_option == '航班信息知识图谱':
-        st.title("航班智能问答机器人")
-        rag_processor = gen.RAGProcessor(FLIGHT_NEO4J_URI, FLIGHT_NEO4J_USER, FLIGHT_NEO4J_PASSWORD)
-    elif database_option == '自定义知识图谱':
-        st.title("自定义智能问答机器人")
-        neo4j_uri = st.text_input("请输入 Neo4j 数据库 URI:")
-        neo4j_user = st.text_input("请输入 Neo4j 数据库用户名:")
-        neo4j_password = st.text_input("请输入 Neo4j 数据库密码:", type="password")
-        # 确定按钮
-        if st.button("连接到 Neo4j 数据库"):
-            try:
-                rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
-                rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
-                st.text(f"连接 Neo4j 数据库成功！")
-            except Exception as e:
-                st.text(f"连接 Neo4j 数据库失败：{e}")
-    else:
-        pass
+    st.title(st.session_state.title[st.session_state.active_window_index])
 
     with st.sidebar:
         selected_option = st.selectbox(
@@ -187,7 +181,7 @@ def main():
         if deep_search:
             epoch = st.sidebar.number_input("搜索迭代次数", value=1)
 
-    current_messages = st.session_state.messages[active_window_index]
+    current_messages = st.session_state.messages[st.session_state.active_window_index]
 
     for message in current_messages:
         # print(f"[lifang535] message: {message}")
@@ -206,12 +200,15 @@ def main():
 
     current_messages_copy = current_messages.copy()
     
-    if question := st.chat_input("Ask me anything!", key=f"chat_input_{active_window_index}"):
+    if question := st.chat_input("Ask me anything!", key=f"chat_input_{st.session_state.active_window_index}"):
+        st.session_state.new_window = False
+        # TODO: 数据库选择界面去除
+        
         print(f"用户问题：{question}")
         current_messages_copy.append({"role": "user", "content": question})
         with st.chat_message("user"):
             st.markdown(question)
-        # st.session_state.messages[active_window_index] = current_messages_copy
+        # st.session_state.messages[st.session_state.active_window_index] = current_messages_copy
         
         response_placeholder = st.empty()
 
@@ -327,7 +324,7 @@ def main():
         #                 with st.expander("点击显示知识库信息"):
         #                     st.write(message.get("prompt", ""))
 
-    st.session_state.messages[active_window_index] = current_messages_copy
+    st.session_state.messages[st.session_state.active_window_index] = current_messages_copy
 
 if __name__ == "__main__":
     main()

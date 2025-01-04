@@ -1,2 +1,1 @@
-IN_REGION
- HAS_ROUTE
+治疗的方法
