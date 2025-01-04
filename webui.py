@@ -172,7 +172,11 @@ def main():
         deep_search = st.sidebar.checkbox("深度搜索(*)", value=False)
         if deep_search:
             epoch = st.sidebar.number_input("搜索迭代次数", value=1)
-        st.sidebar.text("*深度搜索可以提供更全面和丰富的回答，但可能大幅增加查询时间。")
+            expend_origin = st.sidebar.checkbox("扩展搜索节点", value=True)
+        if deep_search == False:
+            st.sidebar.text("*深度搜索可以提供更全面和丰富的回答，但可能大幅增加查询时间。")
+        if deep_search:
+            st.sidebar.text("*扩展搜索节点选项应只对规模较小，或节点间连接关系松散的知识图谱使用，否则可能导致查询时间过长或查询结果过长，无法生成回答。")
 
 
     current_messages = st.session_state.messages[st.session_state.active_window_index]
@@ -240,18 +244,22 @@ def main():
         response_placeholder.text("正在检索知识图谱...")
         queries = rag_processor.generate_cypher_query(entity_names_recognized, intent_relationships)
 
-        # 写入生成的查询语句到 cypher_file.txt
-        cypher_file = "cypher_file.txt"
-        rag_processor.write_to_file(cypher_file, queries)
-
         # 执行查询
         query_results, new_origin_nodes = rag_processor.execute_queries(queries, entity_names_recognized)
-        print("查询结果：", query_results)
 
         # 深度搜索（可选）
         if deep_search:
             response_placeholder.text("正在执行深度搜索...")
-            query_results += rag_processor.depth_search(new_origin_nodes, epoch)
+            if expend_origin:
+                print("扩展后起始节点:", new_origin_nodes)
+                new_origin_nodes = rag_processor.expand_origin_nodes(new_origin_nodes)
+                print("扩展后起始节点:", new_origin_nodes)
+            else:
+                query_results += rag_processor.depth_search(entity_names_recognized, epoch)
+
+        # 写入生成的查询语句到 cypher_file.txt
+        cypher_file = "cypher_file.txt"
+        rag_processor.write_to_file(cypher_file, queries)
 
         # 检查查询结果并写入到文件
         prompt = []

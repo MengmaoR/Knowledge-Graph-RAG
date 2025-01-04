@@ -1,8 +1,12 @@
 import py2neo
+import re
 from entityRecognition import entity_recognition_with_model, get_entity_types
 from intentRecognition import intent_recognition_with_model, get_relationship_types, get_graph_structure
-from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
+
+def remove_prohibited_words(text, prohibited_words):
+    pattern = re.compile('|'.join(map(re.escape, prohibited_words)))
+    return pattern.sub('[REDACTED]', text)
 
 class RAGProcessor:
     def __init__(self, neo4j_uri, neo4j_user, neo4j_password):
@@ -48,24 +52,23 @@ class RAGProcessor:
             try:
                 result = self.client.run(query)
                 for record in result:
-                    # if record["m_limited_properties"]:
                     # 如果 record 中包含 m_limited_properties 这个键
                     if record.get("m_limited_properties"):
-                        print(record)
                         results.append({
                             "origin_node": origin_nodes[index // 2],
                             "relationship_type": record["relationship_type"],
                             "connected_node": record["m_limited_properties"],
                         })
-                        new_origin_nodes.append(record["m_limited_properties"].get(0))
-                    # elif record["n_limited_properties"]:
+                        first_key = list(record["m_limited_properties"].keys())[0]
+                        new_origin_nodes.append(record["m_limited_properties"].get(first_key))
                     elif record.get("n_limited_properties"):
                         results.append({
                             "origin_node": record["n_limited_properties"],
                             "relationship_type": record["relationship_type"],
                             "connected_node": origin_nodes[index // 2],
                         })
-                        new_origin_nodes.append(record["n_limited_properties"].get(0))
+                        first_key = list(record["n_limited_properties"].keys())[0]
+                        new_origin_nodes.append(record["n_limited_properties"].get(first_key))
             except Exception as e:
                 print(f"执行Cypher查询失败：{e}")
                 continue
@@ -125,6 +128,12 @@ class RAGProcessor:
         回答:
         """
         print("Full Prompt："+full_prompt)
+
+        # 示例违禁词列表
+        prohibited_words = ['阴道']
+
+        # 移除违禁词
+        full_prompt = remove_prohibited_words(full_prompt, prohibited_words)
 
         try:
             response = model.invoke(full_prompt)

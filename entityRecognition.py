@@ -1,5 +1,4 @@
 import py2neo
-from langchain_openai import ChatOpenAI
 from langchain.schema import AIMessage
 
 def get_entity_types(client):
@@ -56,7 +55,8 @@ def entity_recognition_with_model(question, entity_types, client, model, respons
     现在请根据以下问题识别实体：
     输入问题："{question}"
     输出格式：
-    名称1, 名称2, ...
+    实体类型：类型1, 类型2, ...
+    实体名称：名称1, 名称2, ...
     你需要严格按照输出格式进行输出，禁止输出其他任何内容，如果无法识别实体，请不要输出。
     """
     response = model.invoke(prompt)  # 调用 GPT-4 模型
@@ -65,6 +65,7 @@ def entity_recognition_with_model(question, entity_types, client, model, respons
         return None, None
     if isinstance(response, AIMessage):
         response = response.content  # 提取 AIMessage 中的内容
+    print("实体识别模型答复：", response)
         
     response_placeholder.text("正在进行实体识别... 0.1")
 

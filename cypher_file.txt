@@ -1,96 +1,48 @@
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '美国')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = '感冒')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '美国')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = '感冒')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '北京')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = '上呼吸道感染')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '北京')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = '上呼吸道感染')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '美利坚合众国')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = 'cold')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '美利坚合众国')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = 'cold')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = '北京市')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(n) WHERE n[prop] = 'Upper Respiratory Tract Infection')
             RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
                    type(r) AS relationship_type
             
 
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = '北京市')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'United States')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'United States')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'Beijing')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'Beijing')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'United States of America')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'United States of America')
-            RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(n) WHERE n[prop] = 'Beijing')
-            RETURN apoc.map.fromPairs([key in keys(m)[..5] | [key, m[key]]]) AS m_limited_properties, 
-                   type(r) AS relationship_type
-            
-
-            MATCH (n)-[r:IN_COUNTRY|IN_CITY|HAS_ROUTE]->(m)
-            WHERE any(prop in keys(m) WHERE m[prop] = 'Beijing')
+            MATCH (n)-[r:疾病的症状|治疗的方法|疾病并发疾病]->(m)
+            WHERE any(prop in keys(m) WHERE m[prop] = 'Upper Respiratory Tract Infection')
             RETURN apoc.map.fromPairs([key in keys(n)[..5] | [key, n[key]]]) AS n_limited_properties, 
                    type(r) AS relationship_type
             
