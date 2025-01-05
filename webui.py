@@ -27,9 +27,6 @@ def create_model(temperature: float, streaming: bool = False, model_name: str = 
         streaming=streaming,
     )
 
-# Load the language model
-llm = create_model(temperature=0.5, streaming=True, model_name="gpt-4o-mini")
-
 @st.cache_resource
 def load_model(model_name):
     llm = create_model(temperature=0.5, streaming=True, model_name=model_name)
@@ -64,22 +61,21 @@ def main():
     if 'rag_processors' not in st.session_state:
         st.session_state.rag_processors = [gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)]
 
-    if 'title' not in st.session_state:
-        st.session_state.title = ["医疗智能问答机器人"]
+    if 'titles' not in st.session_state:
+        st.session_state.titles = ["医疗智能问答机器人"]
         
     if 'database_option_indexes' not in st.session_state:
         st.session_state.database_option_indexes = [0]
         
     if 'new_window' not in st.session_state:
         st.session_state.new_window = False
-        
+
     # Initialize RAGProcessor
     rag_processor = st.session_state.rag_processors[st.session_state.active_window_index]
 
-    llm = load_model('gpt-4o-mini')
+    gpt_4o_mini = load_model('gpt-4o-mini')
+    gpt_4o = load_model('gpt-4o')
     # st.title(f"医疗智能问答机器人")
-    
-    database_options = ['医疗信息知识图谱']
 
     with st.sidebar:
         col1, col2 = st.columns([0.6, 0.6])
@@ -101,8 +97,8 @@ def main():
             
             st.session_state.chat_windows.append([])
             st.session_state.messages.append([])
-            st.session_state.rag_processors.append(gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)) # TODO: Add RAGProcessor
-            st.session_state.title.append("医疗智能问答机器人") # TODO: titles
+            st.session_state.rag_processors.append(gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD))
+            st.session_state.titles.append("医疗智能问答机器人")
             st.session_state.database_option_indexes.append(0)
             
             st.session_state.active_window_index = len(st.session_state.chat_windows) - 1
@@ -132,12 +128,12 @@ def main():
         if database_option == '医疗信息知识图谱':
             rag_processor = gen.RAGProcessor(MEDICAL_NEO4J_URI, MEDICAL_NEO4J_USER, MEDICAL_NEO4J_PASSWORD)
             st.session_state.rag_processors[st.session_state.active_window_index] = rag_processor
-            st.session_state.title[st.session_state.active_window_index] = "医疗智能问答机器人"
+            st.session_state.titles[st.session_state.active_window_index] = "医疗智能问答机器人"
             st.session_state.database_option_indexes[st.session_state.active_window_index] = 0
         elif database_option == '航班信息知识图谱':
             rag_processor = gen.RAGProcessor(FLIGHT_NEO4J_URI, FLIGHT_NEO4J_USER, FLIGHT_NEO4J_PASSWORD)
             st.session_state.rag_processors[st.session_state.active_window_index] = rag_processor
-            st.session_state.title[st.session_state.active_window_index] = "航班智能问答机器人"
+            st.session_state.titles[st.session_state.active_window_index] = "航班智能问答机器人"
             st.session_state.database_option_indexes[st.session_state.active_window_index] = 1
         elif database_option == '自定义知识图谱':
             neo4j_uri = st.text_input("请输入 Neo4j 数据库 URI:")
@@ -148,7 +144,7 @@ def main():
                 try:
                     rag_processor = gen.RAGProcessor(neo4j_uri, neo4j_user, neo4j_password)
                     st.session_state.rag_processors[st.session_state.active_window_index] = rag_processor
-                    st.session_state.title[st.session_state.active_window_index] = "自定义智能问答机器人"
+                    st.session_state.titles[st.session_state.active_window_index] = "自定义智能问答机器人"
                     st.session_state.database_option_indexes[st.session_state.active_window_index] = 2
                     rag_processor.client.run("MATCH (n) RETURN n LIMIT 1")
                     st.text(f"连接 Neo4j 数据库成功！")
@@ -157,7 +153,7 @@ def main():
         else:
             pass
     
-    st.title(st.session_state.title[st.session_state.active_window_index])
+    st.title(st.session_state.titles[st.session_state.active_window_index])
 
     with st.sidebar:
         selected_option = st.selectbox(
@@ -202,6 +198,10 @@ def main():
         
         # 实体识别
         response_placeholder.text("正在进行实体识别...")
+        if choice == 'gpt-4o':
+            llm = gpt_4o
+        else:
+            llm = gpt_4o_mini
         entity_types_recognized, entity_names_recognized = entity_recognition_with_model(question, entity_types, rag_processor.client, llm, response_placeholder)
         response_placeholder.text("正在进行实体识别... 1")
         if not entity_names_recognized:
@@ -276,7 +276,7 @@ def main():
 
         # 调用大模型生成回答
         response_placeholder.text("正在生成回答...")
-        title = st.session_state.title[st.session_state.active_window_index]
+        title = st.session_state.titles[st.session_state.active_window_index]
         answer = rag_processor.generate_answer(question, prompt, graph_structure, enti, inte, title, llm)
 
         # 输出回答
