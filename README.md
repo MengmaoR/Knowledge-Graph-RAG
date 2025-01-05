@@ -32,7 +32,7 @@ Then, you can visit the website at: [http://localhost:8501](http://localhost:850
    Open the `create_knowledge_graph.py` file and locate the following code snippet:
 
    ```python
-   class GraphMaker(object):
+   class KnowledgeGraphMaker(object):
        def __init__(self):
            uri = "neo4j+s://51e1b91b.databases.neo4j.io"  # Replace with your Neo4j instance URI
            user = "neo4j"  # Replace with your Neo4j instance username
