@@ -42,6 +42,8 @@ Then, you can visit the website at: [http://localhost:8501](http://localhost:850
 
    Replace `uri`, `user`, and `password` with the information from your Neo4j instance.
 
+   And you may need to change some of the code in the `create_knowledge_graph.py` file to match the data you have.
+
 3. **Run the Script**  
    After modifying the connection information, run the following command to build the knowledge graph:
 
