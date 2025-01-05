@@ -52,3 +52,10 @@ Then, you can visit the website at: [http://localhost:8501](http://localhost:850
    ```
 
    Please note that building the knowledge graph may take some time, depending on the data size and system performance.
+
+## Authors
+- [MengmaoR](https://github.com/MengmaoR)
+- [lifang535](https://github.com/lifang535)
+- [sdythmh](https://github.com/sdythmh)
+
+Welcome to our [GitHub Repository](https://github.com/MengmaoR/Knowledge-Graph-RAG) !
