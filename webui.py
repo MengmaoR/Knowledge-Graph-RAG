@@ -221,7 +221,8 @@ def main():
         # 意图识别
         response_placeholder.text("正在进行意图识别...")
         graph_structure = get_graph_structure(rag_processor.client)
-        
+        print("graph_structure:", graph_structure)
+
         response_placeholder.text("正在进行意图识别... 1")
         
         intent = intent_recognition_with_model(question, relationship_types, graph_structure, entity_types_recognized, llm)
