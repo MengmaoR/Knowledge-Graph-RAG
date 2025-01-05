@@ -178,7 +178,7 @@ class GraphMaker(object):
 if __name__ == '__main__':
     graph_maker = GraphMaker()
 
-    diseases_dict = process_data(['../data/data/medical.json'])
+    diseases_dict = process_data(['./data/medical.json'])
     data = graph_maker.extract_data(diseases_dict)
 
     graph_maker.make_nodes(data)
