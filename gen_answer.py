@@ -55,6 +55,7 @@ class RAGProcessor:
                     # 如果 record 中包含 m_limited_properties 这个键
                     if record.get("m_limited_properties"):
                         results.append({
+                            "id": results[-1]["id"] + 1 if results else 0,
                             "origin_node": origin_nodes[index // 2],
                             "relationship_type": record["relationship_type"],
                             "connected_node": record["m_limited_properties"],
@@ -63,6 +64,7 @@ class RAGProcessor:
                         new_origin_nodes.append(record["m_limited_properties"].get(first_key))
                     elif record.get("n_limited_properties"):
                         results.append({
+                            "id": results[-1]["id"] + 1 if results else 0,
                             "origin_node": record["n_limited_properties"],
                             "relationship_type": record["relationship_type"],
                             "connected_node": origin_nodes[index // 2],
@@ -120,14 +122,13 @@ class RAGProcessor:
         以下是检索知识图谱后得出的关于该问题你可能运用到的所有相关信息：
         {context_data}
 
-        为了丰富回答内容，你需要使回答涵盖每种关系类型下的查询信息，同时将回答重点关注于实体识别结果和意图识别结果。
+        为了丰富回答内容，你需要使回答涵盖每种关系类型下的查询信息，并尽量覆盖上述给出的所有可用知识，同时将回答重点关注于实体识别结果。
         实体识别结果: {enti}
-        意图识别结果: {inte}
 
         下面将给出用户的问题，请你严格根据前面给出的信息进行推理和回答，在回答过程中严禁使用任何其余知识和信息，如果前面给出的信息不足以回答用户的问题，请直接告知用户你无法回答。
         用户问题: {user_prompt}
 
-        你的回答必须保持严谨和专业，对于每一行回答，你都必须列举出知识信息作为佐证，所有知识信息必须处理为易于理解的自然语言描述再进行输出，如果无法列出佐证，则不要回答。
+        你的回答必须保持严谨和专业，对于每一行回答，你都必须列举出知识信息作为佐证，并在每部分的最后列出使用知识的 id ，所有知识信息必须处理为易于理解的自然语言描述再进行输出，如果无法列出佐证，则不要回答。
         回答:
         """
         print("Full Prompt："+full_prompt)

@@ -261,14 +261,14 @@ def main():
         rag_processor.write_to_file(cypher_file, queries)
 
         # 检查查询结果并写入到文件
-        prompt = []
+        knowledge = []
         result_file = "result_file.txt"
         if query_results:
             formatted_results = [
-                f"{result['origin_node']} - {result['relationship_type']} -> {result['connected_node']}"
+                f"{result['id']}: {result['origin_node']} - {result['relationship_type']} -> {result['connected_node']}"
                 for result in query_results
             ]
-            prompt.append(formatted_results)
+            knowledge.append(formatted_results)
             rag_processor.write_to_file(result_file, formatted_results)
         else:
             print("未找到相关的连接节点。")
@@ -277,7 +277,7 @@ def main():
         # 调用大模型生成回答
         response_placeholder.text("正在生成回答...")
         title = st.session_state.title[st.session_state.active_window_index]
-        answer = rag_processor.generate_answer(question, prompt, graph_structure, enti, inte, title, llm)
+        answer = rag_processor.generate_answer(question, knowledge, graph_structure, enti, inte, title, llm)
 
         # 输出回答
         if answer is not None:
@@ -296,11 +296,11 @@ def main():
                         st.write(inte)
                 if show_prompt:
                     with st.expander("点击显示知识库信息"):
-                        st.write(prompt)
+                        st.write(knowledge)
         else:
             st.empty()
 
-        current_messages.append({"role": "assistant", "content": answer, "yitu": inte, "prompt": prompt, "ent": enti})
+        current_messages.append({"role": "assistant", "content": answer, "yitu": inte, "prompt": knowledge, "ent": enti})
 
     st.session_state.messages[st.session_state.active_window_index] = current_messages
 
