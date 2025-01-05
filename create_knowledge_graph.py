@@ -2,31 +2,24 @@ import json
 from neo4j import GraphDatabase
 
 def process_data(paths):
-    diseases = []
+    diseases = []  # 存储所有疾病数据
     for path in paths:
-        disease_data = open(path, 'r', encoding='UTF-8').readlines()
+        disease_data = open(path, 'r', encoding='UTF-8').readlines()  # 读取文件中的数据
         for data in disease_data:
-            disease = json.loads(data)
-            diseases.append(disease)
-    return diseases
+            disease = json.loads(data)  # 将每行的 JSON 数据解析为字典
+            diseases.append(disease)  # 将疾病数据添加到列表中
+    return diseases  # 返回所有疾病数据
 
-def output_data(data, filepath, jieba_mode=False):
-    with open(filepath, 'w', encoding='UTF-8') as file:
-        for line in data:
-            line = line.strip(' \n\r\"')
-            if jieba_mode:
-                line += ' 18000 nz'
-            line += '\n'
-            file.write(line)
-
-class GraphMaker(object):
+class KnowledgeGraphMaker(object):
     def __init__(self):
+        # Neo4j 数据库连接参数
         uri = "neo4j+s://51e1b91b.databases.neo4j.io"
         user = "neo4j"
         password = "ZaVV51il4LJkBzQHwy_oqTBX5-tHSNYay0Zids63zc8"
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
 
     def extract_data(self, diseases_dict):
+        # 初始化各类数据结构
         data = dict()
 
         depts = []
@@ -35,6 +28,7 @@ class GraphMaker(object):
         foods = []
         disease_names = []
 
+        # 存储各种关系数据
         symptom_rel = []
         neopathy_rel = []
         dept_rel = []
@@ -47,11 +41,13 @@ class GraphMaker(object):
             disease_name = disease['name']
             disease_names.append(disease_name)
 
+            # 处理药物数据
             if 'drug' in disease:
                 drugs += disease['drug']
                 for drug in disease['drug']:
                     disease_drug_rel.append([disease_name, drug])
 
+            # 处理科室数据
             if 'cure_dept' in disease:
                 dept = disease['cure_dept']
                 depts += disease['cure_dept']
@@ -62,25 +58,30 @@ class GraphMaker(object):
                 elif len(dept) == 1:
                     disease_cat_rel.append([disease_name, dept[0]])
 
+            # 处理症状数据
             if 'symptom' in disease:
                 symptoms += disease['symptom']
                 for symptom in disease['symptom']:
                     symptom_rel.append([disease_name, symptom])
 
+            # 处理并发症数据
             if 'neopathy' in disease:
                 for neopathy in disease['neopathy']:
                     neopathy_rel.append([disease_name, neopathy])
 
+            # 处理可以吃的食物数据
             if 'can_eat' in disease:
                 foods += disease['can_eat']
                 for can_eat in disease['can_eat']:
                     can_eat_rel.append([disease_name, can_eat])
 
+            # 处理不能吃的食物数据
             if 'not_eat' in disease:
                 foods += disease['not_eat']
                 for not_eat in disease['not_eat']:
                     not_eat_rel.append([disease_name, not_eat])
 
+            # 处理没有数据的字段，默认值为“无数据”
             if 'get_prob' not in disease:
                 disease['get_prob'] = '无数据'
 
@@ -93,6 +94,7 @@ class GraphMaker(object):
             if 'get_way' not in disease:
                 disease['get_way'] = '无数据'
 
+        # 返回处理后的数据
         data['diseases'] = diseases_dict
         data['disease_names'] = disease_names
         data['depts'] = set(depts)
@@ -109,6 +111,7 @@ class GraphMaker(object):
         return data
 
     def make_disease_nodes(self, diseases_dict):
+        # 创建疾病节点
         i = 1
         for disease in diseases_dict:
             if i % 50 == 0:
@@ -141,6 +144,7 @@ class GraphMaker(object):
         print("create total disease node count=%d" % (i - 1))
 
     def make_nodes(self, data):
+        # 创建所有节点
         self.make_disease_nodes(data['diseases'])
         self.create_nodes("Department", data['depts'])
         self.create_nodes("Drug", data['drugs'])
@@ -148,6 +152,7 @@ class GraphMaker(object):
         self.create_nodes("Food", data['foods'])
 
     def make_rels(self, data):
+        # 创建所有关系
         self.create_rels("Disease", "Disease", data['neopathy_rel'], "has_neopathy", "有并发症")
         self.create_rels("Disease", "Symptom", data['symptom_rel'], "has_symptom", "有症状")
         self.create_rels("Disease", "Drug", data['disease_drug_rel'], "can_use_drug", "可以用药")
@@ -157,6 +162,7 @@ class GraphMaker(object):
         self.create_rels("Disease", "Food", data['not_eat_rel'], "not_eat", "不能吃")
 
     def create_nodes(self, label, entities_names):
+        # 创建节点
         for entity in entities_names:
             query = f"CREATE (n:{label} {{name: $name}})"
             params = {"name": entity}
@@ -164,6 +170,7 @@ class GraphMaker(object):
                 session.run(query, params)
 
     def create_rels(self, start_label, end_label, rels, rel_type, name):
+        # 创建关系
         for start, end in rels:
             query = f"""
             MATCH (p:{start_label}), (q:{end_label}) 
@@ -176,10 +183,10 @@ class GraphMaker(object):
 
 
 if __name__ == '__main__':
-    graph_maker = GraphMaker()
+    knowledge_graph_maker = KnowledgeGraphMaker()
 
     diseases_dict = process_data(['./data/medical.json'])
-    data = graph_maker.extract_data(diseases_dict)
+    data = knowledge_graph_maker.extract_data(diseases_dict)
 
-    graph_maker.make_nodes(data)
-    graph_maker.make_rels(data)
+    knowledge_graph_maker.make_nodes(data)
+    knowledge_graph_maker.make_rels(data)
